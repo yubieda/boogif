@@ -1,8 +1,12 @@
 BasicSite::Application.routes.draw do
   
+  root to: "home#home"
+  get "home/home"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
+  match "/home", to: "home#home"
   match "/sign_in", to: "sessions#new"
   match "/sign_up", to: "users#new"
 
