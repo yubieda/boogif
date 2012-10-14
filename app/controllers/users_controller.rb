@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    
+  include UsersHelper
+  
   def create
     @user = User.new(params[:user])
     
@@ -17,5 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])    
+    @post = @user.user_posts.build if signed_in?
+    @item_rows = get_item_rows(@user)
+    
   end
 end

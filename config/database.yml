@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: basic_site_development
+  database: boogif_development
   pool: 5
-  username: basic_site
+  username: boogif
   password: dev123
 
   # Connect on a TCP socket. Omitted by default since the client uses a

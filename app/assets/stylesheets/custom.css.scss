@@ -1,6 +1,19 @@
 @import "bootstrap";
 
 
+select {
+    width: auto;
+}
+
+.left-to-right {
+    overflow: auto;
+}
+
+.left-to-right *{
+    float: left;
+    margin-right: 10px;
+}
+
 /* footer */
 
 footer {
@@ -17,8 +30,6 @@ footer ul li {
     float: left;
     margin-left: 10px;
 }
-
-
 
 footer small {
     float: left;

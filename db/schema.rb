@@ -11,15 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010053815) do
+ActiveRecord::Schema.define(:version => 20121013020631) do
+
+  create_table "items", :force => true do |t|
+    t.string   "title"
+    t.string   "photo_path"
+    t.string   "description"
+    t.string   "buy_link"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "items", ["user_id", "created_at"], :name => "index_items_on_user_id_and_created_at"
+
+  create_table "user_posts", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_posts", ["user_id", "created_at"], :name => "index_user_posts_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "displayed_name"
     t.string   "email"
+    t.boolean  "male"
+    t.date     "birthday"
+    t.boolean  "hide_age"
+    t.string   "city"
+    t.string   "country"
+    t.string   "zip_code"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
 end

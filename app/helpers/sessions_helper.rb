@@ -22,4 +22,14 @@ module SessionsHelper
     @current_user ||= User.find_by_remember_token(cookies[:remember_token])
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
+  def redirect_if_not_signed_in
+    unless signed_in?
+      redirect_to sign_in_path
+    end
+  end
+
 end

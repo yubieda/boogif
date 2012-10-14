@@ -1,0 +1,15 @@
+<div class="item">
+  <div class="row-fluid">
+    <div class="span6 btn">
+      Add <i class="icon-plus"></i>
+    </div>
+    <div class="span6 btn">
+      <%= link_to item.buy_link do %>
+      Buy <i class="icon-shopping-cart"></i>
+      <% end %>
+    </div>
+  </div>  
+  <%= image_tag item.photo_path %>
+  <h2><%= item.title %></h2>
+
+</div>

@@ -1,17 +1,17 @@
 BasicSite::Application.routes.draw do
   
   root to: "home#home"
-  get "home/home"
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-
+  resources :user_posts, only: [:create, :destroy]
+  resources :items, only: [:create, :destroy]
+  
   match "/home", to: "home#home"
   match "/sign_in", to: "sessions#new"
   match "/sign_up", to: "users#new"
 
   match "/sign_out", to: "sessions#destroy", via: :delete
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
