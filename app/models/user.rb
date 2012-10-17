@@ -13,10 +13,14 @@ class User < ActiveRecord::Base
   :default_url => "profile_missing_:style.png"
 
   def connect!(other_user)
-    c = connections.new(to_id: other_user.id, connection_type_id: 1)
-    c.from_id = self.id
+    to_id = other_user.id
+    from_id = self.id
+    c = connections.new(to_id: to_id, connection_type_id: 1)
+    c.from_id = from_id
     c.confirmed = 0
-    c.save
+    if self.connections.select{|c| c.to_id==to_id}.length == 0
+      c.save
+    end
     c
   end
 

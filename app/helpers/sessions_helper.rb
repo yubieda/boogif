@@ -37,7 +37,7 @@ module SessionsHelper
     session.delete(:return_to)
   end
   
-  def store_location(default)
+  def store_location
     session[:return_to] = request.url
   end
 
