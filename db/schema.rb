@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013020631) do
+ActiveRecord::Schema.define(:version => 20121015055017) do
+
+  create_table "connection_types", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "connections", :force => true do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.integer  "connection_type_id"
+    t.boolean  "confirmed"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "connections", ["from_id", "to_id"], :name => "index_connections_on_from_id_and_to_id", :unique => true
+  add_index "connections", ["from_id"], :name => "index_connections_on_from_id"
+  add_index "connections", ["to_id"], :name => "index_connections_on_to_id"
 
   create_table "items", :force => true do |t|
     t.string   "title"

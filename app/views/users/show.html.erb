@@ -1,15 +1,20 @@
 <div class="user">
 <div class="row-fluid">
   <div class="span1">
-    Image here
+    <div class="profile-picture">
+      <%= image_tag @user.photo.url(:small) %>
+    </div>
   </div>
-  <div class="span11">
+  <div class="span5">
     <h1><%= @user.displayed_name %></h1>
     <%= form_for @post do |f| %>
       <%= f.text_field :content, placeholder: "What do you want?" %>
       <%= f.submit "Post", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
+  <div class="span6">
+    <%= link_to "Connections", profile_connections_path %>
+  </div>  
 </div>
 
 <div class="row-fluid">
@@ -37,7 +42,7 @@
     <div class="row-fluid">
       <% ri.each do |i| %>
         <div class="span2">
-	  <%= render partial: "items/show_item", locals: {item: i} %>	  
+	  <%= render partial: "items/show_item", locals: {item: i, user: @user} %>	  
 	</div>
       <% end %>
     </div>

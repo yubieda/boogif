@@ -10,9 +10,18 @@ BasicSite::Application.routes.draw do
   match "/home", to: "home#home"
   match "/sign_in", to: "sessions#new"
   match "/sign_up", to: "users#new"
-
   match "/sign_out", to: "sessions#destroy", via: :delete
 
+  match "/settings", to: "users#edit"
+
+  match "profile/connections", to: "profile#connections"
+
+  match "/create_connection", to: "connections#create"
+  match "/confirm_connection", to: "connections#confirm"
+  match "/delete_connection", to: "connections#delete"
+  
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

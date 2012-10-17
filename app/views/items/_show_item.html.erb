@@ -1,15 +1,31 @@
 <div class="item">
+
+  
+
   <div class="row-fluid">
+    <% if current_user?(user) %>
+      <%= link_to item, method: :delete, data: { confirm: "Are you sure you want to delete?" } do %>
+      <div class="span6 btn">
+	Delete <i class="icon-remove"></i>
+      </div>
+      <% end %>
+    <% else %>
     <div class="span6 btn">
       Add <i class="icon-plus"></i>
     </div>
-    <div class="span6 btn">
-      <%= link_to item.buy_link do %>
-      Buy <i class="icon-shopping-cart"></i>
-      <% end %>
-    </div>
-  </div>  
-  <%= image_tag item.photo_path %>
-  <h2><%= item.title %></h2>
+    <% end %>
 
+    <%= link_to item.buy_link do %>
+    <div class="span6 btn">
+      Buy <i class="icon-shopping-cart"></i>
+    </div>
+    <% end %>
+  </div>
+
+
+  <%= link_to item.buy_link do %>
+    <%= image_tag item.photo_path %>
+  <% end %>
+
+  <h4><%= item.title %></h4>     
 </div>

@@ -1,0 +1,26 @@
+<div class="user-small">
+  <div class="row-fluid">
+    <div class="span1">
+      <div class="profile-picture">
+	<%= image_tag user.photo.url(:small) %>
+      </div>
+    </div>
+    <div class="span3">
+      <h2><%= user.displayed_name %><%= "(" + user.first_name + " " + user.last_name + ")" %> </h2>
+      <%= user.city%>,<%= user.country %>
+    </div>
+    <div class="span3">
+      <% if current_user.connected?(user) %>
+        <%= link_to "Find a gift", user, class: "btn btn-large btn-primary" %>
+      <% elsif current_user.requested_connections.include?(user) %>
+      <%= link_to "Confirm Connection", confirm_connection_path(user_id: user.id),
+	  class: "btn btn-large btn-primary" %>  
+      <% else %>
+      <%= link_to "Connect", create_connection_path(user_id: user.id), class: "btn btn-large btn-primary" %>  
+      <% end %>
+      
+      
+    </div>
+    
+  </div>
+</div>
