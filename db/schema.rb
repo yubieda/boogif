@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015055017) do
+ActiveRecord::Schema.define(:version => 20121027033044) do
 
   create_table "connection_types", :force => true do |t|
     t.string   "description"
@@ -32,6 +32,20 @@ ActiveRecord::Schema.define(:version => 20121015055017) do
   add_index "connections", ["from_id"], :name => "index_connections_on_from_id"
   add_index "connections", ["to_id"], :name => "index_connections_on_to_id"
 
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.date     "day"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "invitees", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "items", :force => true do |t|
     t.string   "title"
     t.string   "photo_path"
@@ -40,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20121015055017) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "price_cents"
+    t.string   "currency"
   end
 
   add_index "items", ["user_id", "created_at"], :name => "index_items_on_user_id_and_created_at"

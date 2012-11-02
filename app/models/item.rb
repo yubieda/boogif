@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
-  attr_accessible :buy_link, :description, :photo_path, :title
+  attr_accessible :buy_link, :description, :photo_path, :title, :price_cents, :currency
   belongs_to :user
+  monetize :price_cents, allow_nil: true
   
 
   validates :user_id, presence: true

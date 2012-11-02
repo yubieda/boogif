@@ -3,6 +3,7 @@
 <%= render "profile/connection_search_bar" %>
 
 <% if @searched_users.length > 0  %>
+  <h3>Search Results</h3>
   <% @searched_users.each do |p| %>
     <%= render partial: "users/show_small", locals: {user: p} %>
   <% end %>

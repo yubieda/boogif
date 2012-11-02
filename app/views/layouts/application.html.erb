@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Your Site!</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render "layouts/header" %>
-
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+  <head>
+    <title>Your Site!</title>    
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript">      
+      <%= yield :page_js %>
+    </script>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render "layouts/header" %>
+    <div class="popup-background" ></div>
+    <div class="popup-frame">
+      <div class="popup-exit">
+	<i class="icon-remove"></i>
+      </div>
+    </div>
     
-  <div class="page-content"> 
-    <%= yield %>
-  </div>
+    
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+        
+    <div class="page-content"> 
+      <%= yield %>
+    </div>
 
-  <%= render "layouts/footer" %>
+    <%= render "layouts/footer" %>
 
-</body>
+  </body>
 </html>
+
