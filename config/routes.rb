@@ -5,7 +5,7 @@ BasicSite::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :user_posts, only: [:create, :destroy]
-  resources :items, only: [:create, :destroy]
+  resources :items, only: [:create, :destroy, :update]
   
   match "/home", to: "home#home"
   match "/sign_in", to: "sessions#new"

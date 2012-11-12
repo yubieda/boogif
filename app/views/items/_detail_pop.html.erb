@@ -6,26 +6,25 @@
     <div class ="span6">
       <%= image_tag item.photo_path %>
       <%= link_to item.buy_link do %>
-      <div class="btn btn-primary get-item-now">
+      <div class="btn btn-primary block">
 	Get It Now
       </div>
       <% end %>
     </div>
-    <div class ="span6">
-      
-      
-      <%= form_for(item) do |f| %>
+    <div class ="span6">      
+      <%= form_for item do |f| %>
       <%= f.label "Product name:" %>
       <%= f.text_field :title %>
       <%= f.label "Price:" %>
       <%= f.text_field :price %>
       <%= f.label "Description" %>
-      <%= f.text_field :description %>
-
-      
+      <%= f.text_field :description %>      
+      <% if item.user == current_user %>
+      <%= f.submit "Update", class: "btn btn-primary block" %>
+      <% else %>
+      <%= f.submit "Add", class: "btn btn-primary block" %>
       <% end %>
-      
-            
+      <% end %>            
     </div>
   </div>
 </div>

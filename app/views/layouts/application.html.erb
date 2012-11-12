@@ -22,9 +22,21 @@
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-        
+
     <div class="page-content"> 
-      <%= yield %>
+      <% if signed_in? %>
+      <h1> <%= yield(:page_header) %> </h1>
+      <div class="row-fluid">
+	<div class="span1">
+	  <%= render partial: "profile/nav.html.erb" %>
+	</div>
+	<div class="span11">
+	  <%= yield %>
+	</div>
+      </div>
+      <% else %>
+      <%= yield %>      
+      <% end %>      
     </div>
 
     <%= render "layouts/footer" %>

@@ -1,10 +1,10 @@
 $(function(){
-    $('.add-item-button').click(function() {
-	displayPopup($(this).siblings().children('.item-dialog-pop'));
+    $('.item-image-and-title').click(function() {
+	displayPopup($(this).siblings().find('.item-dialog-pop'));
     });
     
     $('.popup-exit').click(function() {
-	exitPopup();
+        exitPopup();
     });
     
 });

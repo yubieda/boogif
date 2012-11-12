@@ -24,4 +24,13 @@ class ItemsController < ApplicationController
     redirect_to current_user
   end  
 
+  def update
+    @item = current_user.items.find_by_id(params[:id])
+    if @item && @item.update_attributes(params[:item])
+      flash[:sucess] = "Item updated"
+      redirect_to current_user
+    else
+      create
+    end
+  end
 end

@@ -1,28 +1,16 @@
 <div class="item">
-  <div class="row-fluid">
-    <% if current_user?(user) %>
-    <%= link_to item, method: :delete, data: { confirm: "Are you sure you want to delete?" } do %>
-    <div class="span6 btn">
-      Delete <i class="icon-remove"></i>
-    </div>
-    <% end %>
-    <% else %>
-    <div class="span6 btn add-item-button" >
-      Add <i class="icon-plus"></i>
-    </div>
-    <%= render partial: "items/detail_pop", locals: {item: item, user: user} %>      
-    <% end %>
-
-    <%= link_to item.buy_link do %>
-    <div class="span6 btn">
-      Gift It! <i class="icon-gift"></i>
-    </div>
-    <% end %>
-  </div>
-
-  <%= link_to item.buy_link do %>
-    <%= image_tag item.photo_path %>
+  <% if current_user?(user) %>
+  <%= link_to item, method: :delete, data: { confirm: "Are you sure you want to delete?" } do %>
+  <i class="icon-remove"></i>
+  <%  end %>
   <% end %>
-
-  <h4><%= item.title %></h4>     
+  <span class="price">
+    Price: <% if item.price %><%= item.price %><% else %>??<% end %>      
+  </span>
+  <div class="item-image-and-title">
+    <%= image_tag item.photo_path %>
+    
+    <h4><%= item.title %></h4>     
+  </div>
+  <%= render partial: "items/detail_pop", locals: {item: item} %>      
 </div>

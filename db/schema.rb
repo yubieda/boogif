@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027033044) do
+ActiveRecord::Schema.define(:version => 20121112080119) do
 
   create_table "connection_types", :force => true do |t|
     t.string   "description"
@@ -37,11 +37,21 @@ ActiveRecord::Schema.define(:version => 20121027033044) do
     t.date     "day"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "owner_id"
   end
+
+  add_index "events", ["owner_id"], :name => "index_events_on_owner_id"
 
   create_table "invitees", :force => true do |t|
     t.integer  "user_id"
     t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "invites", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,29 +1,46 @@
-<h1>Connections</h1>
+<% provide(:page_header, 'Connections') %>    
 
-<%= render "profile/connection_search_bar" %>
+<%= render "profile/connection_search_bar" %>    
+<div class="row-fluid">
 
-<% if @searched_users.length > 0  %>
-  <h3>Search Results</h3>
-  <% @searched_users.each do |p| %>
+  <div class="span12">
+
+    
+    <% if @other_user %>
+    <h3>Mutual connections with <%= @other_user.displayed_name %> </h3> 
+    <% @mutual_users.each do |p| %>
     <%= render partial: "users/show_small", locals: {user: p} %>
-  <% end %>
-<% else %>
-
-<% if current_user.requested_connections.length > 0  %>
-  <h3>Requested Connections</h3>
-  <% current_user.requested_connections.each do |p| %>
+    <% end %>
+    <% elsif @search_string %>
+    <h3>Search Results for "<%= @search_string%>" </h3>
+    <% @searched_users.each do |p| %>
     <%= render partial: "users/show_small", locals: {user: p} %>
-  <% end %>
-<% end %>
+    <% end %>
+    <% else %>
 
-<% if current_user.connected_people.length > 0  %>
-  <h3>Your Connections</h3>
-  <% current_user.connected_people.each do |p| %>
+    <% if current_user.requested_connections.length > 0  %>
+    <h3>Requested Connections</h3>
+    <% current_user.requested_connections.each do |p| %>
     <%= render partial: "users/show_small", locals: {user: p} %>
-  <% end %>
-<% end %>
- 
-<% end %>
+    <% end %>
+    <% end %>
 
-<%= link_to "View all Connections", profile_connections_path %> 
+    <% if current_user.connected_people.length > 0  %>
+    <h3>Your Connections</h3>
+    <% current_user.connected_people.each do |p| %>
+    <%= render partial: "users/show_small", locals: {user: p} %>
+    <% end %>
+    <% end %>
+    
+    <% end %>
+
+    <%= link_to "View all Connections", profile_connections_path %>
+
+    
+  </div>
+  
+  
+</div>
+
+
 

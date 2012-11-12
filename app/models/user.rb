@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     c = connections.new(to_id: to_id, connection_type_id: 1)
     c.from_id = from_id
     c.confirmed = 0
-    if self.connections.select{|c| c.to_id==to_id}.length == 0
+    if self.connections.select{|c| c.to_id==to_id}.length == 1
       c.save
     end
     c

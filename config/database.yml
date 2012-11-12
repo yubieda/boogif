@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: basic_site_test
+  database: boogif_test
   pool: 5
-  username: basic_site
-  password:
+  username: boogif
+  password: dev123
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: basic_site_production
+  database: boogif_production
   pool: 5
-  username: basic_site
+  username: boogif
   password:

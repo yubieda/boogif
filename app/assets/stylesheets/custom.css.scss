@@ -59,6 +59,15 @@ footer small {
     float: left;
 }
 
+.price {
+    float: right;
+}
+
+.logged-in-header {
+    float: right;
+}
+
+
 .popup-background {
     display: none;
     background: white;
@@ -78,6 +87,7 @@ footer small {
     float: right;    
 }
 
-.get-item-now {
+.block {
     display: block;
 }
+
