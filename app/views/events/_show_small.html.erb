@@ -1,0 +1,11 @@
+<div class="event-small">
+  <div>
+    <%= event.name %>, <b><%= event.day %></b>
+    <%= link_to event, method: :delete do %>
+    <i class="icon-remove"></i>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "See Full Details", event %>
+  </div>  
+</div>

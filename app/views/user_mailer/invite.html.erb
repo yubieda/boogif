@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <div>
+      Hi!
+    </div>
+    
+    <div>You have been invited to BOOGif by <%= @user.displayed_name %>, who says:</div>
+    <br />
+    <div><%= @message %></div>
+
+    <br />
+    <div>Get started <%= link_to "here", @start_url %>!</div>
+    
+  </body>
+
+</html>

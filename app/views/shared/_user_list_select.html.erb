@@ -1,0 +1,10 @@
+<div class="users-list-select">
+  <% current_user.connected_people.each do |p| %>
+  <div class="checkbox">
+    
+    <%= check_box_tag 'user_ids[]', p.id, selected.include?(p) %>
+  </div>
+  <%= label_tag p.displayed_name %>
+  <% end %>
+</div>
+

@@ -2,7 +2,19 @@ BasicSite::Application.routes.draw do
   
   root to: "home#home"
 
+  get "info_pages/about"
+
+  get "info_pages/help"
+
+  get "info_pages/terms"
+
+  get "info_pages/contact"
+
+  get "info_pages/howToUse"
+  
+  
   resources :users
+  resources :events
   resources :sessions, only: [:new, :create, :destroy]
   resources :user_posts, only: [:create, :destroy]
   resources :items, only: [:create, :destroy, :update]
@@ -11,16 +23,18 @@ BasicSite::Application.routes.draw do
   match "/sign_in", to: "sessions#new"
   match "/sign_up", to: "users#new"
   match "/sign_out", to: "sessions#destroy", via: :delete
+  match "/reset_password", to: "users#reset_password"
+  
 
   match "/settings", to: "users#edit"
 
   match "profile/connections", to: "profile#connections"
+  match "profile/invites", to: "profile#invites"
 
   match "/create_connection", to: "connections#create"
   match "/confirm_connection", to: "connections#confirm"
   match "/delete_connection", to: "connections#delete"
   
-
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

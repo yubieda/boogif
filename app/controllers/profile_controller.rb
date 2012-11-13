@@ -1,4 +1,6 @@
 class ProfileController < ApplicationController
+  before_filter :redirect_if_not_signed_in
+  
   def connections
     @search_string = params[:search]
     @mutual_user_id = params[:mutual_user_id]
@@ -39,7 +41,15 @@ class ProfileController < ApplicationController
   end
 
 
-  def reminders
+  def invites
+    @email = params[:email]
+    @message = params[:message]
+    if @email 
+      UserMailer.invite(current_user, @email, @message).deliver 
+      flash[:success] = "Invite sent"
+      redirect_to profile_invites_path(params: {})
+    end
+
     
   end
 

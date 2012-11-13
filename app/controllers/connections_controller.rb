@@ -1,4 +1,6 @@
 class ConnectionsController < ApplicationController
+  before_filter :redirect_if_not_signed_in
+
   def create
     current_user.connect!(User.find_by_id(params[:user_id]))
     flash[:success] = "Requested connection"

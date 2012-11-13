@@ -1,0 +1,25 @@
+<%= form_for(@event) do |f| %>
+
+<% if !current_user?(@event.owner) && @event.owner %>
+<h4><%= @event.owner.displayed_name %></h4>
+<% end %>
+
+<%= f.label :name %>
+<%= f.text_field :name, disabled: disable_all %>
+
+<%= f.label :name %>
+<%= f.date_select :day, disabled: disable_all %>
+
+<% if !disable_all %>
+<%= f.label "Invited?" %>
+<%= render partial: "shared/user_list_select",
+    locals: {selected: @event.invited_people} %>
+
+
+<div>
+  <%= f.submit "Save Event", class: "btn btn-large btn-primary" %>
+</div>
+
+<% end %>
+
+<% end %>

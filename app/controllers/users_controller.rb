@@ -37,4 +37,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def reset_password
+    @user = User.find_by_email(params[:email])
+    @email = params[:email]
+    
+    if @user
+      newPassword = @user.reset_password!
+      UserMailer.password_reset(@user, newPassword).deliver      
+      flash[:success] = "Password Reset"
+      redirect_to sign_in_path
+    else
+      @user = User.new
+      if @email 
+        flash[:error] ="Sorry, we don't recognize that email address"
+      end
+    end
+  end
+
+
 end

@@ -1,0 +1,26 @@
+<% provide(:page_header, 'Invites') %>
+
+<div class="row-fluid">
+  <div class="span12">
+    Invite a friends to BOOGif!
+
+    <%= form_tag profile_invites_path, method: :get do %>
+    
+    <div>Friend's email address</div>
+    <%= email_field_tag "email" %>
+
+    <div>Personal message</div>
+    <%= text_area_tag "message", "I'm on BOOGif and you should be too!
+				  -- " + current_user.displayed_name %>
+    
+    <%= submit_tag "Invite!", class: "btn btn-large btn-primary" %>
+    
+    <% end %>
+    
+    
+  </div>
+  
+  
+</div>
+
+

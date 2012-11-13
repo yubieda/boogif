@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :user_posts, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :connections, foreign_key: "from_id", dependent: :destroy
+  has_many :events, foreign_key: "owner_id", dependent: :destroy
   
   has_attached_file :photo,
   :styles => {
@@ -24,8 +25,22 @@ class User < ActiveRecord::Base
     c
   end
 
+  def reset_password!
+    self.password = SecureRandom.base64(10)
+    self.password_confirmation = self.password
+    create_remember_token
+    self.save!
+    self.password
+  end    
+  
+
   def connected?(other_user)
     connected_people.include?(other_user)
+  end
+
+  def invited_events
+    invitedEvents = Invitee.find_all_by_user_id(id) || []
+    invitedEvents.map {|i| i.event}
   end
 
   def connected_people
