@@ -1,4 +1,10 @@
-<h1>Welcome to Boogif!</h1>
-<p>Video here!</p>
-
-<%= link_to "Get Started!", sign_up_path, class: "btn btn-large btn-primary" %></p>
+<% provide(:page_header, 'Welcome to BOOGif!') %>
+<div class="intro-video">
+  
+  <%= image_tag("video_teaser.png") %>
+  <div class="video-teaser">
+    <%= link_to sign_up_path do %>
+    <%= image_tag("sign_up_button.png") %>
+    <% end %>
+  </div>
+</div>

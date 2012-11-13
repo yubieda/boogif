@@ -10,8 +10,8 @@
     <%= email_field_tag "email" %>
 
     <div>Personal message</div>
-    <%= text_area_tag "message", "I'm on BOOGif and you should be too!
-				  -- " + current_user.displayed_name %>
+    <%= text_area_tag "message", "I'm on BOOGif and you should be to!\r\n --" + current_user.displayed_name,
+	size:"30x10" %>
     
     <%= submit_tag "Invite!", class: "btn btn-large btn-primary" %>
     

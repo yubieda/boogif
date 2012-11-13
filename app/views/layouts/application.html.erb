@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Your Site!</title>    
+    <title>BOOGiF!</title>    
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <script type="text/javascript">      
@@ -25,18 +25,17 @@
 
     <div class="page-content"> 
       <% if signed_in? %>
-      <h1> <%= yield(:page_header) %> </h1>
+      <%= render partial: "profile/header_nav" %>
+      <% end %>
+      <h1> <%= yield(:page_header) %> </h1> 
       <div class="row-fluid">
 	<div class="span1">
-	  <%= render partial: "profile/nav.html.erb" %>
 	</div>
 	<div class="span11">
+	  
 	  <%= yield %>
 	</div>
       </div>
-      <% else %>
-      <%= yield %>      
-      <% end %>      
     </div>
 
     <%= render "layouts/footer" %>

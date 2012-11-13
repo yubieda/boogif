@@ -1,18 +1,27 @@
 <header class="navbar">
   <div class="navbar-inner">
     <div class="container">
+      <nav class="pull-left">
+	<%= image_tag("logo_with_side.png", height: 100) %>
+      </nav>
       <nav>
-	<ul class="nav pull-right">	  
-	  
+	<ul class="nav pull-right  main-nav">	  
 	  <% if signed_in? %>
-	    <li><%= link_to "Home", current_user %></li>
-	    <li><%= link_to "Settings", settings_path %></li>
-	    <li><%= link_to "Sign out", sign_out_path, method: "delete" %></li>
+	  <li><%= link_to "Home", current_user %></li>
+	  <li><%= link_to "Sign out", sign_out_path, method: "delete" %></li>
 	  <% else %>
-            <li><%= link_to "Home", home_path %></li>
-	    <li><%= link_to "Sign in", sign_in_path %></li>
+          <li><%= link_to "Home", home_path %></li>
+	  <li><%= link_to "Sign in", sign_in_path %></li>
 	  <% end %>
-	</ul>	
+	  <li><%= link_to "About", about_path %></li>
+	  <li><%= link_to "Contact", contact_path %></li>
+	</ul>
+	<% if signed_in? %>
+	<small>
+	  Signed in as: <%= current_user.displayed_name %>
+	</small>
+	<% end %>
+	
       </nav>    
     </div>
   </div>

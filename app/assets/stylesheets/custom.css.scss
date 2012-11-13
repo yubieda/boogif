@@ -1,28 +1,36 @@
 @import "bootstrap";
 @import "utility";
 
-$lightBorder: 1px solid #eaeaea;
-$heavyBorder: 5px solid #eaeaea;
+$lightBorder: 2px solid #eaeaea;
+$heavyBorder: 3px solid gray;
+
 
 .navbar .nav li a {
     float: none;
     padding: 9px 10px 11px;
     line-height: 19px;
-    color: #fff;
+    color: #000;
     text-decoration: none;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); */
     &:hover { color: #bbb }
+}
+
+.main-nav {
+    padding: 2% 10% 0%;
+    font-size: 13pt;
 }
 
 h1 {
     margin-left: 5%;
-    border-bottom: $lightBorder;
+    border-bottom: $heavyBorder;
     margin-bottom: 1%;
 }
 
-.navbar-inner {    
-    @include gradient(#006699, #00cafd);
+.navbar-inner {
+    @include gradient(#FFF, #FFF);
+    /*    @include gradient(#006699, #00cafd);*/
     height: 100px;
+    border-top: 8px solid #888;
 }
 
 select {
@@ -44,28 +52,41 @@ select {
 }
 
 /* footer */
+.dark-footer {
+    background: black;
+    color: black;
+    background-color: black;
+}
 
-footer {
+.footer {
     border-top: $lightBorder;
+    background-color: #222;
     margin-top: 15%;
+    
 }
 
-footer ul {
-    float: right;
+.footer h4 {
+    color: white;
+}
+
+.footer ul {
+    list-style: bullet;
+    margin-left: 0px;
+}
+
+.footer li {
     list-style: none;
+    padding-left: 0px;
+    margin-left: 0px;
 }
 
-footer ul li {
-    float: left;
-    margin-left: 10px;
-}
 
-footer small {
-    float: left;
+.footer a {
+    color: #999;
 }
 
 .price {
-    float: right;
+    float: left;
 }
 
 .logged-in-header {
@@ -98,4 +119,12 @@ footer small {
 
 .users-list-select {
     margin-bottom: 2%;    
+}
+
+.intro-video {
+    margin-left: 25%;
+}
+
+.how-to-use-info {
+    margin-top: 5%;
 }

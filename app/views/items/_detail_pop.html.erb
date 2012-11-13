@@ -19,10 +19,12 @@
       <%= f.text_field :price %>
       <%= f.label "Description" %>
       <%= f.text_field :description %>      
+      <%= f.hidden_field :photo_path %>
+      
       <% if item.user == current_user %>
       <%= f.submit "Update", class: "btn btn-primary block" %>
       <% else %>
-      <%= f.submit "Add", class: "btn btn-primary block" %>
+      <%= f.submit "Add to my list!", class: "btn btn-primary block" %>
       <% end %>
       <% end %>            
     </div>

@@ -35,6 +35,11 @@ BasicSite::Application.routes.draw do
   match "/confirm_connection", to: "connections#confirm"
   match "/delete_connection", to: "connections#delete"
   
+  match"/how_to_use", to: "info_pages#howToUse"
+  match"/about", to: "info_pages#about"
+  match"/help", to: "info_pages#help"
+  match"/terms", to: "info_pages#terms"
+  match"/contact", to: "info_pages#contact"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

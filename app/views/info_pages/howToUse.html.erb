@@ -1,2 +1,15 @@
-<h1>InfoPages#howToUse</h1>
-<p>Find me in app/views/info_pages/howToUse.html.erb</p>
+<% provide(:page_header, 'How to use') %>
+
+<p>Here you will learn the secrets of how to use BOOGiF</p>
+
+<div class ="how-to-use-info">
+  <%= link_to     "javascript:function post_to_url(url, params) {    var form = document.createElement('form');    form.action = url;    form.method = 'POST';    for (var i in params) {        if (params.hasOwnProperty(i)) {            var input = document.createElement('input');            input.type = 'hidden';            input.name = i;            input.value = params[i];            form.appendChild(input);        }    }    form.submit();}function load_jquery() {    var ref = document.createElement('script');    ref.type = 'text/javascript';    ref.async = true;    ref.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js';    (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(ref);}function submit_amazon_image() {    var img = jQuery('.main-image-inner-wrapper').find('img').attr('src');    var title = jQuery('#btAsinTitle').text();    var buy_link = document.location.href;    post_to_url('http://localhost:3000/items',{'item[buy_link]':buy_link,                                               'item[description]':'Item from Amazon',                                               'item[photo_path]':img,                                               'item[title]':title});}submit_amazon_image();"  do %>
+
+  <%= image_tag("logo_with_side.png", height: 50) %>
+
+  <% end %>
+  <b>Add To BOOGif button</b> - Right click and bookmark this button, or drag this button to your bookmark bar!  Then, when you see something you want to add, click the bookmark and it will be added to your gift list! 
+</div>
+<div class="how-to-use-info">
+  <%= link_to "Invite",  profile_invites_path %> more friends to get the more out of BOOGiF.  It's free!
+</div>
