@@ -64,6 +64,10 @@ class User < ActiveRecord::Base
       create_remember_token
     end
   }
+
+  after_save {
+    UserMailer.account_confirmation(self).deliver
+  }
   
   validates :first_name, presence:true, length: { maximum: 40 }
   validates :last_name, presence:true, length: { maximum: 40 }
