@@ -8,19 +8,19 @@ BasicSite::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
   
-  # Don't care if the mailer can't send                                                  
+  # Care if the mailer can't send                                                  
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => 'boogif.com',
-    :user_name            => 'boogifdev@gmail.com',
-    :password             => 'aBLrsT37',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  }
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => 'heroku.com'
+  }
 
   config.action_mailer.default_url_options = {
   :host => "warm-crag-9504.herokuapp.com",
