@@ -16,12 +16,17 @@ BasicSite::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'baci.lindsaar.net',
+    :domain               => 'boogif.com'
     :user_name            => 'boogifdev@gmail.com',
     :password             => 'aBLrsT37',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
 
+  config.action_mailer.default_url_options = {
+  :host => "http://warm-crag-9504.herokuapp.com",
+  :port => 80
+  }
+  
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 
