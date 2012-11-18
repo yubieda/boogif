@@ -65,10 +65,6 @@ class User < ActiveRecord::Base
     end
   }
 
-  after_save {
-    UserMailer.account_confirmation(self).deliver
-  }
-  
   validates :first_name, presence:true, length: { maximum: 40 }
   validates :last_name, presence:true, length: { maximum: 40 }
   validates :male, presence:true
