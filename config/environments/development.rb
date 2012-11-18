@@ -21,12 +21,17 @@ BasicSite::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'baci.lindsaar.net',
+    :domain               => 'boogif.com',
     :user_name            => 'boogifdev@gmail.com',
     :password             => 'aBLrsT37',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
   
+  config.action_mailer.default_url_options = {
+  :host => "localhost",
+  :port => 3000
+  }
+
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
