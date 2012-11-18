@@ -23,7 +23,7 @@ BasicSite::Application.configure do
     :enable_starttls_auto => true  }
 
   config.action_mailer.default_url_options = {
-  :host => "http://warm-crag-9504.herokuapp.com",
+  :host => "warm-crag-9504.herokuapp.com",
   :port => 80
   }
   
