@@ -16,6 +16,10 @@ class ItemsController < ApplicationController
     redirect_to current_user
   end
 
+  def new 
+    @item = Item.new    
+  end
+
   def destroy 
     @item = current_user.items.find_by_id(params[:id])
     if @item

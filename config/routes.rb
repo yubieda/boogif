@@ -24,7 +24,7 @@ BasicSite::Application.routes.draw do
   match "/sign_up", to: "users#new"
   match "/sign_out", to: "sessions#destroy", via: :delete
   match "/reset_password", to: "users#reset_password"
-  
+  match "/add_gift", to: "items#new"
 
   match "/settings", to: "users#edit"
 

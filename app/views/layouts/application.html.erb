@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>BOOGiF!</title>    
@@ -10,6 +11,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <% if request.path == add_gift_path %>
+    <%= yield %>
+    <% else %>
+
     <%= render "layouts/header" %>
     <div class="popup-background" ></div>
     <div class="popup-frame">
@@ -28,6 +33,7 @@
       <%= render partial: "profile/header_nav" %>
       <% end %>
       <h1> <%= yield(:page_header) %> </h1> 
+      
       <div class="row-fluid">
 	<div class="span1">
 	</div>
@@ -39,7 +45,6 @@
     </div>
 
     <%= render "layouts/footer" %>
-
+    <% end %>
   </body>
 </html>
-
