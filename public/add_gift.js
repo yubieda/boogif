@@ -53,8 +53,7 @@ function getImageNameQueryString() {
 
 function addGiftUrl() {
     //return "http://www.amazon.com";
-    //return hostname() + "add_gift?" + getImageNameQueryString();
-    return "http://www.amazon.com"
+    return hostname() + "add_gift?" + getImageNameQueryString();
 }
 
 
@@ -84,7 +83,11 @@ function addPopup() {
     displayPopup(popup);
 }
 
+function giftAdder() {
+    jQuery.getScript(hostname() + "popup.js",addPopup);
+}
 
-loadJquery(jQuery.getScript(hostname() + "popup.js",addPopup));
+
+loadJquery(function(){giftAdder();});
 
 
