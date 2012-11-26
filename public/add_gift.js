@@ -85,6 +85,6 @@ function addPopup() {
 }
 
 
-loadJquery(jQuery.getScript(hostname + "popup.js",addPopup));
+loadJquery(jQuery.getScript(hostname() + "popup.js",addPopup));
 
 
