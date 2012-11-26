@@ -53,7 +53,8 @@ function getImageNameQueryString() {
 
 function addGiftUrl() {
     //return "http://www.amazon.com";
-    return hostname() + "add_gift?" + getImageNameQueryString();
+    //return hostname() + "add_gift?" + getImageNameQueryString();
+    return "http://www.amazon.com"
 }
 
 
