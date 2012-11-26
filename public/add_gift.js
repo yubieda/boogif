@@ -1,3 +1,8 @@
+function hostname() {
+    return "http://warm-crag-9504.herokuapp.com/"
+}
+
+
 function loadJquery(callback) {
     if(!(window.jQuery && window.jQuery.fn.jquery == '1.3.2'))
     {
@@ -9,6 +14,7 @@ function loadJquery(callback) {
 	
     }
 }
+
 
 function loadScript(location) {
     try{
@@ -47,7 +53,7 @@ function getImageNameQueryString() {
 
 function addGiftUrl() {
     //return "http://www.amazon.com";
-    return "http://localhost:3000/add_gift?" + getImageNameQueryString();
+    return hostname() + "add_gift?" + getImageNameQueryString();
 }
 
 
@@ -78,6 +84,6 @@ function addPopup() {
 }
 
 
-loadJquery(jQuery.getScript("http://localhost:3000/assets/included/popup.js",addPopup));
+loadJquery(jQuery.getScript(hostname + "popup.js",addPopup));
 
 
