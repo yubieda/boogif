@@ -10,11 +10,11 @@ $(function(){
     $('.purchase').change(function() {
 	if(this.checked) {
 	    alert("We'll hide this item from other friends, to avoid repeat gifts!");
-	    $.ajax(add_query_string_param(hostname()+"/purchase_item","id",this.id));
+	    $.ajax(add_query_string_param(window.location.origin+"/purchase_item","id",this.id));
 	}
 	else {
 	    alert("We'll start showing this to other friends, so someone else can buy it!");
-	    $.ajax(add_query_string_param(hostname()+"/unpurchase_item","id",this.id));
+	    $.ajax(add_query_string_param(window.location.origin+"/unpurchase_item","id",this.id));
 	}
 		
     });
