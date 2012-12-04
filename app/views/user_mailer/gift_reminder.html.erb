@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+    <div>
+      Hi <%= @user.first_name %>, 
+    </div>
+    
+    <div>
+      Just a quick reminder that you've decided to buy
+      <%= @other_user.first_name %> <%= @other_user.last_name %> an <%= @item.title %>.  
+
+      Here's a link that might help: <%= @item.buy_link %>
+    </div>
+    <br />
+    <br />
+ 
+  </body>
+
+</html>

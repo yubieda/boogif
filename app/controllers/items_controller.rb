@@ -37,4 +37,29 @@ class ItemsController < ApplicationController
       create
     end
   end
+
+  def purchase
+    @item = Item.find(params[:id])
+    if !(@item.user.connected?(current_user))
+      flash[:error] = "You're not connected!"
+      redirect_to current_user
+    end
+    @item.purchaser_id = current_user.id
+    @item.save
+    UserMailer.gift_reminder(current_user, @item).deliver
+  end
+
+  def unpurchase
+    @item = Item.find(params[:id])
+    if !(@item.purchaser == current_user)
+      flash[:error] = "You're not buying this item"
+      redirect_to current_user
+    end
+    @item.purchaser_id = nil
+    @item.save
+  end
+
+
+
+
 end

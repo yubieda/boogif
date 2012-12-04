@@ -25,8 +25,6 @@ function displayPopup(item) {
     item.fadeIn('slow');    
 }
 
-
-
 //manipulate DOM to wrap popup in frame and background
 function wrapPopup(frame, popup) {
     $(popup).wrap($(frame));

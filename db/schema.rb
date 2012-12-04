@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112080119) do
+ActiveRecord::Schema.define(:version => 20121204091600) do
 
   create_table "connection_types", :force => true do |t|
     t.string   "description"
@@ -62,10 +62,11 @@ ActiveRecord::Schema.define(:version => 20121112080119) do
     t.string   "description"
     t.string   "buy_link"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "price_cents"
     t.string   "currency"
+    t.integer  "purchaser_id"
   end
 
   add_index "items", ["user_id", "created_at"], :name => "index_items_on_user_id_and_created_at"

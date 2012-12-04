@@ -30,5 +30,13 @@ class UserMailer < ActionMailer::Base
     end
   end
 
+  def gift_reminder(user, item)
+    @user = user
+    @other_user = item.user
+    @item = item
+    mail(to: "#{user.displayed_name} <#{user.email}>" , subject: "Gift reminder")  do |format|
+      format.html
+    end    
+  end
 
 end

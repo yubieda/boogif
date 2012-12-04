@@ -5,12 +5,17 @@
   <% if current_user?(user) %>
   <%= link_to item, method: :delete, data: { confirm: "Are you sure you want to delete?" } do %>
   <i class="icon-remove pull-right"></i>
-  <%  end %>
+  <% end %>
   <% end %>
   <div class="item-image-and-title">
     <%= image_tag item.photo_path %>
-    
     <h4><%= item.title %></h4>     
   </div>
-  <%= render partial: "items/detail_pop", locals: {item: item} %>      
+  <% if !current_user?(user) %>
+  <%= check_box_tag  item.id, "1", item.purchaser_id == current_user.id, class: "purchase"  %>
+  I'm buying this for <%= user.first_name %>
+  <% end %>
+  
+  <%= render partial: "items/detail_pop", locals: {item: item} %>
+  
 </div>
