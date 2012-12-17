@@ -1,9 +1,9 @@
 class RemoveDisplayedNameFromUsers < ActiveRecord::Migration
   def up
-    remove_column :users, :full_name
+    remove_column :users, :displayed_name
   end
 
   def down
-    add_column :users, :full_name, :string
+    add_column :users, :displayed_name, :string
   end
 end
