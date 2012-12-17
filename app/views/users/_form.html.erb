@@ -7,29 +7,31 @@
 <%= f.label :last_name %>
 <%= f.text_field :last_name %>
 
-<%= f.label :displayed_name %>
-<%= f.text_field :displayed_name %>
-
 <%= f.label :email %>
 <%= f.text_field :email %>
 
 <%= f.label :password %>
 <%= f.password_field :password %>
 
-<%= f.label :password_confirmation, "Confirmation" %>
+<%= f.label :password_confirmation, "Re-enter password" %>
 <%= f.password_field :password_confirmation %>
 
 <div class="left-to-right">
   <%= f.label :birthday %>
   <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
+  Important: allows us to remind your Family & Friends and let them know what you want as a gift
+</div>
+
+<div class="left-to-right">
   <%= f.label "Hide my age:" %>
   <%= f.check_box :hide_age %>
+
 </div>
 
 <div class="left-to-right">
   <%= f.label "Gender:" %>
-  <%= f.radio_button :male, "1" %><%= f.label :male, "Male" %>
-  <%= f.radio_button :male, "0" %><%= f.label :male, "Female"%>
+  <%= f.radio_button :male, "1", checked: true%><%= f.label :male, "Male" %>
+  <%= f.radio_button :male, "0", checked: true%><%= f.label :male, "Female"%>
 </div>
 
 <%= f.label :city %>

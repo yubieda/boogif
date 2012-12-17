@@ -1,11 +1,14 @@
 <%= form_for(@event) do |f| %>
 
 <% if !current_user?(@event.owner) && @event.owner %>
-<h4><%= @event.owner.displayed_name %></h4>
+<h4><%= @event.owner.full_name %></h4>
 <% end %>
 
+
 <%= f.label :name %>
-<%= f.text_field :name, disabled: disable_all %>
+<%= f.text_field :name, disabled: disable_all,
+    placeholder: "Ex. Anniversary, Christmas, Mother's Day, etc.", class: "event-name" %>
+
 
 <%= f.label :name %>
 <%= f.date_select :day, disabled: disable_all %>
@@ -18,6 +21,8 @@
 
 <div>
   <%= f.submit "Save Event", class: "btn btn-large btn-primary" %>
+  <%= link_to "Cancel", events_path, class: "btn btn-large btn-primary" %>
+
 </div>
 
 <% end %>

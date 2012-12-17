@@ -7,20 +7,15 @@
       <nav>
 	<ul class="nav pull-right  main-nav">	  
 	  <% if signed_in? %>
+	  <li><%= link_to current_user.full_name, current_user %></li>
+	  <li>__</li>
 	  <li><%= link_to "Home", current_user %></li>
-	  <li><%= link_to "Sign out", sign_out_path, method: "delete" %></li>
+	  <li>__</li>
+	  <li><%= link_to "Log out", sign_out_path, method: "delete" %></li>
 	  <% else %>
-          <li><%= link_to "Home", home_path %></li>
-	  <li><%= link_to "Sign in", sign_in_path %></li>
+	  <%= render partial: "sessions/form" %>
 	  <% end %>
-	  <li><%= link_to "About", about_path %></li>
-	  <li><%= link_to "Contact", contact_path %></li>
 	</ul>
-	<% if signed_in? %>
-	<small>
-	  Signed in as: <%= current_user.displayed_name %>
-	</small>
-	<% end %>
 	
       </nav>    
     </div>

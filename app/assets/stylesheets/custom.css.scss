@@ -20,6 +20,10 @@ $heavyBorder: 3px solid gray;
     font-size: 13pt;
 }
 
+.active-nav {
+    text-decoration: underline;
+}
+
 h1 {
     margin-left: 5%;
     border-bottom: $heavyBorder;
@@ -123,6 +127,10 @@ select {
 
 .intro-video {
     margin-left: 25%;
+}
+
+.video-teaser {
+    padding-left: 110px;
 }
 
 .how-to-use-info {

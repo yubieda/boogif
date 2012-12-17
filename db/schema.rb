@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204091600) do
+ActiveRecord::Schema.define(:version => 20121217004900) do
 
   create_table "connection_types", :force => true do |t|
     t.string   "description"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(:version => 20121204091600) do
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "displayed_name"
     t.string   "email"
     t.boolean  "male"
     t.date     "birthday"

@@ -2,16 +2,18 @@
 
 <div class="row-fluid">
   <div class="span12">
-    Invite a friends to BOOGif!
+    <b>Invite Family&Friends to BOOGiF!</b> 
 
     <%= form_tag profile_invites_path, method: :get do %>
     
-    <div>Friend's email address</div>
-    <%= email_field_tag "email" %>
+    <div>Email addresses separated by comma:</div>
+    <%= text_field_tag "emails" %>
 
-    <div>Personal message</div>
-    <%= text_area_tag "message", "I'm on BOOGif and you should be to!\r\n --" + current_user.displayed_name,
-	size:"30x10" %>
+    <div>Personal message (optional): </div>
+    <%= text_area_tag "message",
+	"I use BOOGiF to find and give the right gift to someone special like you and to share with you the things I like.\r\n\nPlease, connect with me on BOOGiF.\r\n\nThanks!\r\n" +
+	 current_user.full_name,
+	size:"300x10" %>
     
     <%= submit_tag "Invite!", class: "btn btn-large btn-primary" %>
     

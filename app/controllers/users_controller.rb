@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     if @user
       newPassword = @user.reset_password!
       UserMailer.password_reset(@user, newPassword).deliver      
-      flash[:success] = "Password Reset"
+      flash[:success] = "An email has been sent to " + @user.email + " with a temporary password."
       redirect_to sign_in_path
     else
       @user = User.new

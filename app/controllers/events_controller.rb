@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_filter :redirect_if_not_signed_in
+  before_filter :redirect_if_no_event_name, only: [:create, :update]
+  
 
   def new 
     @event = Event.new    
@@ -53,5 +55,19 @@ class EventsController < ApplicationController
     
     invitees
   end
+
+  def redirect_if_no_event_name
+    if params[:id] 
+      @event = Event.find_by_id(params[:id])
+    else
+      @event = Event.new(params[:event])
+    end
+
+    if !@event || !@event.name || @event.name.length == 0  
+      flash[:error] = "You haven't created a name for the event"
+      redirect_to request.referer
+    end
+  end
+
 
 end

@@ -6,11 +6,11 @@
 	<%= image_tag @user.photo.url(:small) %>
       </div>
     </div>
-    <div class="span3">
-      <h2><%= @user.displayed_name %></h2>
+    <div class="span8">
+      <h2><%= @user.full_name %></h2>
       <% if current_user?(@user) %>
       <%= form_for @post do |f| %>
-      <%= f.text_field :content, placeholder: "What do you want?" %>
+      <%= f.text_field :content, placeholder: "What do you want?",class: "post-text" %>
       <%= f.submit "Post", class: "btn btn-large btn-primary" %>
       <% end %>
       <% end %>      

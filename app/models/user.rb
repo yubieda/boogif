@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :displayed_name, :email, 
+  attr_accessible :email, :first_name, :last_name, :email, 
   :male, :birthday, :hide_age, :city, :country, :zip_code, :photo, :password, :password_confirmation 
   has_secure_password
   has_many :user_posts, dependent: :destroy
@@ -26,13 +26,16 @@ class User < ActiveRecord::Base
   end
 
   def reset_password!
-    self.password = SecureRandom.base64(10)
+    self.password = SecureRandom.hex(3)
     self.password_confirmation = self.password
     create_remember_token
     self.save!
     self.password
   end    
   
+  def full_name 
+    self.first_name + " " + self.last_name
+  end
 
   def connected?(other_user)
     connected_people.include?(other_user)
@@ -53,10 +56,6 @@ class User < ActiveRecord::Base
 
   before_save { 
     self.email.downcase!
-    if self.displayed_name==""
-      self.displayed_name = self.first_name + " " + self.last_name
-    end        
-
   }
   
   before_save {

@@ -15,7 +15,7 @@ class ProfileController < ApplicationController
         u.id != current_user.id && 
         (u.first_name.downcase.include?(@search_string) || 
          u.last_name.downcase.include?(@search_string) || 
-         u.displayed_name.downcase.include?(@search_string)) }
+         u.full_name.downcase.include?(@search_string)) }
     end
 
     #mutual connections.  Could probably optimize as well
@@ -42,15 +42,17 @@ class ProfileController < ApplicationController
 
 
   def invites
-    @email = params[:email]
-    @message = params[:message]
-    if @email 
-      UserMailer.invite(current_user, @email, @message).deliver 
-      flash[:success] = "Invite sent"
+    @emailsParam = params[:emails]
+    
+    if @emailsParam
+      @emails = params[:emails].split(',')
+      @message = params[:message]
+      for @email in @emails 
+        UserMailer.invite(current_user, @email, @message).deliver 
+        flash[:success] = "Invites sent"
+      end
       redirect_to profile_invites_path(params: {})
     end
-
-    
   end
 
   

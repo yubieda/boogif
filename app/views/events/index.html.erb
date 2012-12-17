@@ -2,15 +2,16 @@
 <div class="event">
   <div class="row-fluid">
     <div class="span8">
-      <h2>You created...</h2>
+       <div class="event-small">
+	<%= link_to "Create new event or reminder", new_event_path %>
+      </div>
+           
+      <h2>My Events & Reminders: </h2>
       
       <% current_user.events.each do |e| %>
       <%= render partial: "events/show_small", locals: {event: e} %>      
       <% end %>
 
-      <div class="event-small">
-	<%= link_to "Create new event", new_event_path %>
-      </div>
       
       <h2>You're invited to...</h2>
 
