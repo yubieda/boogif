@@ -30,8 +30,8 @@
 
 <div class="left-to-right">
   <%= f.label "Gender:" %>
-  <%= f.radio_button :male, "1", checked: true%><%= f.label :male, "Male" %>
-  <%= f.radio_button :male, "0", checked: true%><%= f.label :male, "Female"%>
+  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, "Male" %>
+  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, "Female"%>
 </div>
 
 <%= f.label :city %>

@@ -7,7 +7,7 @@ class ConnectionsController < ApplicationController
     redirect_back_or(profile_connections_path)
   end
   
-  def destroy
+  def delete
     cs = current_user.connections.select{|c| c.to_id = params[:user_id]}
     other_user = User.find_by_id(params[:user_id])
 
@@ -19,7 +19,7 @@ class ConnectionsController < ApplicationController
     if cs2.length >= 1
       cs2.first.delete
     end
-
+    redirect_back_or(profile_connections_path)
   end
 
   def confirm

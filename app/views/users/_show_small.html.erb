@@ -12,6 +12,8 @@
     <div class="span2">
       <% if current_user.connected?(user) %>
       <%= link_to "Find a gift", user, class: "btn btn-large btn-primary" %>
+      <%= link_to "Disconnect", delete_connection_path(user_id: user.id),
+	  class: "btn btn-large btn-primary" %>
       <% elsif current_user.requested_connections.include?(user) %>
       <%= link_to "Confirm Connection", confirm_connection_path(user_id: user.id),
 	  class: "btn btn-large btn-primary" %>  

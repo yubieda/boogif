@@ -1,0 +1,11 @@
+<div class="sign-in">
+<%= form_for(:session, url: sessions_path(redirect_path: params[:redirect_path])) do |f| %>
+
+<%= f.text_field :email, placeholder: "Email" %>
+
+<%= f.password_field :password, placeholder: "Password" %>
+<%= f.submit "Enter", class: "btn btn-large btn-primary" %>
+<% end %>
+<%= link_to "Forgot your password?", reset_password_path %>
+</div>
+

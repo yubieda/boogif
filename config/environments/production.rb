@@ -27,6 +27,15 @@ BasicSite::Application.configure do
     :port => 80
   }
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'boogif',
+      :access_key_id => 'AKIAJQOAZFSD6ME54IZQ',
+      :secret_access_key => '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'    
+    }
+  }
+
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 

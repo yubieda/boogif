@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence:true, length: { maximum: 40 }
   validates :last_name, presence:true, length: { maximum: 40 }
-  validates :male, presence:true
+  validates_inclusion_of :male, in: [true, false]
   validates :birthday, presence:true
   validates :email, presence: true, uniqueness: true, length: { maximum: 75 }
   validates :password, presence: true, length: { minimum: 6 }

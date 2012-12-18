@@ -28,11 +28,12 @@ class ProfileController < ApplicationController
       end
       
       for c in my_connections
-        mutual_connection = other_connections.first { |oc| 
-          oc.to_id == c.to_id }
+        mutual_connection = other_connections.select { |oc| 
+          oc.to_id == c.to_id }.first
         if mutual_connection
           @mutual_users.push(User.find_by_id(mutual_connection.to_id))
         end
+        mutual_connection = nil
       end
     end
     

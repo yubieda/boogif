@@ -41,6 +41,15 @@ BasicSite::Application.configure do
     :port => 3000
   }
   
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+    :bucket => 'boogif',
+    :access_key_id => 'AKIAJQOAZFSD6ME54IZQ',
+    :secret_access_key => '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'
+    }
+  }
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 

@@ -1,7 +1,7 @@
-<h1> Edit profile information </h2>
+<% provide(:page_header, 'Edit Profile Information') %>
 
-<div class="row">
-  <div class="span6 offset3">
+<div class="row-fluid">
+  <div class="span12">
     <%= render partial: "users/form", locals: {submit_button_text: "Save changes"} %>
   </div>
 </div>

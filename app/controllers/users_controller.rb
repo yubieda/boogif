@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
+      cookies.permanent[:remember_token] = @user.remember_token      
       redirect_to @user
     else
       render 'edit'
