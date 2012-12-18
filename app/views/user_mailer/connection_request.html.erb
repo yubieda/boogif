@@ -7,18 +7,17 @@
   <body>
 
     <div>
-      Hi,
+      Hi <%= @to_user.first_name %>,
     </div>
     
-    <div>You have been invited to BOOGif by <%= @user.full_name %>, who says:</div>
-    <br />
-    <div><%= @message %></div>
+    <div> <%= @from_user.full_name %> would like to connect to you on BOOGiF.</div>
+    <div>You can respond <%= link_to "here", @connect_url %>!</div>
 
     <br/>
     Thanks,<br/>
     BOOGiF team
 
-    
+        
   </body>
 
 </html>

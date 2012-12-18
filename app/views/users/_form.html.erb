@@ -25,13 +25,25 @@
 <div class="left-to-right">
   <%= f.label "Hide my age:" %>
   <%= f.check_box :hide_age %>
-
 </div>
 
 <div class="left-to-right">
   <%= f.label "Gender:" %>
   <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, "Male" %>
   <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, "Female"%>
+</div>
+
+
+<%= f.label :street_address %>
+<div class="left-to-right">
+  <%= f.text_field :street_address %>
+  By providing your street address your Family&Friends will be able to send you gifts directly to your place.
+</div>
+
+
+<div class="left-to-right">
+  <%= f.label "Hide my street:" %>
+  <%= f.check_box :hide_address %>
 </div>
 
 <%= f.label :city %>

@@ -39,4 +39,14 @@ class UserMailer < ActionMailer::Base
     end    
   end
 
+  def connection_request(from_user, to_user)
+    @from_user = from_user
+    @to_user = to_user
+    @connect_url = profile_connections_url
+    mail(to: "#{to_user.full_name} <#{to_user.email}>" , subject: "Connection Request")  do |format|
+      format.html
+    end
+  end
+
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217004900) do
+ActiveRecord::Schema.define(:version => 20121218042757) do
 
   create_table "connection_types", :force => true do |t|
     t.string   "description"
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(:version => 20121217004900) do
     t.integer  "photo_file_size"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "street_address"
+    t.boolean  "hide_address"
   end
 
 end
