@@ -44,9 +44,9 @@ BasicSite::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-    :bucket => 'boogif',
-    :access_key_id => 'AKIAJQOAZFSD6ME54IZQ',
-    :secret_access_key => '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'
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
 
