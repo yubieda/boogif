@@ -59,7 +59,7 @@ function addPopup() {
     popup.append('<div class="add-gift-exit">X</div>');
 
     
-    popup.append('<iframe src="' + addGiftUrl() + '" class="add-gift-frame"><b>Add a gift!</b></iframe>');
+    //popup.append('<iframe src="' + addGiftUrl() + '" class="add-gift-frame"><b>Add a gift!</b></iframe>');
     var frame = $('.add-gift-frame');
     
     frame.css('height','400px');
