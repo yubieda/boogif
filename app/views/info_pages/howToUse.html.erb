@@ -1,15 +1,28 @@
-<% provide(:page_header, 'How to use') %>
-
-<p>Here you will learn the secrets of how to use BOOGiF</p>
+<% provide(:page_header, 'How it works') %>
 
 <div class ="how-to-use-info">
-  <%= link_to     "javascript:(function(){try{var x=document.getElementsByTagName('head').item(0);var o=document.createElement('script');if('object'!=typeof(o)){o=document.standardCreateElement('script');}o.setAttribute('src','http://warm-crag-9504.herokuapp.com/add_gift.js');o.setAttribute('type','text/javascript');x.appendChild(o);}catch(e){alert('Error: '+e);}})();" do %>
+
+<ol>
+<li>JOIN TODAY in order to give and receive the right gift the easy way.</li>
+
+<li>   <%= link_to     "javascript:(function(){try{var x=document.getElementsByTagName('head').item(0);var o=document.createElement('script');if('object'!=typeof(o)){o=document.standardCreateElement('script');}o.setAttribute('src','http://warm-crag-9504.herokuapp.com/add_gift.js');o.setAttribute('type','text/javascript');x.appendChild(o);}catch(e){alert('Error: '+e);}})();" do %>
 
   <%= image_tag("logo_with_side.png", height: 50) %>
 
-  <% end %>
-  <b>Add To BOOGiF button</b> - Right click and bookmark this button, or drag this button to your bookmark bar!  Then, when you see something you want to add, click the bookmark and it will be added to your gift list! 
-</div>
-<div class="how-to-use-info">
-  <%= link_to "Invite",  profile_invites_path %> more friends to get the more out of BOOGiF.  It's free!
+  <% end %>Drag and drop the ‘+BOOGiF’ button to your browser’s bookmark or favorites.</li>
+
+<li> Start adding products to your list from any online store by clicking the ‘+BOOGiF’</li>
+  link in your browser’s bookmark.
+
+<li> To add products you see in a retail store, download the mobile app for iPhone or</li>
+  Android.
+
+<li> Start adding products you desire from any retail store by simply taking a photo of
+  the product and adding some details about it.</li>
+
+<li> Share your list with your family and friends by inviting them to connect with you on BOOGiF.</li>
+
+<li>Find easily and quickly the right gift for your family and friends on BOOGiF any time you need to.</li>  
+  
+</ol>
 </div>

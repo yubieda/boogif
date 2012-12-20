@@ -13,4 +13,8 @@ class InfoPagesController < ApplicationController
 
   def howToUse
   end
+
+  def privacy 
+  end
+
 end

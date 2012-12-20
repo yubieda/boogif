@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       UserMailer.account_confirmation(@user).deliver
-      redirect_from_param(@user)
+      redirect_from_param how_to_use_path
     else
       render 'new'
     end
