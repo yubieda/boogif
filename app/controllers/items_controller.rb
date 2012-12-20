@@ -1,9 +1,11 @@
 class ItemsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :redirect_if_not_signed_in
   #  before_filter :redirect_if_not_signed_in
+  include ItemsHelper
 
   def create
     @item = current_user.items.build(params[:item])
+    fix_item_currency
     
     if @item.save
       flash[:success] = "Added Item!"
@@ -31,6 +33,8 @@ class ItemsController < ApplicationController
   def update
     @item = current_user.items.find_by_id(params[:id])
     if @item && @item.update_attributes(params[:item])
+      fix_item_currency
+      @item.save
       flash[:sucess] = "Item updated"
       redirect_to current_user
     else

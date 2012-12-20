@@ -13,4 +13,5 @@ class Item < ActiveRecord::Base
   
   default_scope order: 'items.created_at DESC'
 
+
 end
