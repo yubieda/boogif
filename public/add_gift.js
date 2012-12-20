@@ -1,11 +1,15 @@
 function hostname() {
-    return "http://warm-crag-9504.herokuapp.com/"
-    //return "http://localhost:3000/"
+    //return "http://warm-crag-9504.herokuapp.com/"
+    return "http://localhost:3000/"
 }
 
 function jqueryLocation() {
     return 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'
     //return hostname() + "jquery.min.js"
+}
+
+function jqueryUiLocation() {
+    return 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js'
 }
 
 
@@ -83,7 +87,7 @@ function getImageInputButton(name) {
 
 
 function addPopup() {
-    alert('hello4');
+    alert('hello6');
     // $('document').append('<div class="add-gift" style="position:absolute; display: block; z-index: 1000000001;"> </div>');
     // var popup = $('.add-gift');
 
@@ -100,13 +104,13 @@ function addPopup() {
     // var frame = $('.add-gift-frame');
     
     // frame.css('height','400px');
-    var popupClass = '.boogif-add-gift'
+    var popupClass = '.boogif-add-gift';
     
-    // if ($popupClass).length > 0)
-    // {
-    // 	$(popupClass).fadeIn('slow');
-    // 	return;
-    // }
+    if ($(popupClass).length > 0)
+    {
+	$(popupClass).fadeIn('slow');
+    	return;
+    }
     
     popup = $(document.createElement('div'));
     header = $(document.createElement('div'));
@@ -118,8 +122,8 @@ function addPopup() {
     popup.append(header);
     popup.append(logo);
     popup.append(form);
-    popup.addClass(popupClass);
- 
+    popup.addClass('boogif-add-gift');
+        
     header.append('<b>Add a gift!</b>');
     
     exit = $('<span class="boogif-add-gift-exit">X</span>');
@@ -160,8 +164,7 @@ function addPopup() {
     popup.css('display', 'block');
     popup.css('border', '3px solid grey');
     popup.css('z-index', '9999999');
-    popup.attr('draggable', 'true');
-    
+        
     form.append('<br/>');
     var imgs = getImageNames();
     for (var i=0;i<imgs.length;i++)
@@ -177,11 +180,12 @@ function addPopup() {
     
     
     form.append(imgHolder);
-    form.append('<input name="commit" type="submit" value="Add Gift">');    
+    form.append('<input name="commit" type="submit" value="Add To My Book">');    
     
     
 //    dynamicCenter(popup);
     $('body').append(popup);
+    
     
   //  popup.css('display','none');
   //  popup.css('background','white');
@@ -198,7 +202,8 @@ function addPopup() {
 }
 
 function giftAdder() {
-    jQuery.getScript(hostname() + "popup.js?body=1",addPopup);
+    jQuery.getScript(hostname() + "popup.js?body=1", addPopup);
+    jQuery.getScript(jqueryUiLocation(), function(){popup.draggable();});
 }
 
 

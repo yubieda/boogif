@@ -9,7 +9,7 @@
       </div>
       <%= link_to item.buy_link do %>
       <div class="btn btn-primary block">
-	Get It Now
+	Buy Now
       </div>      
       <% end %>    
     </div>
@@ -24,9 +24,9 @@
       <%= f.hidden_field :photo_path %>
       
       <% if item.user == current_user %>
-      <%= f.submit "Update", class: "btn btn-primary block" %>
+      <%= f.submit "Save Changes", class: "btn btn-primary block" %>
       <% else %>
-      <%= f.submit "Add to my list!", class: "btn btn-primary block" %>
+      <%= f.submit "Add To My Book", class: "btn btn-primary block" %>
       <% end %>
       <% end %>            
     </div>

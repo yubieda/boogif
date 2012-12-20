@@ -49,9 +49,15 @@ class User < ActiveRecord::Base
   def display_address
     addr = ""
     if !self.hide_address && self.street_address
-      addr += self.street_address + ", "
+      addr += self.street_address
     end
-    addr += self.city + ", " + self.country
+    if self.city 
+      addr += ", " + self.city
+    end
+    if self.country 
+      addr += ", " + self.country
+    end
+    addr
   end
 
   def connected?(other_user)
