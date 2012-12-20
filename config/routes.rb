@@ -43,6 +43,7 @@ BasicSite::Application.routes.draw do
   match"/terms", to: "info_pages#terms"
   match"/privacy", to: "info_pages#privacy"
   match"/contact", to: "info_pages#contact"
+  match"/online_stores", to: "info_pages#onlineStores"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

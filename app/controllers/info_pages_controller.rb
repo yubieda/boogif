@@ -17,4 +17,7 @@ class InfoPagesController < ApplicationController
   def privacy 
   end
 
+  def onlineStores
+  end
+
 end
