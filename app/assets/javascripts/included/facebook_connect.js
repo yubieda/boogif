@@ -1,6 +1,5 @@
 $(function(){
     $('.facebook-message').click(function() {
-	alert('hello2');
 	$('body').append('<div id="fb-root"></div>');
 	window.fbAsyncInit = function() {
 	    FB.init({appId: '387775747964012', status: true, cookie: true, xfbml: true});
