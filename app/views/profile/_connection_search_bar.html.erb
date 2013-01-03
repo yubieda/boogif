@@ -1,5 +1,6 @@
 <%= form_tag profile_connections_path, method: :post do %>
 <%=   text_field_tag 'search', "", placeholder: "Name of family or friend" %>
-<%=   submit_tag "Search", class: "btn btn-primary" %>
+<%=   submit_tag "Search", class: "btn btn-primary connection-search-btn" %>
+<br/>
 <%= link_to "View all Connections", profile_connections_path %>
 <%  end %>

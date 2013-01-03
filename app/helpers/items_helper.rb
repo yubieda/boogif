@@ -8,8 +8,7 @@ module ItemsHelper
       @item.currency = 'EUR'
     elsif priceString.include? '¥'
       @item.currency = 'JPY'
-    else
-      @item.currency = 'AUS'
+    
     end
     
   end

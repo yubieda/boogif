@@ -16,8 +16,8 @@
 <%= f.label :password_confirmation, "Re-enter password" %>
 <%= f.password_field :password_confirmation %>
 
+<%= f.label :birthday %>
 <div class="left-to-right">
-  <%= f.label :birthday %>
   <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
   Important: allows us to remind your Family & Friends and let them know what you want as a gift
 </div>
@@ -27,24 +27,24 @@
   <%= f.check_box :hide_age %>
 </div>
 
+<%= f.label "Gender:" %>
 <div class="left-to-right">
-  <%= f.label "Gender:" %>
-  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, "Male" %>
-  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, "Female"%>
+  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male" %>
+  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
 </div>
 
-
+<% if !sign_in %>
 <%= f.label :street_address %>
 <div class="left-to-right">
   <%= f.text_field :street_address %>
   By providing your street address your Family&Friends will be able to send you gifts directly to your place.
 </div>
 
-
 <div class="left-to-right">
   <%= f.label "Hide my street:" %>
   <%= f.check_box :hide_address %>
 </div>
+<% end %>
 
 <%= f.label :city %>
 <%= f.text_field :city %>
@@ -55,11 +55,11 @@
 <%= f.label :zip_code %>
 <%= f.text_field :zip_code %>
 
+<%= f.label "Upload a profile picture:" %>
 <div class="left-to-right">
-  <%= f.label "Upload a profile picture:" %>
   <%= f.file_field :photo %>
 </div>
-
+<br />
 <div>
   <%= f.submit submit_button_text, class: "btn btn-large btn-primary" %>
   <%= link_to "Cancel", home_path, class: "btn btn-large btn-primary" %>

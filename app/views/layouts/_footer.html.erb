@@ -1,28 +1,32 @@
 
 
 <div class="footer">
-  <div class="row-fluid" >
-    <div class="span2"></div>
-    
-    <div class="span5">
-      <h4>COMPANY</h4>
-      <ul>
-	<li><%= link_to "About BOOGiF", about_path %></li>
-	<li><%= link_to "How It Works", how_to_use_path %></li>	
-	<li><%= link_to "Terms & Conditions", terms_path %></li>	
-	<li><%= link_to "Privacy Policy", privacy_path %></li>
-	<li><%= link_to "Contact Us", about_path %></li>
-	<li><%= link_to "Home", home_path %></li>
-      </ul>
+  <div class="row-fluid">
+    <div class="span3"></div>
+    <div class="span3">
+      <div class="footer-column">
+	<h4>COMPANY</h4>
+	<ul>
+	  <li><%= link_to "About BOOGiF", about_path %></li>
+	  <li><%= link_to "How It Works", how_to_use_path %></li>	
+	  <li><%= link_to "Terms & Conditions", terms_path %></li>	
+	  <li><%= link_to "Privacy Policy", privacy_path %></li>
+	  <li><%= link_to "Contact Us", contact_path %></li>
+	  <li><%= link_to "Home", home_path %></li>
+	</ul>
+      </div>
     </div>
-    <div class="span5">
-      <h4>COMMUNITY</h4>
-      <ul>
-	<li><%= link_to "Online Stores", online_stores_path %></li>
-	<li><%= link_to "Facebook", "http://www.facebook.com/BOOGiF" %></li>
-	<li><%= link_to "Twitter", "http://www.twitter.com/BOOGiFConnect" %></li>	
-      </ul>
-    </div>    
+    <div class="span3">
+      <div class="footer-column">
+	<h4>COMMUNITY</h4>
+	<ul>
+	  <li><%= link_to "Online Stores", online_stores_path %></li>
+	  <li><%= link_to "Facebook", "http://www.facebook.com/BOOGiF" %></li>
+	  <li><%= link_to "Twitter", "http://www.twitter.com/BOOGiFConnect" %></li>	
+	</ul>
+      </div>
+    </div>
+    <div class="span3"></div>
   </div>  
 </div>
 

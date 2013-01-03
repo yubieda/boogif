@@ -3,7 +3,13 @@ class Item < ActiveRecord::Base
   belongs_to :user
   belongs_to :purchaser, class_name: "User", primary_key: "id", foreign_key: "purchaser_id"
 
-  monetize :price_cents, allow_nil: true
+  monetize :price_cents
+
+  before_save {
+    if !self.price_cents
+      self.price_cents = 0
+    end
+  }
   
 
   validates :user_id, presence: true

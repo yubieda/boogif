@@ -30,14 +30,8 @@
     <% end %>
 
     <div class="page-content"> 
-      <% if signed_in? %>
-      <%= render partial: "profile/header_nav" %>
-      <% end %>
-            
       <div class="row-fluid">
-	<div class="span1">
-	</div>
-	<div class="span11">
+	<div class="span12">
 	  
 	  <%= yield %>
 	</div>

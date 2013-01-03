@@ -3,7 +3,12 @@
 
 $lightBorder: 2px solid #eaeaea;
 $heavyBorder: 3px solid gray;
+$minSpan: 75;
+$minBodyWidth: 1080px;
 
+@function getMinSpan($numSpans) {
+    @return  ($numSpans * $minSpan) + px
+}
 
 .navbar .nav li a {
     float: none;
@@ -11,17 +16,41 @@ $heavyBorder: 3px solid gray;
     line-height: 19px;
     color: #000;
     text-decoration: none;
-    /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); */
     &:hover { color: #bbb }
 }
 
-.main-nav {
-    padding: 2% 10% 0%;
-    font-size: 13pt;
+.btn {
+    background: #3396B8;
 }
 
+.btn:hover {
+    background: #007CA6;
+}
+
+.main-nav {
+    font-size: 10pt;
+}
+
+.main-nav img {
+    padding-top: 3px;
+}
+
+.post-box {
+    border-bottom: $lightBorder;
+}
+
+.post-box .btn {
+    font-size: 12px;
+    margin-top: 10px;
+}
 .active-nav {
     text-decoration: underline;
+}
+
+.invite-textarea {
+    width: 500px;
+    height: 500px;
+    resize: none;
 }
 
 h1 {
@@ -30,8 +59,7 @@ h1 {
     margin-bottom: 1%;
 }
 
-.navbar-inner {
-    @include gradient(#FFF, #FFF);
+.navbar-inner1 {
     /*    @include gradient(#006699, #00cafd);*/
     height: 100px;
     border-top: 8px solid #888;
@@ -97,6 +125,15 @@ select {
     float: right;
 }
 
+.profile-nav {
+    font-size: 16px;
+}
+
+.profile-items {
+    min-height: 200px;
+    border-left: $lightBorder;
+    padding-left: 20px;
+}
 
 .popup-background {
     display: none;
@@ -125,14 +162,108 @@ select {
     margin-bottom: 2%;    
 }
 
-.intro-video {
-    margin-left: 25%;
+.intro-video img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.video-teaser {
-    padding-left: 110px;
+.intro-video a {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 150px;
 }
+
+.footer h4 {
+    padding: 20px 20px 0px 0px;
+}
+
+.footer li {
+    padding: 5px 5px 0px 0px;
+}
+
+.footer-column {
+    width: 40%;
+    margin: 0px auto;    
+}
+
 
 .how-to-use-info {
     margin-top: 5%;
 }
+
+body {
+    min-width: $minBodyWidth;
+    padding: 30px 30px 30px 30px;
+}
+
+.page-content {
+    padding: 0px 160px 0px 160px; 
+}
+
+.sign-in input {
+    width: 120px;
+    font-size: 10px;
+    height: 12px;
+}
+
+.sign-in .btn {
+    width: 60px;
+    height: 22px;
+    margin-top: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.sign-in {
+    width: 420px;    
+    padding-top: 4px;
+}
+
+
+
+/*
+.row-fluid .span1 {
+    min-width: getMinSpan(1);
+}
+.row-fluid .span2 {
+    min-width: getMinSpan(2);
+}
+.row-fluid .span3 {
+    min-width: getMinSpan(3);
+}
+.row-fluid .span4 {
+    min-width: getMinSpan(4);
+}
+.row-fluid .span5 {
+    min-width: getMinSpan(5);
+}
+.row-fluid .span6 {
+    min-width: getMinSpan(6);
+}
+.row-fluid .span7 {
+    min-width: getMinSpan(7);
+}
+.row-fluid .span8 {
+    min-width: getMinSpan(8);
+}
+.row-fluid .span9 {
+    min-width: getMinSpan(9);
+}
+.row-fluid .span10 {
+    min-width: getMinSpan(10);
+}
+.row-fluid .span11 {
+    min-width: getMinSpan(11);
+}
+.row-fluid .span12 {
+    min-width: getMinSpan(12);
+}
+
+.row-fluid {
+    min-width: getMinSpan(12);
+}
+*/

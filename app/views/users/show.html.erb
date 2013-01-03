@@ -1,6 +1,8 @@
 <% provide(:page_header, 'Profile') %> 
 <div class="user">
   <div class="row-fluid">
+    
+    
     <div class="span1">
       <div class="profile-picture">
 	<%= image_tag @user.photo.url(:small) %>
@@ -10,15 +12,20 @@
       <h2><%= @user.full_name %></h2>
       <h4><%= @user.display_birthday %></h4>
       <h4><%= @user.display_address %></h4>
-      <% if current_user?(@user) %>
-      <%= form_for @post do |f| %>
-      <%= f.text_field :content, placeholder: "What do you want?",class: "post-text" %>
-      <%= f.submit "Post", class: "btn btn-large btn-primary" %>
-      <% end %>
-      <% end %>      
-    </div>    
+     </div>    
   </div>
 
+  <div class="row-fluid post-box">
+    <div class="span12">
+      <% if current_user?(@user) %>
+      <%= form_for @post do |f| %>
+      <%= f.text_field :content, placeholder: "What do you want as a gift?",class: "post-text" %>
+      <%= f.submit "Post", class: "btn btn-primary" %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+  
   
   <div class="row-fluid lower-profile-page">
     <div class="span3 post-sidebar">
@@ -39,7 +46,7 @@
       
     </div>
 
-    <div class="span9">
+    <div class="span9 profile-items">
       <h3>Book of gifts!</h3>
       <% @item_rows.each do |ri| %>
       <div class="row-fluid">

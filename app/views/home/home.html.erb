@@ -1,13 +1,11 @@
 <% provide(:page_header, 'THE RIGHT GIFT THE EASY WAY!') %>
-<h2>THE RIGHT GIFT THE EASY WAY!</h2>
 <div class="intro-video">
-  
-  <%= image_tag("video_teaser.png") %>
 
-  <div class="video-teaser">
-    <%= link_to sign_up_path do %>
-    <%= image_tag("sign_up_button.png") %>
-    <% end %>
-  </div>
+  <%= image_tag("watch_video.png") %>
+  <br />
+  <%= image_tag("video_teaser.png") %>
+  <br />
+  <%= link_to "JOIN TODAY", sign_up_path, class: "btn btn-large btn-primary" %>
+    
 
 </div>

@@ -1,6 +1,6 @@
 function hostname() {
-    return "http://warm-crag-9504.herokuapp.com/"
-    //return "http://localhost:3000/"
+    //return "http://warm-crag-9504.herokuapp.com/"
+    return "http://192.168.0.2:3000/"
 }
 
 function jqueryLocation() {
@@ -93,7 +93,7 @@ function addPopup(title, price, description) {
 
     var popupClass = '.boogif-add-gift';
     
-    if ($(popupClass).length > 0)
+    if ($(popupClass).length)
     {
 	$(popupClass).fadeIn('slow');
     	return;
@@ -105,6 +105,7 @@ function addPopup(title, price, description) {
     logo = $(document.createElement('img'));
     imgHolder = $(document.createElement('div'));
     signal = $(document.createElement('span'));
+    commitButton = $(document.createElement('input'));
         
     popup.append(header);
     popup.append(logo);
@@ -121,7 +122,7 @@ function addPopup(title, price, description) {
     exit.click(function() { popup.fadeOut('slow');});
     header.append(exit);
     
-    header.css('background','lightblue');
+    header.css('background','#3396B8');
     header.css('border-bottom', '1px solid grey');
     
     form.append('<label>Product Name:</label><br>');
@@ -133,14 +134,19 @@ function addPopup(title, price, description) {
     form.append('<label>Image:</label><br>');
     form.append('<input type="hidden" name="item[buy_link]" value ="' +
 		document.location.href + '">');
-
     
     form.attr('accept-charset', 'UTF-8');
     form.attr('action', hostname() + '/items');
     form.id = 'new_item';
     form.attr('method','post');
-
+    form.css('display', 'block');
+    form.css('margin', '0px auto');
+    form.css('text-align', 'center');
+        
     logo.attr('src', hostname() + "/assets/logo.png");
+    logo.attr('height', 56);
+    logo.css('display','block');
+    logo.css('margin', '0px auto');
     
     popup.css('position', 'absolute');
     popup.css('background', 'white');
@@ -167,7 +173,15 @@ function addPopup(title, price, description) {
     
     
     form.append(imgHolder);
-    form.append('<input name="commit" type="submit" value="Add To My Book">');    
+    commitButton.attr('name', 'commit');
+    commitButton.attr('type', 'submit');
+    commitButton.attr('value', 'Add To My Book');
+    commitButton.css('margin', '20px 0px 20px 0px');
+//    commitButton.click(function() { alert('Added Gift to your Book!'); });
+        
+    form.append(commitButton);
+    
+
     
     $('body').append(popup);
  
@@ -185,7 +199,5 @@ function giftAdderGeneric() {
     giftAdder('','','');
 }
 
-
-//loadJquery(function(){giftAdder();});
 
 

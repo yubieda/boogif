@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
     c = connections.new(to_id: to_id, connection_type_id: 1)
     c.from_id = from_id
     c.confirmed = 0
-    UserMailer.connection_request(self, other_user).deliver
     if self.connections.select{|c| c.to_id==to_id}.length == 1
       c.save
     end
@@ -39,25 +38,33 @@ class User < ActiveRecord::Base
   end
 
   def display_birthday
-    bday = self.birthday.day.to_s + "/" + self.birthday.month.to_s
+    bday = self.birthday.strftime("%B") + " " + self.birthday.day.to_s
     if !self.hide_age
-      bday += "/" + self.birthday.year.to_s
+      bday += ", " + self.birthday.year.to_s
     end
     bday
   end
 
   def display_address
-    addr = ""
-    if !self.hide_address && self.street_address
-      addr += self.street_address
+    addrParts = []
+    
+    if !self.hide_address && self.street_address && self.street_address.length > 0
+      addrParts.push(self.street_address)
     end
-    if self.city 
-      addr += ", " + self.city
+    if self.city
+      addrParts.push(self.city)
     end
     if self.country 
-      addr += ", " + self.country
+      addrParts.push(self.country)
     end
-    addr
+    if self.zip_code
+      addrParts.push(self.zip_code)
+    end
+
+    addrParts = addrParts.flat_map { |a| [a, ","] }
+    addr = ""
+    addrParts.each { |a| addr += a }
+    addr[0..addr.length-2]
   end
 
   def connected?(other_user)
@@ -100,6 +107,5 @@ class User < ActiveRecord::Base
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
   end
-
 
 end

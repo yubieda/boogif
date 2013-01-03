@@ -2,9 +2,7 @@
 
 <%= render "profile/connection_search_bar" %>    
 <div class="row-fluid">
-
   <div class="span12">
-    
     <% if @other_user %>
     <h3>Mutual connections with <%= @other_user.full_name %> </h3> 
     <% @mutual_users.each do |p| %>

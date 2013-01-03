@@ -11,9 +11,8 @@
 
     <div>Personal message (optional): </div>
     <%= text_area_tag "message",
-	"I use BOOGiF to find and give the right gift to someone special like you and to share with you the things I like.\r\n\nPlease, connect with me on BOOGiF.\r\n\nThanks!\r\n" +
-	 current_user.full_name,
-	size:"300x10" %>
+	"I use BOOGiF to find and give the right gift to someone special like you and to share with you the things I like.\r\n\nPlease, connect with me on BOOGiF: http://" + request.host_with_port  + "\r\n\nThanks!\r\n" +
+	 current_user.full_name, class: "invite-textarea" %>
     
     <%= submit_tag "Invite!", class: "btn btn-large btn-primary" %>
 

@@ -39,6 +39,7 @@ BasicSite::Application.routes.draw do
   
   match"/how_to_use", to: "info_pages#howToUse"
   match"/about", to: "info_pages#about"
+  match"/contact", to: "info_pages#contact"
   match"/help", to: "info_pages#help"
   match"/terms", to: "info_pages#terms"
   match"/privacy", to: "info_pages#privacy"

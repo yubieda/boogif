@@ -1,21 +1,30 @@
 <header class="navbar">
-  <div class="navbar-inner">
+  <div class="navbar-inner1">
     <div class="container">
       <nav class="pull-left">
-	<%= image_tag("logo.png", height: 83) %>
+	<%= link_to home_path do %>
+	<%= image_tag("logo.png", height: 56) %>
+	<% end %>
       </nav>
       <nav>
-	<ul class="nav pull-right  main-nav">	  
+	<div class="pull-right">
+	  <ul class="nav main-nav pull-right">	  
+	    <% if signed_in? %>
+	    <li><%= image_tag(current_user.photo.url(:small), height: 20) %></li>
+	    <li><%= link_to current_user.full_name, current_user %></li>
+	    <li><%= link_to "/" %></li>
+	    <li><%= link_to "Log out", sign_out_path, method: "delete" %></li>
+	    <% else %>
+	    <%= render partial: "sessions/form" %>
+	    <% end %>
+	  </ul>
 	  <% if signed_in? %>
-	  <li><%= link_to current_user.full_name, current_user %></li>
-	  <li>__</li>
-	  <li><%= link_to "Home", current_user %></li>
-	  <li>__</li>
-	  <li><%= link_to "Log out", sign_out_path, method: "delete" %></li>
-	  <% else %>
-	  <%= render partial: "sessions/form" %>
+	  <div>
+	  <%= render partial: "profile/header_nav" %>
+	  </div>
 	  <% end %>
-	</ul>
+	  </div>
+	</div>
 	
       </nav>    
     </div>

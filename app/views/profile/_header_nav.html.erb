@@ -1,8 +1,8 @@
-<ul class="nav pull-right nav-pills profile-nav">
+<ul class="nav profile-nav">
   <li><%= link_to "My Profile", current_user, class: active?("show") %></li>
   <li><%= link_to "Family & Friends", profile_connections_path, class: active?("connections")  %></li>
-  <li><%= link_to "Invite Someone", profile_invites_path, class: active?("invites")  %></li>
+  <li><%= link_to "Invite A Friend", profile_invites_path, class: active?("invites")  %></li>
   <li><%= link_to "Events & Reminders", events_path, class: active?("index")  %></li>
   <li><%= link_to "Settings", settings_path, class: active?("edit")  %></li>
-  <li><%= link_to "How to use BOOGiF", how_to_use_path, class: active?("howToUse")  %></li>
+  <li><%= link_to "Tools", how_to_use_path(anchor: "tools"), class: active?("howToUse") %></li>
 </ul>

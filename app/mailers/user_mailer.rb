@@ -48,5 +48,13 @@ class UserMailer < ActionMailer::Base
     end
   end
 
+  def connection_confirmation(from_user, to_user)
+    @from_user = from_user
+    @to_user = to_user
+    mail(to: "#{from_user.full_name} <#{from_user.email}>" , subject: "Connection to #{to_user.full_name}")  do |format|
+      format.html
+    end
+  end
+
 
 end
