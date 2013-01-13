@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
   has_many :user_posts, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :connections, foreign_key: "from_id", dependent: :destroy
+  has_many :to_connections, class_name: Connection, foreign_key: "to_id", dependent: :destroy
   has_many :events, foreign_key: "owner_id", dependent: :destroy
   
+
   has_attached_file :photo,
   :styles => {
     :thumb=>"100x100#", 
