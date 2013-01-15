@@ -1,15 +1,16 @@
 <div class="sign-in">
 
   <%= form_for(:session, url: sessions_path(redirect_path: params[:redirect_path])) do |f| %>
+  
   <div class="row-fluid">
     <div class="span4" >
       <%= f.text_field :email, placeholder: "Email" %>
     </div>
     <div class="span4" >
-      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.password_field :password, placeholder: "Password" %><br/>
       <%= link_to "Forgot your password?", reset_password_path %>
     </div>    
-    <div class="span1" >
+    <div class="span3" >
       <%= f.submit "Enter", class: "btn btn-primary" %>
     </div>
   </div>

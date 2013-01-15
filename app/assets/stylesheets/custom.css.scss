@@ -4,7 +4,7 @@
 $lightBorder: 2px solid #eaeaea;
 $heavyBorder: 3px solid gray;
 $minSpan: 75;
-$minBodyWidth: 1080px;
+$minBodyWidth: 980px;
 
 @function getMinSpan($numSpans) {
     @return  ($numSpans * $minSpan) + px
@@ -12,7 +12,7 @@ $minBodyWidth: 1080px;
 
 .navbar .nav li a {
     float: none;
-    padding: 9px 10px 11px;
+    padding: 9px 10px 11px 0px;
     line-height: 19px;
     color: #000;
     text-decoration: none;
@@ -35,14 +35,6 @@ $minBodyWidth: 1080px;
     padding-top: 3px;
 }
 
-.post-box {
-    border-bottom: $lightBorder;
-}
-
-.post-box .btn {
-    font-size: 12px;
-    margin-top: 10px;
-}
 .active-nav {
     text-decoration: underline;
 }
@@ -62,7 +54,7 @@ h1 {
 .navbar-inner1 {
     /*    @include gradient(#006699, #00cafd);*/
     height: 100px;
-    border-top: 8px solid #888;
+    padding: 20px 0px 0px 25px;
 }
 
 select {
@@ -191,39 +183,25 @@ select {
 }
 
 
+.footer-column-right {
+    padding-right: 56%;
+}
+
+.footer-column-left {
+    padding-left: 56%;
+}
+
 .how-to-use-info {
     margin-top: 5%;
 }
 
 body {
     min-width: $minBodyWidth;
-    padding: 30px 30px 30px 30px;
 }
 
 .page-content {
-    padding: 0px 160px 0px 160px; 
+    padding: 0px 5px 0px 5px; 
 }
-
-.sign-in input {
-    width: 120px;
-    font-size: 10px;
-    height: 12px;
-}
-
-.sign-in .btn {
-    width: 60px;
-    height: 22px;
-    margin-top: 0px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-}
-
-.sign-in {
-    width: 420px;    
-    padding-top: 4px;
-}
-
-
 
 /*
 .row-fluid .span1 {

@@ -1,6 +1,9 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$lightBorder: 2px solid #eaeaea;
+
 .user h3 {
     text-align: center;
     text-decoration: underline;
@@ -13,11 +16,18 @@
 
 .lower-profile-page {
     padding-top: 3%;
+    border-top: $lightBorder;
 }
 
 .post-text {
-    width: 500px;
     margin-top: 20px;
+    min-width: 100%;
+}
+
+
+.post-box .btn {
+    font-size: 12px;
+    margin-top: 10px;
 }
 
 .user-small .btn {

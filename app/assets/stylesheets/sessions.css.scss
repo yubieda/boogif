@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.sign-in form {
-    margin-bottom: 5px;
+.sign-in input {
+    width: 115px;
+    font-size: 11px;
+    height: 30px;
+}
+
+.sign-in a {
+    font-size: 10px;
+}
+
+.sign-in .btn {
+    width: 60px;
+    height: 40px;
+    margin-top: 0px;
+    padding-bottom: 1px;
+}
+
+.sign-in {
+    padding-top: 5px;
+}
+
+.sign-in .span4 {
+    margin-right: 15px;
 }

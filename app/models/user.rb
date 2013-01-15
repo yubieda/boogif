@@ -100,9 +100,11 @@ class User < ActiveRecord::Base
   validates :last_name, presence:true, length: { maximum: 40 }
   validates_inclusion_of :male, in: [true, false]
   validates :birthday, presence:true
-  validates :email, presence: true, uniqueness: true, length: { maximum: 75 }
+  validates :email, presence: true, uniqueness: true, email_format: {message: 'is invalid' }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+  validates :city, presence: true
+  validates :country, presence: true
 
   private
 

@@ -25,7 +25,7 @@ class UserMailer < ActionMailer::Base
     @start_url = root_url
     @message = message
     
-    mail(to: email , subject: "Inviation to BOOGiF")  do |format|
+    mail(to: email , subject: user.first_name + " wants to buy you a gift")  do |format|
       format.html
     end
   end

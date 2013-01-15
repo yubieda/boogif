@@ -1,8 +1,8 @@
 <div class="item">
   <div>
     <span>
-      Price: <% if item.price %>
-      <%= item.price.symbol %><%= item.price %>
+      <% if item.price %>
+      <%= humanized_money_with_symbol item.price %>
       <% else %>??<% end %>      
   </span>
     <% if current_user?(user) %>
