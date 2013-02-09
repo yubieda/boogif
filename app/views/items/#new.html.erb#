@@ -1,0 +1,31 @@
+<div class="add-gift-div">
+
+  <b>Add a gift!</b>
+  
+  <%= form_for @item do |f| %>
+  <%= f.label "Product name:" %>
+  <%= f.text_field :title %>
+  <%= f.label "Price:" %>
+  <%= f.text_field :price %>
+  <%= f.label "Description" %>
+  <%= f.text_field :description %>      
+ 
+ <div >
+   <%= f.label "Image:" %>
+   <div class="row">
+     <% params[:test].each do |t| %>
+     <div class="span1">
+       <%= image_tag t %>
+       <br/>
+       <%= f.radio_button :photo_path, t %>
+     </div>
+     <% end %>
+   </div>
+  </div>
+  
+  <%= f.submit "Update", class: "btn btn-primary block" %>
+      
+  <% end %>
+
+
+</div>

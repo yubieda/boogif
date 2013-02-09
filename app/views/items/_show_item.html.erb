@@ -1,18 +1,4 @@
 <div class="item">
-  <div>
-    <span>
-      <% if item.price %>
-      <%= humanized_money_with_symbol item.price %>
-      <% else %>??<% end %>      
-  </span>
-    <% if current_user?(user) %>
-    <span class="pull-right">
-  <%= link_to item, method: :delete, data: { confirm: "Are you sure you want to delete?" } do %>
-  <i class="icon-remove pull-right"></i>
-  <% end %>
-  </span>
-  <% end %>
-  </div>
   <div class="item-image-and-title">
     <%= image_tag item.photo_path %>
     <h4><%= item.title %></h4>     

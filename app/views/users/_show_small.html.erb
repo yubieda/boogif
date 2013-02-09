@@ -23,7 +23,9 @@
       <%= link_to "Mutual Connections", profile_connections_path(mutual_user_id: user.id) %>
       <% if current_user.connected?(user) %>
       <br />
-      <%= link_to "Disconnect", delete_connection_path(user_id: user.id) %>      
+      <div class="disconnect-link">
+      <%= link_to "Disconnect", "http://www.google.com" %>      
+      </div>
       <% end %>      
     </div>   
   </div>

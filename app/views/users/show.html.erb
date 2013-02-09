@@ -19,11 +19,12 @@
         <div class="post-box">
 	  <% if current_user?(@user) %>
 	  <%= form_for @post do |f| %>
-	  <%= f.text_field :content, placeholder: "What do you want as a gift?",class: "post-text" %>
+	  <%= f.text_area :content, placeholder: "What do you want as a gift?",class: "post-text" %>
 	  <%= f.submit "Post", class: "btn btn-primary pull-right" %>
 	  <% end %>
 	  <% end %>
 	</div>
+	<h3>Timeline of posts</h3>
 	<% @user.user_posts.each do |p| %>
 	<% if p.content  %>
 	<div class="post">

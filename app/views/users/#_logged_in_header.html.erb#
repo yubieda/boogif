@@ -1,0 +1,19 @@
+<div class="logged-in-header" >
+  <div class="row-fluid">
+    <div class="span3">
+      <h4>  <%= current_user.full_name %><h4>
+    </div>
+    <div class="span3">
+      <%= link_to "Your Connections", profile_connections_path %>
+    </div>
+    <div class="span3">
+      <%= link_to "Your Reminders", profile_connections_path %>
+    </div>
+    <div class="span3">
+      <%= link_to "How do I use BOOGiF?", profile_connections_path %>
+    </div>    
+  </div>
+</div>
+
+
+
