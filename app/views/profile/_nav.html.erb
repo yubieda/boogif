@@ -1,11 +1,11 @@
 <div class="tabbable tabs-left">
   <ul class="nav nav-tabs">
-    <li><b><%= current_user.full_name %></b></li> 
+    <li><b><%= current_user.displayed_name %></b></li> 
     <li class="active"><a>My Connections</a></li>
     <li><%= link_to "My Profile", current_user %></li>
     <li><%= link_to "My Connections", profile_connections_path %></li>
     <li><%= link_to "My Events", events_path %></li>
     <li><%= link_to "Invite Friends", profile_invites_path %></li>
-    <li><%= link_to "How do I use BOOGiF", profile_connections_path %></li>
+    <li><%= link_to "How do I use BooGif?", profile_connections_path %></li>
   </ul>
 </div>

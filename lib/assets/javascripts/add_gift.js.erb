@@ -9,15 +9,15 @@ function jqueryLocation() {
 function loadJquery(callback) {
     if(!(window.jQuery && window.jQuery.fn.jquery == '1.3.2'))
     {
-	var s = document.createElement('script');
-	s.setAttribute('src', jqueryLocation());
-	s.setAttribute('type', 'text/javascript');
-	document.getElementsByTagName('head')[0].appendChild(s);
-	s.onload = callback;
+      var s = document.createElement('script');
+      s.setAttribute('src', jqueryLocation());
+      s.setAttribute('type', 'text/javascript');
+      document.getElementsByTagName('head')[0].appendChild(s);
+      s.onload = callback;
     }
     else
     {
-	callback.call();
+      callback.call();
     }
 }
 
