@@ -1,6 +1,9 @@
 class ProfileController < ApplicationController
   before_filter :redirect_if_not_signed_in
   
+  # TODO:
+  # - split into two methods
+  # - refactor
   def connections
     @search_string = params[:search]
     @mutual_user_id = params[:mutual_user_id]
@@ -21,10 +24,10 @@ class ProfileController < ApplicationController
     #mutual connections.  Could probably optimize as well
     if @mutual_user_id
       @other_user = User.find_by_id(@mutual_user_id) 
-      my_connections = current_user.connections
+      my_connections = current_user.connections.confirmed
       other_connections = []      
       if @other_user 
-        other_connections = @other_user.connections 
+        other_connections = @other_user.connections.confirmed
       end
       
       for c in my_connections
