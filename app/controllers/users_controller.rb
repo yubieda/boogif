@@ -21,6 +21,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_path if @user != current_user
+
     @post = @user.user_posts.build if signed_in?
     @item_rows = get_item_rows(@user)
   end
