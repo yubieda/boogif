@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
   end
 
   def connected?(other_user)
-    connected_people.include?(other_user)
+    connections.confirmed.where(:to_id => other_user.id).count > 0
   end
 
   def invited_events
@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
   end
 
   def connected_people
-    connections.select {|c| c.confirmed}.map { |c| User.find_by_id(c.to_id) } 
+    connections.confirmed.map(&:to)
   end
   
 

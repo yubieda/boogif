@@ -14,6 +14,8 @@ class ConnectionsController < ApplicationController
     redirect_back_or(profile_connections_path)
   end
 
+  # TODO:
+  # move to model
   def confirm
     other_user = User.find(params[:user_id]) 
     c = other_user.connections.find_by_to_id(current_user.id)

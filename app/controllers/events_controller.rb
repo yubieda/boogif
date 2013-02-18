@@ -1,3 +1,4 @@
+# Disabled for now
 class EventsController < ApplicationController
   before_filter :redirect_if_not_signed_in
   before_filter :redirect_if_no_event_name, only: [:create, :update]
