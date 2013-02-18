@@ -11,6 +11,11 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
 
+    <div class="clear">
+      <%= f.check_box :remember_me, class: "form-signin checkbox" %>
+      <%= f.label :remember_me, "Remember me", class: "form-signin" %>
+    </div>
+
     <div>
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     </div>
