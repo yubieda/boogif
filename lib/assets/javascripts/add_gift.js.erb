@@ -1,12 +1,9 @@
 function hostname() {
-    //return "http://warm-crag-9504.herokuapp.com/"
-    return "http://localhost:3000/"
-    //return <%= request.host_with_port %>;
+    return '<%= APP_PUBLIC_URL %>';
 }
 
 function jqueryLocation() {
     return 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'
-    //return hostname() + "jquery.min.js"
 }
 
 function loadJquery(callback) {
@@ -26,6 +23,8 @@ function loadJquery(callback) {
 
 //alert( );
 //loadJquery( function(){jQuery.getScript(hostname() + "add_gift_lib.js", function(){giftAdderGeneric();});});
-loadJquery( function(){jQuery.getScript(hostname() + "add_gift_lib.js",
+loadJquery( function(){jQuery.getScript('<%=asset_path "add_gift_lib.js" %>',
 					function(){ giftAdder('','','');}
 				       );});
+
+
