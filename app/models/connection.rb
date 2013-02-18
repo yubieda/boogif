@@ -9,6 +9,4 @@ class Connection < ActiveRecord::Base
     self.confirmed = 1
     self.save
   end
-
-  
 end

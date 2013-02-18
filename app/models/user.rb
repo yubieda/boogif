@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :user_posts, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :connections, foreign_key: "from_id", dependent: :destroy
-  has_many :to_connections, class_name: Connection, foreign_key: "to_id", dependent: :destroy
+  has_many :to_connections, class_name: 'Connection', foreign_key: "to_id", dependent: :destroy
   has_many :events, foreign_key: "owner_id", dependent: :destroy
   
 
@@ -16,15 +16,12 @@ class User < ActiveRecord::Base
   :default_url => "profile_missing_:style.png"
 
   def connect!(other_user)
-    to_id = other_user.id
-    from_id = self.id
-    c = connections.new(to_id: to_id, connection_type_id: 1)
-    c.from_id = from_id
-    c.confirmed = 0
-    if self.connections.select{|c| c.to_id==to_id}.length == 1
-      c.save
-    end
-    c
+    self.connections.create!(to_id: other_user.id, connection_type_id: 1)
+  end
+
+  def disconnect!(other_user)
+    self.connections.where(to_id: other_user.id).delete_all
+    other_user.connections.where(to_id: self.id).delete_all
   end
 
   def reset_password!

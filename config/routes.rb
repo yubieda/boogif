@@ -13,7 +13,9 @@ BasicSite::Application.routes.draw do
   get "info_pages/howToUse"
   
   
-  resources :users
+  resources :users do
+    # resources :connections
+  end
   resources :events
   resources :sessions, only: [:new, :create, :destroy]
   resources :user_posts, only: [:create, :destroy]
