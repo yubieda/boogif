@@ -51,6 +51,7 @@ class ItemsController < ApplicationController
     @item.purchaser_id = current_user.id
     @item.save
     UserMailer.gift_reminder(current_user, @item).deliver
+    render :text => "OK"
   end
 
   def unpurchase
@@ -61,6 +62,7 @@ class ItemsController < ApplicationController
     end
     @item.purchaser_id = nil
     @item.save
+    render :text => "OK"
   end
 
 

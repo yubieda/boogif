@@ -1,6 +1,6 @@
 function hostname() {
-    return "http://warm-crag-9504.herokuapp.com/"
-    //return "http://192.168.0.2:3000/"
+    //return "http://warm-crag-9504.herokuapp.com/"
+    return "http://localhost:3000/"
 }
 
 function jqueryLocation() {
