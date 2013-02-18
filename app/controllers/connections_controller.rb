@@ -21,7 +21,7 @@ class ConnectionsController < ApplicationController
     UserMailer.connection_confirmation(other_user, current_user).deliver
     
     # other way connection
-    c2 = current_user.connect!(other_user)
+    c2 = current_user.connect!(other_user, true)
     c2.confirm!
     flash[:success] = "Connection confirmed"
 

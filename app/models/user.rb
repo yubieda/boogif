@@ -15,8 +15,11 @@ class User < ActiveRecord::Base
     :small=>"200x200#" }, 
   :default_url => "profile_missing_:style.png"
 
-  def connect!(other_user)
-    self.connections.create!(to_id: other_user.id, connection_type_id: 1)
+  def connect!(other_user, confirmed = false)
+    c = self.connections.new(to_id: other_user.id, connection_type_id: 1)
+    c.confirmed = confirmed
+    c.save!
+    c
   end
 
   def disconnect!(other_user)
@@ -79,8 +82,9 @@ class User < ActiveRecord::Base
     connections.select {|c| c.confirmed}.map { |c| User.find_by_id(c.to_id) } 
   end
   
+
   def requested_connections
-    Connection.all.select {|c| !(c.confirmed) && c.to_id==self.id}.map{|c| User.find_by_id(c.from_id)}
+    self.to_connections.unconfirmed.map(&:from)
   end
 
   before_save { 
