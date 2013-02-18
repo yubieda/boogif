@@ -8,8 +8,37 @@
     height: 30px;
 }
 
-.sign-in a {
+.sign-in a, label.signin {
     font-size: 10px;
+}
+
+input[type="checkbox"].signin, label.signin {
+	float: left;
+}
+
+input[type="checkbox"].form-signin, label.form-signin {
+	float: left;
+}
+
+input[type="checkbox"].signin {
+	width:  14px;
+	height: 14px;
+	margin-right: 4px;
+}
+
+input[type="checkbox"].form-signin {
+	width:  14px;
+	height: 14px;
+	margin: 0 4px 0 0;
+}
+
+label.form-signin {
+	margin: 0 40px 0 0;
+}
+
+
+label.signin {
+	color: #0088cc;
 }
 
 .sign-in .btn {

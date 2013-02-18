@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   include UsersHelper
   
+  before_filter :redirect_if_not_signed_in, :only => [:show, :edit, :update]
+  
   def create
     @user = User.new(params[:user])
     
@@ -18,7 +20,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])    
+    @user = User.find(params[:id])
+    redirect_to root_path if @user != current_user
+
     @post = @user.user_posts.build if signed_in?
     @item_rows = get_item_rows(@user)
   end
