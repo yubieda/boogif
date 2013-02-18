@@ -1,11 +1,9 @@
 function hostname() {
-    //return "http://warm-crag-9504.herokuapp.com/"
-    return "http://localhost:3000/"
+    return '<%= APP_PUBLIC_URL %>';
 }
 
 function jqueryLocation() {
     return 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'
-    //return hostname() + "jquery.min.js"
 }
 
 function jqueryUiLocation() {
@@ -65,7 +63,7 @@ function getImageNameQueryString() {
 
 function addGiftUrl() {
     //return "http://www.amazon.com";
-    return hostname() + "add_gift?" + getImageNameQueryString();
+  return '<%= asset_path "add_gift?" %>' + getImageNameQueryString();
 }
 
 
@@ -143,7 +141,7 @@ function addPopup(title, price, description) {
     form.css('margin', '0px auto');
     form.css('text-align', 'center');
         
-    logo.attr('src', hostname() + "/assets/logo.png");
+    logo.attr('src','<%=asset_path "logo.png" %>');
     logo.attr('height', 56);
     logo.css('display','block');
     logo.css('margin', '0px auto');
@@ -190,7 +188,7 @@ function addPopup(title, price, description) {
 
 function giftAdder(title, price, description) {
     loadJquery(function(){
-	jQuery.getScript(hostname() + "popup.js?body=1", addPopup(title,price,description));
+      jQuery.getScript('<%=asset_path  "popup.js?body=1"%>', addPopup(title,price,description));
 	jQuery.getScript(jqueryUiLocation(), function(){popup.draggable();});
     });
 }

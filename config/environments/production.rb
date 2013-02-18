@@ -23,7 +23,7 @@ BasicSite::Application.configure do
   }
   
   config.action_mailer.default_url_options = {
-    :host => "warm-crag-9504.herokuapp.com",
+    :host => APP_PUBLIC_URL,
     :port => 80
   }
 
@@ -71,7 +71,7 @@ BasicSite::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  # config.action_controller.asset_host = "http://assets.example.com"
+   config.action_controller.asset_host = APP_PUBLIC_URL
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
@@ -93,3 +93,7 @@ BasicSite::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
+
+
+APP_PUBLIC_URL = 'http://warm-crag-9574.herokuapp.com'
+

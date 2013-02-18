@@ -10,7 +10,7 @@ $(function(){
 	    FB.ui({
 		method: 'send',
 		name: 'BOOGiF - The right gift, the easy way',
-		link: 'http://warm-crag-9504.herokuapp.com/'
+		link: 'http://warm-crag-9574.herokuapp.com/'
 	    });
 	});
 
