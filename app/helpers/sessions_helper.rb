@@ -1,7 +1,10 @@
 module SessionsHelper
 
-  def sign_in(user)
-    cookies.permanent[:remember_token] = user.remember_token
+  def sign_in(user, remember_me = false)
+    cookie_data = { :value => user.remember_token }
+    cookie_data.merge!(:expires => 2.weeks.from_now) if remember_me
+    cookies[:remember_token] = cookie_data
+
     self.current_user = user
   end
 
