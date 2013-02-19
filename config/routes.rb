@@ -1,5 +1,8 @@
 BasicSite::Application.routes.draw do
   
+  match '/scrapper', to: 'scrapper#index', :as => 'scrapper'
+  match '/scrapped_images', to: 'scrapper#scrapped_images', :as => 'scrapped_images'
+
   root to: "home#home"
 
   get "info_pages/about"

@@ -107,56 +107,8 @@ function addPopup(title, price, description) {
     }
 
     popup = $(document.createElement('div'));
-    header = $(document.createElement('div'));
-    form = $(document.createElement('form'));
-    logo = $(document.createElement('img'));
-    imgHolder = $(document.createElement('div'));
-    signal = $(document.createElement('span'));
-    commitButton = $(document.createElement('input'));
-
-    popup.append(header);
-    popup.append(logo);
-    popup.append(form);
     popup.addClass('boogif-add-gift');
-
-    header.append('<b>Add a gift!</b>');
-
     exit = $('<span class="boogif-add-gift-exit">X</span>');
-
-    exit.css('float', 'right');
-    exit.css('display', 'block');
-    exit.css('color', 'red');
-    exit.click(function() { popup.fadeOut('slow');});
-    header.append(exit);
-
-    header.css('background','#3396B8');
-    header.css('border-bottom', '1px solid grey');
-
-    form.append('<label>Product Name:</label><br>');
-    form.append(getTextInput('item[title]', title));
-    form.append('<label>Price:</label><br>');
-    form.append(getTextInput('item[price]', price));
-    form.append('<label>Currency:</label><br>');
-    form.append(drawCurrencySelect()+'<br>');
-    form.append('<label>Description:</label><br>');
-    form.append(getTextInput('item[description]', description));
-    form.append('<label>Image:</label><br>');
-    form.append('<input type="hidden" name="item[buy_link]" value ="' +
-                document.location.href + '">');
-
-    form.attr('accept-charset', 'UTF-8');
-    form.attr('action', hostname() + '/items');
-    form.id = 'new_item';
-    form.attr('method','post');
-    form.css('display', 'block');
-    form.css('margin', '0px auto');
-    form.css('text-align', 'center');
-
-    logo.attr('src','<%=asset_path "logo.png" %>');
-    logo.attr('height', 56);
-    logo.css('display','block');
-    logo.css('margin', '0px auto');
-
     popup.css('position', 'absolute');
     popup.css('background', 'white');
     popup.css('color', 'black');
@@ -167,32 +119,14 @@ function addPopup(title, price, description) {
     popup.css('border', '3px solid grey');
     popup.css('z-index', '9999999');
 
-    form.append('<br/>');
+
     var imgs = getImageNames();
-    for (var i=0;i<imgs.length;i++)
-    {
-      console.log(imgs[i]);
-      imgHolder.append( getImageInputButton(imgs[i]));	
-    }
-    imgHolder.css('width','320px');
-    imgHolder.css('overflow-x','auto');
-    imgHolder.css('overflow-y','auto');
-    imgHolder.css('height','120px');
-    imgHolder.css('position','static');
+    //$.get(hostname()+'/scrapped_images', {images: imgs},function(){
+    //  alert('success');
+      popup.append("<iframe id='boogif_add_item' name='boogif_add_item' src='"+hostname()+"/scrapper' frameborder='0' scrolling='no' height='580' data-id='asdasd'></iframe>");
+      $('body').append(popup);
+    //})
 
-
-    form.append(imgHolder);
-    commitButton.attr('name', 'commit');
-    commitButton.attr('type', 'submit');
-    commitButton.attr('value', 'Add To My Book');
-    commitButton.css('margin', '20px 0px 20px 0px');
-    //    commitButton.click(function() { alert('Added Gift to your Book!'); });
-
-    form.append(commitButton);
-
-
-
-    $('body').append(popup);
 
     return;
 }

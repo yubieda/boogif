@@ -9,13 +9,11 @@ class ItemsController < ApplicationController
     
     if @item.save
       flash[:success] = "Added Item!"
+      render :action => 'create', :layout => 'scrapper'
     else
       flash[:error] = "Failed to add item"
-      @item.errors.full_messages.each do |e| 
-        flash[:error] += " " + e
-      end
+      render :action => 'new'
     end
-    redirect_to current_user
   end
 
   def new 
