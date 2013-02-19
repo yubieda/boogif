@@ -24,7 +24,14 @@
       <li>Explorer: [please complete with corresponding text - I don’t have access at home]</li>
     </ul>
   </li>
-  <li>Drag and drop the +BOOGiF button below to your Bookmarks Toolbar.<div><%= image_tag "arrow.png" %><%= image_tag "plus_boogif.png", :height => 40 %></div></li>
+  <li>
+    Drag and drop the +BOOGiF button below to your Bookmarks Toolbar.
+    <div>
+      <%= link_to bookmarklet_code do %>
+        <%= image_tag "arrow.png" %><%= image_tag "plus_boogif.png", :height => 40 %>
+      <% end %>
+    </div>
+  </li>
   <li>Start adding to your list the things you love from any online store, with a single click of +BOOGiF button in your Bookmarks toolbar.</li>
 </ol>
 <p>One-time setup to allow saving products when shopping around in any physical store:</p>
