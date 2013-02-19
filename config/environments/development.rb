@@ -1,3 +1,4 @@
+APP_PUBLIC_URL = 'http://localhost:3000'
 BasicSite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -68,8 +69,7 @@ BasicSite::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-   config.action_controller.asset_host = "http://localhost:3000"
+   config.action_controller.asset_host = APP_PUBLIC_URL
   
 end
 
-APP_PUBLIC_URL = 'http://localhost:3000'

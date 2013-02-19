@@ -1,3 +1,4 @@
+APP_PUBLIC_URL = 'http://warm-crag-9574.herokuapp.com'
 BasicSite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -95,5 +96,4 @@ BasicSite::Application.configure do
 end
 
 
-APP_PUBLIC_URL = 'http://warm-crag-9574.herokuapp.com'
 
