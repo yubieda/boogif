@@ -6,8 +6,10 @@ class UserPostsController < ApplicationController
     
     if @post.save
       flash[:success] = "Created post"
-      redirect_to current_user
+    else
+      flash[:error] = "Post should be less 140 symbols"
     end
+    redirect_to current_user
   end
 
   def destroy
