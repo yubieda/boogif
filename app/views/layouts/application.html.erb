@@ -10,6 +10,7 @@
 
     </script>
     <%= csrf_meta_tags %>
+    <%=render :partial => 'layouts/google_analytics' if Rails.env.production? %>
   </head>
   <body>
     <% if request.path == add_gift_path %>
