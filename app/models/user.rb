@@ -48,25 +48,16 @@ class User < ActiveRecord::Base
   end
 
   def display_address
-    addrParts = []
-    
-    if !self.hide_address && self.street_address && self.street_address.length > 0
-      addrParts.push(self.street_address)
-    end
-    if self.city
-      addrParts.push(self.city)
-    end
-    if self.country 
-      addrParts.push(self.country)
-    end
-    if self.zip_code
-      addrParts.push(self.zip_code)
-    end
+    return '' if self.hide_address
 
-    addrParts = addrParts.flat_map { |a| [a, ","] }
-    addr = ""
-    addrParts.each { |a| addr += a }
-    addr[0..addr.length-2]
+    addr_parts = []
+
+    addr_parts.push(self.street_address) if self.street_address.present?
+    addr_parts.push(self.city) if self.city.present?
+    addr_parts.push(self.country) if self.country.present?
+    addr_parts.push(self.zip_code) if self.country.present?
+
+    addr_parts.join(', ')
   end
 
   def connected?(other_user)
