@@ -1,3 +1,6 @@
+<script type="text/javascript" charset="utf-8">
+  console.log($(parent.document));
+</script>
 <div class="add-gift-div">
 
   <% if @item.errors.any? %>
@@ -13,7 +16,7 @@
   
 
   <%= form_for @item do |f| %>
-
+    <%=f.hidden_field :buy_link%>
     <div class="row-fluid">
       <div class="span2">
         <%= f.label "Product name:" %>
@@ -39,16 +42,17 @@
       </div>
     </div>
 
- <div >
+ <div style='width:250px;height:120px;position:static;overflow-x:auto;overflow-y:auto;'>
    <%= f.label "Image:" %>
    <div class="row">
-     <% params[:scrapped_images].each do |t| %>
-       <div class="span1">
-         <%= image_tag t %>
-         <br/>
+     <% @images.each do |t| %>
+       <div class="span1" style='text-align:center;padding:4px;'>
+         <div style='width:60px;height:60px;overflow:hidden;text-align:center'>
+           <%= image_tag t, :style => 'max-width:60px;max-height:60px;' %>
+         </div>
          <%= f.radio_button :photo_path, t %>
        </div>
-     <% end if params[:scrapped_images]%>
+     <% end%>
    </div>
   </div>
 

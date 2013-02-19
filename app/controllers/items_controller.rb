@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
       flash[:success] = "Added Item!"
       render :action => 'create', :layout => 'scrapper'
     else
+      @images = [@item.photo_path].compact
       flash[:error] = "Failed to add item"
       render :action => 'new'
     end
