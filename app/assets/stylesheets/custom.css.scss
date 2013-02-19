@@ -16,7 +16,10 @@ $minBodyWidth: 980px;
     line-height: 19px;
     color: #000;
     text-decoration: none;
-    &:hover { color: #bbb }
+    &:hover { 
+      color: #333;
+      text-decoration: underline;
+    }
 }
 
 .btn {
@@ -35,7 +38,7 @@ $minBodyWidth: 980px;
     padding-top: 3px;
 }
 
-.active-nav {
+.nav .active-nav {
     text-decoration: underline;
 }
 
@@ -207,45 +210,10 @@ body {
 	clear: both;
 }
 
-/*
-.row-fluid .span1 {
-    min-width: getMinSpan(1);
-}
-.row-fluid .span2 {
-    min-width: getMinSpan(2);
-}
-.row-fluid .span3 {
-    min-width: getMinSpan(3);
-}
-.row-fluid .span4 {
-    min-width: getMinSpan(4);
-}
-.row-fluid .span5 {
-    min-width: getMinSpan(5);
-}
-.row-fluid .span6 {
-    min-width: getMinSpan(6);
-}
-.row-fluid .span7 {
-    min-width: getMinSpan(7);
-}
-.row-fluid .span8 {
-    min-width: getMinSpan(8);
-}
-.row-fluid .span9 {
-    min-width: getMinSpan(9);
-}
-.row-fluid .span10 {
-    min-width: getMinSpan(10);
-}
-.row-fluid .span11 {
-    min-width: getMinSpan(11);
-}
-.row-fluid .span12 {
-    min-width: getMinSpan(12);
+.navbar{
+  border-bottom: 2px solid #eaeaea;
 }
 
-.row-fluid {
-    min-width: getMinSpan(12);
+.profile-picture {
+  border: 1px solid #eaeaea;
 }
-*/
