@@ -1,0 +1,48 @@
+<h1>Listing users </h1>
+<h2><%=link_to 'Export', export_admin_users_path %></h2>
+
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Male</th>
+    <th>Birthday</th>
+    <th>Hide age</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Zip code</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Street address</th>
+    <th>Hide address</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.male %></td>
+    <td><%= user.birthday %></td>
+    <td><%= user.hide_age %></td>
+    <td><%= user.city %></td>
+    <td><%= user.country %></td>
+    <td><%= user.zip_code %></td>
+    <td><%= user.created_at %></td>
+    <td><%= user.updated_at %></td>
+    <td><%= user.street_address %></td>
+    <td><%= user.hide_address %></td>
+    <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+    <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>
+
+<%= paginate @users %>

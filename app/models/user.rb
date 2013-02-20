@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  paginates_per 50
+  
   attr_accessible :email, :first_name, :last_name, :email, 
   :male, :birthday, :hide_age, :street_address, :hide_address, :city, :country, :zip_code, :photo, :password, :password_confirmation 
   has_secure_password
@@ -93,8 +95,8 @@ class User < ActiveRecord::Base
   validates_inclusion_of :male, in: [true, false]
   validates :birthday, presence:true
   validates :email, presence: true, uniqueness: true, email_format: {message: 'is invalid' }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
+  validates :password_confirmation, presence: true, on: :create
   validates :city, presence: true
   validates :country, presence: true
 

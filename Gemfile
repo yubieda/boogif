@@ -18,6 +18,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 gem 'validates_email_format_of'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,5 +1,13 @@
 BasicSite::Application.routes.draw do
   
+  namespace :admin do 
+    resources :users do
+      collection do
+        get 'export'
+      end
+    end
+  end
+
   match '/scrapper', to: 'scrapper#index', :as => 'scrapper'
   match '/scrapped_images', to: 'scrapper#scrapped_images', :as => 'scrapped_images'
 
