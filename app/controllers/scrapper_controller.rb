@@ -35,7 +35,7 @@ class ScrapperController < ApplicationController
         (img.attributes['style'] && img.attributes['style'].value =~ /display:none/i ) ||
         (img.attributes['width'] && img.attributes['width'].value.to_i < 60) ||
         (img.attributes['height'] && img.attributes['height'].value.to_i < 60)
-      end.map{|img| img.attributes['src'].value }
+      end.map{|img| img.attributes['src'].try(:value) }.compact
     else
       []
     end
