@@ -49,14 +49,13 @@
             </div>
             <!--main nav-->
             <ul class="nav">
-
-              <li class="<%=active?("show") %>"><%= link_to "My Profile", current_user %></li>
-              <li class="<%=active?("connections") %>"><%= link_to "Family & Friends", profile_connections_path %></li>
-              <li class="<%=active?("invites") %>"><%= link_to "Invite A Friend", profile_invites_path  %></li>
-              <li class="<%=active?("edit") %>"><%= link_to "Settings", settings_path  %></li>
-              <li class="last <%=active?("howToUse") %>"><%= link_to "Tools", how_to_use_path(anchor: "tools")%></li>
-
-
+              <% if signed_in? %>
+                <li class="<%=active?("show") %>"><%= link_to "My Profile", current_user %></li>
+                <li class="<%=active?("connections") %>"><%= link_to "Family & Friends", profile_connections_path %></li>
+                <li class="<%=active?("invites") %>"><%= link_to "Invite A Friend", profile_invites_path  %></li>
+                <li class="<%=active?("edit") %>"><%= link_to "Settings", settings_path  %></li>
+                <li class="last <%=active?("howToUse") %>"><%= link_to "Tools", how_to_use_path(anchor: "tools")%></li>
+              <% end %>
             </ul>
             <!--end main nav-->
             
