@@ -24,7 +24,7 @@
       <% if current_user.connected?(user) %>
       <br />
       <div class="disconnect-link">
-      <%= link_to "Disconnect", delete_connection_path(user_id: user.id) %>
+        <%= link_to "Disconnect", delete_connection_path(user_id: user.id), :confirm => "Are you sure want to disconnect with #{user.full_name}" %>
       </div>
       <% end %>      
     </div>   
