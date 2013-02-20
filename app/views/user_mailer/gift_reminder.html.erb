@@ -6,19 +6,28 @@
 
   <body>
     <div>
-      Hi <%= @user.first_name %>, 
+      Hi <%= @user.first_name %>,
     </div>
-    
+    <br/>
     <div>
       Just a quick reminder that you've decided to buy
-      <%= @other_user.first_name %> <%= @other_user.last_name %> an <%= @item.title %>.  
+      <%= @other_user.full_name %> the following item:
+
+      <div>
+        Product name: <%= @item.title %>
+      </div>
+      <div>
+        Description: <%= @item.description %>
+      </div>
+      <div>
+        Where: <%= link_to 'here', @item.buy_link %>
+      </div>
 
       Here's a link that might help: <%= @item.buy_link %>
     </div>
 
     <%= render partial: "signature" %>
-    
- 
+
   </body>
 
 </html>
