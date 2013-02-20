@@ -269,7 +269,7 @@
     
     /*menu header underline*/
     .navbar{
-        background:transparent url(../img/skin_blue/head_line_btm.jpg) repeat-x 0 100%;
+        background:transparent url(/assets/skin_blue/head_line_btm.jpg) repeat-x 0 100%;
     }
     
     .navbar .brand{
@@ -393,7 +393,7 @@
 	
     
     .tagline .action span{
-        background:url(../img/skin/or_line.png) no-repeat 5px 2px;
+        background:url(/assets/skin/or_line.png) no-repeat 5px 2px;
         line-height:36px;
         font-style:italic;
         font-family:Georgia, Constantia, Lucida, serif;
@@ -732,7 +732,7 @@
     }
     
     .widget_portfolio > div > a span{
-        background:url(../img/skin/project_triangle.png) no-repeat 0 0;
+        background:url(/assets/skin/project_triangle.png) no-repeat 0 0;
     }
     
     .widget_portfolio .title span{
@@ -827,7 +827,7 @@
     }
     
     .portfolioItem a span{
-        background:url(../img/skin/project_triangle.png) no-repeat 0 0;
+        background:url(/assets/skin/project_triangle.png) no-repeat 0 0;
     }
     
     .portfolioItem .title span{
@@ -901,7 +901,7 @@
         font-weight:bold;
         font-size:14px;
         color:#444;
-        background:url(../img/skin/photo_num_bg.png) no-repeat 0 0;
+        background:url(/assets/skin/photo_num_bg.png) no-repeat 0 0;
     }
     
     /*footer*/
@@ -918,7 +918,7 @@
     }
     
     footer .testimonial .span9{
-        background:url(../img/skin_blue/speech_line.png) no-repeat 100% 15px;
+        background:url(/assets/skin_blue/speech_line.png) no-repeat 100% 15px;
     }
     
     footer blockquote{
@@ -998,7 +998,7 @@
     .widget_twitter p span{
         color:#aaa;
         font-size:11px;
-        background:url(../img/skin/tweet_icon.png) no-repeat 0 0;
+        background:url(/assets/skin/tweet_icon.png) no-repeat 0 0;
     }
     
     .widget_twitter .followBtn:hover span{
@@ -1093,11 +1093,11 @@
     }
     
     a.peOver span.lightboxIcon{
-        background: url("../img/skin/view.png") no-repeat center center;
+        background: url("/assets/skin/view.png") no-repeat center center;
     }
     
     a.peOver span.linkIcon{
-        background: url("../img/skin/link.png") no-repeat center center;
+        background: url("/assets/skin/link.png") no-repeat center center;
     }
     
     
@@ -1110,7 +1110,7 @@
     
 	.videoWrapper a.peVideo span.largePlay {
         opacity:0.7;
-		background: url("../img/skin/vid_start.png") no-repeat center center;
+		background: url("/assets/skin/vid_start.png") no-repeat center center;
     }
     
     .videoWrapper a.peVideo:hover span.largePlay{
@@ -1213,7 +1213,7 @@
         
         /*logo for drop menu arrangement*/
         .navbar .brand{
-            background:url(../img/content/logo_sml.png) no-repeat;
+            background:url(/assets/logo_sml.png) no-repeat;
         }
         
         .navbar .nav > li > a, .navbar .dropdown-menu a{

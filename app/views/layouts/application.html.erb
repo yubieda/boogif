@@ -24,7 +24,6 @@
   </head>
 
   <body>
-  <% if !@skip_header || !session[:referal] %>
     <!--header and menu-->
     <header class="navbar navbar-fixed-top" id="top">
       <div class="navbar-inner">
@@ -68,7 +67,6 @@
         </div>
       </div>
     </header>
-    <% end %>
     <div class="popup-background" ></div>
     <div class="popup-frame">
       <div class="popup-exit">
@@ -107,7 +105,6 @@
             <div class="span10 footNav offset1">
                 <%= link_to "About BOOGiF", about_path %>
                 <%= link_to "How It Works", how_to_use_path %>
-                <%= link_to "Home", home_path %>
                 <%= link_to "Online Stores", online_stores_path %>
                 <%= link_to "Facebook", "http://www.facebook.com/BOOGiF" %>
                 <%= link_to "Twitter", "http://www.twitter.com/BOOGiFConnect" %>
