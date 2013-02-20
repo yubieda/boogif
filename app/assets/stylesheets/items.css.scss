@@ -1,0 +1,25 @@
+// Place all the styles related to the Items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.item img {
+    padding-top: 2%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.item {
+    padding-top: 8%;
+}
+
+.item h4 {
+    text-align: center;
+}
+
+.detail-image {
+    min-width: 280px;
+}
+
+.price-field input {
+    max-width: 128px;
+}

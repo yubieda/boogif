@@ -1,0 +1,22 @@
+header .smedia a{
+    color:#aaa;
+    font-size:12px;
+}
+
+
+.popup-background {
+    display: none;
+    background: white;
+    z-index: 1;
+}
+
+.popup-frame {
+    display: none;
+    border: 3px solid #CACACA;
+    z-index: 2;
+    background: white;
+}
+
+.popup-exit {
+    float: right;    
+}

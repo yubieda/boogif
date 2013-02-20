@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>BOOGiF!</title>    
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript">      
+      <%= yield :page_js %>
+
+    </script>
+    <%= csrf_meta_tags %>
+    <%=render :partial => 'layouts/google_analytics' if Rails.env.production? %>
+    <meta property="og:description" content="BOOGiF - The Right Gift, The Easy Way!
+Do you want to find the right gift and always receive what you want?
+Then BOOGiF is the solution you need.
+- Find the right gift for someone special in a few seconds.
+- And make others give you always the things you love.
+Join Today at http://www.boogif.com">
+  </head>
+  <body>
+    <% if request.path == add_gift_path %>
+    <%= yield %>
+    <% else %>
+
+    <%= render "layouts/header" %>
+    <div class="popup-background" ></div>
+    <div class="popup-frame">
+      <div class="popup-exit">
+        <i class="icon-remove"></i>
+      </div>
+    </div>
+    
+    
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+    <div class="page-content"> 
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render "layouts/footer" %>
+    <% end %>
+  </body>
+</html>
