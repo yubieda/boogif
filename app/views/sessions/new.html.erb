@@ -2,26 +2,30 @@
 
 <div class="row-fluid">
   
-  <div class="span6">
+  <div class="span4">
     <%= form_for(:session, url: sessions_path(redirect_path: params[:redirect_path])) do |f| %>
-
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <div class="clear">
-      <%= f.check_box :remember_me, class: "form-signin checkbox" %>
-      <%= f.label :remember_me, "Remember me", class: "form-signin" %>
-    </div>
-
-    <div>
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    </div>
+      <div class="control-group">
+        <div class="controls"><%= f.label :email, :class => 'control-label' %></div>
+        <div class="controls"><%= f.text_field :email, :class => 'span4' %></div>
+      </div>
+      <div class="control-group">
+        <div class="controls"><%= f.label :password, :class => 'control-label' %></div>
+        <div class="controls"><%= f.password_field :password, :class => 'span4' %></div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.label :remember_me, class: "checkbox" do %>
+            <%= f.check_box :remember_me %> Remember me
+          <% end %>
+          <span><span>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls"><%= f.submit "Sign in", class: "btn btn-success" %></div>
+      </div>
     <% end %>
+
     <%= link_to "Forgot your password?", reset_password_path %>
-    
     <p>Or, if you need an account: <%= link_to "Sign up now!", sign_up_path %></p>
   </div>
 </div>
