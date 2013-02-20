@@ -12,12 +12,11 @@
     </div>
     <div class="span2">
       <% if current_user.connected?(user) %>
-        <%= link_to "Find a gift", user, class: "btn btn-large" %>
+        <%= link_to "Find a gift", user, class: "btn btn-large btn-success" %>
       <% elsif current_user.requested_connections.include?(user) %>
-        <%= link_to "Confirm", confirm_connection_path(user_id: user.id),
-          class: "btn btn-large" %>  
+        <%= link_to "Confirm", confirm_connection_path(user_id: user.id), class: "btn btn-large btn-success" %>  
       <% else %>
-        <%= link_to "Connect", create_connection_path(user_id: user.id), class: "btn btn-large" %>  
+        <%= link_to "Connect", create_connection_path(user_id: user.id), class: "btn btn-large btn-success" %>  
       <% end %>      
     </div>
     <div class="span2">
@@ -25,7 +24,7 @@
       <% if current_user.connected?(user) %>
         <br />
         <div class="disconnect-link">
-          <%= link_to "Disconnect", delete_connection_path(user_id: user.id), :confirm => "Are you sure want to disconnect with #{user.full_name}" %>
+          <%= link_to "Disconnect", delete_connection_path(user_id: user.id), :confirm => "Are you sure want to disconnect with #{user.full_name}", class: "btn btn-danger" %>
         </div>
       <% end %>
     </div>

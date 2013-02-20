@@ -21,7 +21,7 @@
         <% if current_user?(@user) %>
           <%= form_for @post do |f| %>
             <%= f.text_area :content, placeholder: "What do you want as a gift?",class: "post-text", :rows => 3 %>
-        <%= f.submit "Post", class: "btn btn-primary pull-right" %>
+        <%= f.submit "Post", class: "btn btn-success pull-right" %>
       <% end %>
       <% end %>
       </div>
