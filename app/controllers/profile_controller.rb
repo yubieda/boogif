@@ -14,11 +14,10 @@ class ProfileController < ApplicationController
     if @search_string
       @search_string.downcase!
       #opportunity for optimization
-      @searched_users = User.all.select { |u| 
-        u.id != current_user.id && 
-        (u.first_name.downcase.include?(@search_string) || 
-         u.last_name.downcase.include?(@search_string) || 
-         u.full_name.downcase.include?(@search_string)) }
+      search_query = "%#{@search_string}%"
+      @searched_users = User.
+        where("first_name ilike ? OR last_name ilike ?", search_query, search_query).
+        where("id != ?", current_user.id).all
     end
 
     #mutual connections.  Could probably optimize as well
