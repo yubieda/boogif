@@ -1,3 +1,4 @@
+APP_PUBLIC_URL = 'http://localhost.test'
 BasicSite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -36,5 +37,4 @@ BasicSite::Application.configure do
   config.active_support.deprecation = :stderr
 end
 
-APP_PUBLIC_URL = 'http://localhost.test'
 

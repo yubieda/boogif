@@ -1,4 +1,5 @@
-APP_PUBLIC_URL = 'http://localhost:3000'
+APP_HOST = "localhost"
+APP_PUBLIC_URL = "http://#{APP_HOST}:3000"
 BasicSite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -38,7 +39,7 @@ BasicSite::Application.configure do
   }
 
   config.action_mailer.default_url_options = {
-    :host => "localhost",
+    :host => APP_HOST,
     :port => 3000
   }
   
@@ -69,7 +70,7 @@ BasicSite::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-   config.action_controller.asset_host = APP_PUBLIC_URL
+   config.action_controller.asset_host = APP_HOST
   
 end
 

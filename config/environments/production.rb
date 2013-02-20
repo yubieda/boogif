@@ -1,4 +1,5 @@
-APP_PUBLIC_URL = 'http://warm-crag-9574.herokuapp.com'
+APP_HOST       = "warm-crag-9574.herokuapp.com"
+APP_PUBLIC_URL = "http://#{APP_HOST}"
 BasicSite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -24,7 +25,7 @@ BasicSite::Application.configure do
   }
   
   config.action_mailer.default_url_options = {
-    :host => APP_PUBLIC_URL,
+    :host => APP_HOST,
     :port => 80
   }
 
@@ -72,7 +73,7 @@ BasicSite::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-   config.action_controller.asset_host = APP_PUBLIC_URL
+   config.action_controller.asset_host = APP_HOST
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
    config.assets.precompile += %w( add_gift.js add_gift_lib.js popup.js)
