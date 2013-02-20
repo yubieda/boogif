@@ -25,8 +25,7 @@ BasicSite::Application.configure do
   }
   
   config.action_mailer.default_url_options = {
-    :host => APP_HOST,
-    :port => 80
+    :host => APP_HOST
   }
 
   config.paperclip_defaults = {
