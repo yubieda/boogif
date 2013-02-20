@@ -3,6 +3,7 @@ class ScrapperController < ApplicationController
 
   def index
     url = session[:referer]
+    Rails.logger.debug("Url: #{url}, #{request.env['HTTP_REFERER']}")
     session[:referer] = nil
     @images = get_image_urls(url)
 
@@ -16,12 +17,12 @@ class ScrapperController < ApplicationController
   end
 
   def redirect_if_not_signed_in
-    # passing referer through signin flow
-    session[:referer] ||= request.env['HTTP_REFERER']
     unless signed_in?
       session[:referer] = request.env['HTTP_REFERER']
       redirect_to sign_in_path :redirect_path => scrapper_path
     end
+    # do not set after redirect back from signin
+    session[:referer] ||= request.env['HTTP_REFERER']
   end
 
   def get_image_urls(url)
