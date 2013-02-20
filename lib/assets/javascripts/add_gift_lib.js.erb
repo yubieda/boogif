@@ -108,7 +108,25 @@ function addPopup(title, price, description) {
 
     popup = $(document.createElement('div'));
     popup.addClass('boogif-add-gift');
-    exit = $('<span class="boogif-add-gift-exit">X</span>');
+
+    header = $(document.createElement('div'));
+
+    popup.append(header);
+    header.append('<b>Add a gift!</b>');
+    exit = $('<a href="#" class="boogif-add-gift-exit">X</a>');
+
+    exit.css('float', 'right');
+    exit.css('display', 'block');
+    exit.css('color', 'red');
+    exit.click(function() { popup.fadeOut('slow').remove();});
+    header.append(exit);
+
+    header.css('background','#3396B8');
+    header.css('border-bottom', '1px solid grey');
+    header.css('font-size', '18px');
+    header.css('padding', '4px');
+
+
     popup.css('position', 'absolute');
     popup.css('background', 'white');
     popup.css('color', 'black');
@@ -121,11 +139,8 @@ function addPopup(title, price, description) {
 
 
     var imgs = getImageNames();
-    //$.get(hostname()+'/scrapped_images', {images: imgs},function(){
-    //  alert('success');
-      popup.append("<iframe id='boogif_add_item' name='boogif_add_item' src='"+hostname()+"/scrapper' frameborder='0' scrolling='no' height='580' data-id='asdasd'></iframe>");
-      $('body').append(popup);
-    //})
+    popup.append("<iframe id='boogif_add_item' name='boogif_add_item' src='"+hostname()+"/scrapper' frameborder='0' scrolling='no' height='580' data-id='asdasd'></iframe>");
+    $('body').append(popup);
 
 
     return;

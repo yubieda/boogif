@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
     fix_item_currency
     
     if @item.save
-      flash[:success] = "Added Item!"
       render :action => 'create', :layout => 'scrapper'
     else
       @images = [@item.photo_path].compact
