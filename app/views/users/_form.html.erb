@@ -19,7 +19,9 @@
 <%= f.label :birthday %>
 <div class="left-to-right">
   <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
-  Important: allows us to remind your Family & Friends and let them know what you want as a gift
+  <div class='alert'>
+    Important: allows us to remind your Family & Friends and let them know what you want as a gift
+  </div>
 </div>
 
 <div class="left-to-right">
@@ -37,7 +39,9 @@
 <%= f.label :street_address %>
 <div class="left-to-right">
   <%= f.text_field :street_address %>
+  <div class='alert'>
   By providing your street address, your Family&Friends will be able to send you gifts directly to your place. By default, only your connections can see your full address.
+</div>
 </div>
 
 <div class="left-to-right">
