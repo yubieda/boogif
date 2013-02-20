@@ -1,13 +1,13 @@
 <div class="item">
   <div class="item-image-and-title">
     <%= image_tag item.photo_path %>
-    <h4><%= item.title %></h4>     
+    <h4><%= Money::Currency.new(item.currency).symbol %><%= item.price %></h4>
   </div>
   <% if !current_user?(user) %>
   <%= check_box_tag  item.id, "1", item.purchaser_id == current_user.id, class: "purchase"  %>
-  I'm buying this for <%= user.first_name %>
+  I'm buying this
   <% end %>
-  
+
   <%= render partial: "items/detail_pop", locals: {item: item} %>
-  
+
 </div>
