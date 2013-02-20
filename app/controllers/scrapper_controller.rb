@@ -2,6 +2,7 @@ class ScrapperController < ApplicationController
   before_filter :redirect_if_not_signed_in, :except => ['scrapped_images']
 
   def index
+    @skip_header = true
     url = session[:referer]
     Rails.logger.debug("Url: #{url}, #{request.env['HTTP_REFERER']}")
     session[:referer] = nil

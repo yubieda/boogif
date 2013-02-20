@@ -24,7 +24,7 @@
   </head>
 
   <body>
-    
+  <% if !@skip_header || !session[:referal] %>
     <!--header and menu-->
     <header class="navbar navbar-fixed-top" id="top">
       <div class="navbar-inner">
@@ -68,7 +68,7 @@
         </div>
       </div>
     </header>
-
+    <% end %>
     <div class="popup-background" ></div>
     <div class="popup-frame">
       <div class="popup-exit">
@@ -102,24 +102,19 @@
 			<!--footer lower-->
 			<section class="footerLower">
 				<div class="container">
-					<div class="row-fluid">
-						<div class="span3 copyright"><p>&copy; 2012+ Mentor Business</p></div>
-						
-						<div class="span6 footNav">
-							<a class="first" href="index.html">Home</a><span>&#124;</span>
-							<a href="full_width.html">Pages</a><span>&#124;</span>
-							<a href="elements.html">Elements</a><span>&#124;</span>
-							<a href="portfolio_3.html">Portfolio</a><span>&#124;</span>
-							<a href="blog_main.html">Blog</a><span>&#124;</span>
-							<a href="contact.html">Contact</a>
-						</div>
-						<div class="span3 smedia">
-                          <a href="#" data-rel="tooltip" title="Pinterest" class="sm-icon sm-icon-pinterest"></a> 
-                          <a href="#" data-rel="tooltip" title="Dribbble"  class="sm-icon sm-icon-dribbble"></a>
-                          <a href="#" data-rel="tooltip" title="Skype"  class="sm-icon sm-icon-skype"></a>
-                          <a href="#" data-rel="tooltip" title="Facebook"  class="sm-icon sm-icon-facebook"></a>
-                          <a href="#" data-rel="tooltip" title="Vimeo"  class="sm-icon sm-icon-vimeo"></a>
-                        </div>
+          <div class="row-fluid">
+            <div class="span2 copyright"><p>© 2012+ BOOGiF</p></div>
+            <div class="span10 footNav offset1">
+                <%= link_to "About BOOGiF", about_path %>
+                <%= link_to "How It Works", how_to_use_path %>
+                <%= link_to "Home", home_path %>
+                <%= link_to "Online Stores", online_stores_path %>
+                <%= link_to "Facebook", "http://www.facebook.com/BOOGiF" %>
+                <%= link_to "Twitter", "http://www.twitter.com/BOOGiFConnect" %>
+                <%= link_to "Privacy Policy", privacy_path %>
+                <%= link_to "Terms & Conditions", terms_path %>
+                <%= link_to "Contact Us", contact_path %>
+            </div>
 					</div>
 				</div>
 			</section>

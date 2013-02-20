@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     fix_item_currency
     
     if @item.save
-      render :action => 'create', :layout => 'scrapper'
+      render :action => 'create'
     else
       @images = [@item.photo_path].compact
       flash[:error] = "Failed to add item"
