@@ -1,11 +1,18 @@
 <% provide(:page_header, 'THE RIGHT GIFT THE EASY WAY!') %>
-<div class="intro-video">
 
-  <%= image_tag("watch_video.png") %>
-  <br />
-  <%= image_tag("video_teaser.png") %>
-  <br />
-  <%= link_to "JOIN TODAY", sign_up_path, class: "btn btn-large btn-primary" %>
-    
+<div class="hero-unit">
+  <h1>THE RIGHT GIFT, THE EASY WAY!</h1>
+  <p>
+    Do you want to find the right gift and always receive what you want?
+    Then BOOGiF is the solution you need.
+    <ul>
+      <li>Find the right gift for someone special in a few seconds.</li>
+      <li>And make others give you always the things you love.</li>
+    </ul>
+  </p>
 
+  <p>
+    <%= link_to "JOIN TODAY", sign_up_path, class: "btn btn-large btn-success" %>
+  </p>
 </div>
+
