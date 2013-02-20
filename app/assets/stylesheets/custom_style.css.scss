@@ -3,11 +3,17 @@ header .smedia a{
     font-size:12px;
 }
 
-
 .popup-background {
     display: none;
     background: white;
     z-index: 1;
+    filter: alpha(opacity=0.7);
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .popup-frame {
@@ -15,8 +21,14 @@ header .smedia a{
     border: 3px solid #CACACA;
     z-index: 2;
     background: white;
+    padding: 10px;
 }
 
 .popup-exit {
-    float: right;    
+    float: right;
+}
+
+
+.block {
+  display: block !important;
 }
