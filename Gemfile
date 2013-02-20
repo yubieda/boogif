@@ -8,7 +8,7 @@ gem 'money-rails'
 
 gem 'bcrypt-ruby'
 
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 
 #gem for database
 gem 'pg'
