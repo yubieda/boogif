@@ -1,7 +1,7 @@
 $(function(){
   $('body').append('<div id="fb-root"></div>');
   window.fbAsyncInit = function() {
-    FB.init({appId: '607574899257942', status: true, cookie: true, xfbml: true});
+    FB.init({appId: '164587797025249', status: true, cookie: true, xfbml: true});
   };
   $.getScript(document.location.protocol + '//connect.facebook.net/en_US/all.js');
 
