@@ -8,7 +8,7 @@ $(function(){
   $('.facebook-message').click(function() {
       FB.ui({
         method: 'send',
-        name: 'BOOGiF - The right gift, the easy way',
+        name: 'BOOGiF - The Right Gift, The Easy Way!',
         link: 'http://warm-crag-9574.herokuapp.com/'
       });
     return false;
