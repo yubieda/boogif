@@ -9,7 +9,14 @@ $(function(){
       FB.ui({
         method: 'send',
         name: 'BOOGiF - The Right Gift, The Easy Way!',
-        link: 'http://warm-crag-9574.herokuapp.com/'
+        link: 'http://warm-crag-9574.herokuapp.com/',
+        description: (
+        	'Do you want to find the right gift and always receive what you want?'+
+			'Then, BOOGiF is the solution you need.'+
+			  '*Find the right gift for someone special in a few seconds.'+
+			  '*And make others always give you the things you love.'+
+			'Join today at www.boogif.com'
+	   )
       });
     return false;
   });
