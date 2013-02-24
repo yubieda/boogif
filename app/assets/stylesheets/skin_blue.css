@@ -161,7 +161,8 @@
     }
     
     .hero-unit{
-        background-color:#D9EDF7;
+        /*background-color:#D9EDF7;*/
+       background-color: rgb(181, 223, 245);
     }
     
     .hero-unit h1 {
@@ -291,17 +292,22 @@
         border-bottom:2px solid #49afcd;
     }
     
-    .navbar .nav .active > a, .navbar .nav .active > a:hover{
-        background-color: #49afcd;
+    .navbar .nav .active > a {
+        /*background-color: #49afcd;*/
+       	background-color: #3396B8;
         color:#fff;
-        border-bottom:2px solid #49afcd;
+        /*border-bottom:2px solid #49afcd;*/
+        border-bottom:2px solid #3396B8;
         
         -moz-background-clip: padding;
         -webkit-background-clip: padding-box;
         background-clip: padding-box;
         
     }
-    
+    .navbar .nav .active > a:hover{
+    	background-color: #007CA6;
+    	border-bottom:2px solid #007CA6;
+    }
     
     
     .navbar .nav .dropdown-toggle .caret,

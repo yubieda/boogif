@@ -1,72 +1,99 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => { :class => 'form-horizontal signup-form' } do |f| %>
 <%= render 'shared/error_messages' %>
 
-<%= f.label :first_name %>
-<%= f.text_field :first_name %>
-
-<%= f.label :last_name %>
-<%= f.text_field :last_name %>
-
-<%= f.label :email %>
-<%= f.email_field :email %>
-
-<%= f.label :password %>
-<%= f.password_field :password %>
-
-<%= f.label :password_confirmation, "Re-enter password" %>
-<%= f.password_field :password_confirmation %>
-
-<%= f.label :birthday %>
-<div class="left-to-right">
-  <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
-  <div class='alert'>
-    Important: allows us to remind your Family & Friends and let them know what you want as a gift
-  </div>
-</div>
-
-<div class="left-to-right">
-  <%= f.label "Hide my age:" %>
-  <%= f.check_box :hide_age %>
-</div>
-
-<%= f.label "Gender:" %>
-<div class="left-to-right">
-  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male" %>
-  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
-</div>
-
-<% if !sign_in %>
-<%= f.label :street_address %>
-<div class="left-to-right">
-  <%= f.text_field :street_address %>
-  <div class='alert'>
-  By providing your street address, your Family&Friends will be able to send you gifts directly to your place. By default, only your connections can see your full address.
-</div>
-</div>
-
-<div class="left-to-right">
-  <%= f.label "Hide my street:" %>
-  <%= f.check_box :hide_address %>
-</div>
-<% end %>
-
-<%= f.label :city %>
-<%= f.text_field :city %>
-
-<%= f.label :country %>
-<%= f.text_field :country %>
-
-<%= f.label :zip_code %>
-<%= f.text_field :zip_code %>
-
-<%= f.label "Upload a profile picture:" %>
-<div class="left-to-right">
-  <%= f.file_field :photo %>
-</div>
-<br />
-<div>
-  <%= f.submit submit_button_text, class: "btn btn-large btn-success" %>
-  <%= link_to "Cancel", home_path, class: "btn btn-large btn-success" %>
-</div>
+<fieldset>
+	  <div class="control-group">
+	    <%= f.label :first_name , :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.text_field :first_name, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :last_name , :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.text_field :last_name, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :email , :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.text_field :email, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :password , :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.password_field :password, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :password_confirmation , "Re-enter password", :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.password_field :password_confirmation, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  <div id="birthday" class="control-group">
+			<%= f.label "Date of birth (Will not appear in your profile)", :class => 'control-label' %>
+			<div id="div_select_birthday" class="controls">
+			<%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
+			  <label><%= f.check_box :hide_age %>Hide my age</label>
+  				
+			  <div class='alert'>
+			    Important: allows us to remind your Family & Friends and let them know what you want as a gift
+			  </div>
+			</div>
+		</div>
+		
+		<div class="control-group">
+		    <%= f.label :gender , :class => 'control-label'%>
+		    <div class="controls">
+		    	<div>
+		    	  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male"%>
+  					<%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
+  				</div>
+		    </div>
+		  </div>
+		  
+	<div class="control-group">
+	    <%= f.label :city , :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.text_field :city, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :country , :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.text_field :country, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :zip_code , :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.text_field :zip_code, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label "Upload a profile picture:" , :class => 'control-label'%>
+	    <div class="controls">
+	    	<%= f.file_field :photo, :class=>"text-field"  %>
+	    </div>
+	  </div>
+	  
+	  <div class="control-group">
+	    <div class="controls">
+	    	<div>
+			  <%= f.submit submit_button_text, class: "btn btn-large btn-info" %>
+			  <%= link_to "Cancel", home_path, class: "btn btn-large btn-info" %>
+			</div>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <div class="controls">
+	    	<div>
+			  By clicking on Sign up you agree with the <%=link_to "Privacy Policy", privacy_path %> and <%=link_to "Terms and Conditions", terms_path%>
+			</div>
+	    </div>
+	  </div>
     
+</fieldset>
 <% end %>

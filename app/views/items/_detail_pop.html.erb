@@ -2,7 +2,7 @@
       <div class="row-fluid">
         <div class ="span6">
           <div class="detail-image" >
-            <%= image_tag item.photo_path %>
+            <%= image_tag item.photo_path , :style=> "max-width: 200px; margin-bottom:10px;"%>
           </div>
           <%= link_to item.buy_link do %>
             <div class="btn btn-success block">
