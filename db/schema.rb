@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218042757) do
+ActiveRecord::Schema.define(:version => 20130224230622) do
 
   create_table "connection_types", :force => true do |t|
     t.string   "description"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20121218042757) do
     t.datetime "updated_at",         :null => false
     t.string   "street_address"
     t.boolean  "hide_address"
+    t.string   "confirm_code"
+    t.boolean  "confirmed"
   end
 
 end
