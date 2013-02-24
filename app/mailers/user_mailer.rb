@@ -1,7 +1,6 @@
 class UserMailer < ActionMailer::Base
   
-  #default from: "BOOGiF Support <BOOGiFdev@gmail.com>"
-  default from: "BOOGiF Support <support@gmail.com>"
+  default from: "BOOGiF Support <support@boogif.com>"
   
   def account_confirmation(user)
     @user = user
