@@ -33,10 +33,13 @@
 	    </div>
 	  </div>
 	  <div id="birthday" class="control-group">
-			<%= f.label "Date of birth (Will not appear in your profile)", :class => 'control-label' %>
+			<%= f.label :birthday, :class => 'control-label' %>
 			<div id="div_select_birthday" class="controls">
-			<%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
-			  <label><%= f.check_box :hide_age %>Hide my age</label>
+				<label class="inline">
+				  <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
+				</label>
+				
+			  	<label class="inline"><%= f.check_box :hide_age %>Hide my age</label>
   				
 			  <div class='alert'>
 			    Important: allows us to remind your Family & Friends and let them know what you want as a gift
@@ -47,10 +50,12 @@
 		<div class="control-group">
 		    <%= f.label :gender , :class => 'control-label'%>
 		    <div class="controls">
-		    	<div>
-		    	  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male"%>
-  					<%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
-  				</div>
+		    	<label class="radio inline">
+				  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male"%>
+				</label>
+				<label class="radio inline">
+				  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
+				</label>
 		    </div>
 		  </div>
 		  
@@ -75,10 +80,18 @@
 	  <div class="control-group">
 	    <%= f.label "Upload a profile picture:" , :class => 'control-label'%>
 	    <div class="controls">
-	    	<%= f.file_field :photo, :class=>"text-field"  %>
+	    	<%= f.file_field :photo, :class=>"text-field" , :style=>"width: 80px;" %>
 	    </div>
 	  </div>
-	  
+	   <% unless signed_in? %>
+		  <div class="control-group">
+		    <div class="controls">
+		    	<div>
+				  By clicking on Sign up you agree with the <%=link_to "Privacy Policy", privacy_path %> and <%=link_to "Terms and Conditions", terms_path%>
+				</div>
+		    </div>
+		  </div>
+      <%end%>
 	  <div class="control-group">
 	    <div class="controls">
 	    	<div>
@@ -87,13 +100,18 @@
 			</div>
 	    </div>
 	  </div>
+	  <% unless signed_in? %>
 	  <div class="control-group">
 	    <div class="controls">
 	    	<div>
-			  By clicking on Sign up you agree with the <%=link_to "Privacy Policy", privacy_path %> and <%=link_to "Terms and Conditions", terms_path%>
+			  Or, if you already have an account: <%= link_to "Sign in!", sign_in_path %>
 			</div>
 	    </div>
 	  </div>
-    
+	 	<%end%>
 </fieldset>
 <% end %>
+
+<script type="text/javascript">
+	$("#user_photo").change(function(){$("#user_photo").css("width", "100%");});
+</script>
