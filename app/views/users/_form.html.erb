@@ -3,82 +3,93 @@
 
 <fieldset>
 	  <div class="control-group">
-	    <%= f.label :first_name , :class => 'control-label'%>
+	    <%= f.label :first_name , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.text_field :first_name, :class=>"text-field"  %>
 	    </div>
 	  </div>
 	  <div class="control-group">
-	    <%= f.label :last_name , :class => 'control-label'%>
+	    <%= f.label :last_name , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.text_field :last_name, :class=>"text-field"  %>
 	    </div>
 	  </div>
 	  <div class="control-group">
-	    <%= f.label :email , :class => 'control-label'%>
+	    <%= f.label :email , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.text_field :email, :class=>"text-field"  %>
 	    </div>
 	  </div>
 	  <div class="control-group">
-	    <%= f.label :password , :class => 'control-label'%>
+	    <%= f.label :password , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.password_field :password, :class=>"text-field"  %>
 	    </div>
 	  </div>
 	  <div class="control-group">
-	    <%= f.label :password_confirmation , "Re-enter password", :class => 'control-label'%>
+	    <%= f.label :password_confirmation , "Re-enter password", :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.password_field :password_confirmation, :class=>"text-field"  %>
 	    </div>
 	  </div>
 	  <div id="birthday" class="control-group">
-			<%= f.label :birthday, :class => 'control-label' %>
+			<%= f.label :birthday, :class => 'control-label', :style=>"width: 140px;" %>
 			<div id="div_select_birthday" class="controls">
-				<label class="inline">
-				  <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
-				</label>
-				
-			  	<label class="inline"><%= f.check_box :hide_age %>Hide my age</label>
-  				
-			  <div class='alert'>
-			    Important: allows us to remind your Family & Friends and let them know what you want as a gift
-			  </div>
+				<div class="span4" style="margin-left: 0px;">
+					  <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
+				  	  <label class="inline"><%= f.check_box :hide_age %>Hide my age</label>
+					  <div class='alert'>
+					    We will remind your Family &amp; Friends to let them know what you want as a gift.
+					  </div>
+				 </div>
 			</div>
 		</div>
 		
 		<div class="control-group">
-		    <%= f.label :gender , :class => 'control-label'%>
+		    <%= f.label :gender , :class => 'control-label', :style=>"width: 140px;"%>
 		    <div class="controls">
-		    	<label class="radio inline">
-				  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male"%>
-				</label>
-				<label class="radio inline">
-				  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
-				</label>
+		    	<div class="span3">
+			    	<label class="radio inline">
+					  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male"%>
+					</label>
+					<label class="radio inline">
+					  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
+					</label>
+				</div>
 		    </div>
 		  </div>
 		  
+		  <div class="control-group">
+		    <%= f.label :street_address , :class => 'control-label', :style=>"width: 140px;"%>
+		    <div class="controls">
+		    	<div class="span4" style="margin-left: 0px;">
+		    	<%= f.text_field :street_address, :class=>"text-field"  %>
+		    	<div class='alert'>
+				    By providing your street address, your Family&Friends will be able to send you gifts directly to your place. Only your connections can see your full address.
+				  </div>
+				  </div>
+		    </div>
+		  </div>
 	<div class="control-group">
-	    <%= f.label :city , :class => 'control-label'%>
+	    <%= f.label :city , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.text_field :city, :class=>"text-field"  %>
 	    </div>
 	  </div>
 	  <div class="control-group">
-	    <%= f.label :country , :class => 'control-label'%>
+	    <%= f.label :country , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.text_field :country, :class=>"text-field"  %>
 	    </div>
 	  </div>
 	  <div class="control-group">
-	    <%= f.label :zip_code , :class => 'control-label'%>
+	    <%= f.label :zip_code , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.text_field :zip_code, :class=>"text-field"  %>
 	    </div>
 	  </div>
 	  <div class="control-group">
-	    <%= f.label "Upload a profile picture:" , :class => 'control-label'%>
+	    <%= f.label "Upload a profile picture:" , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
 	    	<%= f.file_field :photo, :class=>"text-field" , :style=>"width: 80px;" %>
 	    </div>

@@ -11,10 +11,10 @@ $(function(){
         name: 'BOOGiF - The Right Gift, The Easy Way!',
         link: 'http://warm-crag-9574.herokuapp.com/',
         description: (
-        	'Do you want to find the right gift and always receive what you want?<br/>'+
-			'Then, BOOGiF is the solution you need.<br/>'+
-			  '*Find the right gift for someone special in a few seconds.<br/>'+
-			  '*And make others always give you the things you love.</br/>'+
+        	'Do you want to find the right gift and always receive what you want? '+
+			'Then, BOOGiF is the solution you need. '+
+			  '1)Find the right gift for someone special in a few seconds. '+
+			  '2)And make others always give you the things you love. '+
 			'Join today at www.boogif.com'
 	   ),
 	   picture: 'http://warm-crag-9574.herokuapp.com/assets/BG128x128.png'
