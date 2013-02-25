@@ -5,11 +5,13 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    
+    @user.confirmed = false
+    @user.generate_confirm_code
     if @user.save
-      sign_in @user
+      #sign_in @user
       UserMailer.account_confirmation(@user).deliver
-      redirect_from_param how_to_use_path
+      #redirect_from_param how_to_use_path
+      redirect_to root_url, notice: "Your account was created. Please verify your email address to start using BOOGiF"
     else
       render 'new'
     end
@@ -55,6 +57,22 @@ class UsersController < ApplicationController
       if @email 
         flash[:error] ="Sorry, we don't recognize that email address"
       end
+    end
+  end
+  
+  def confirm
+    user_id = params[:id]
+    confirm_code = params[:confirm_code]
+    @user = User.find user_id
+    if @user.confirm_code == confirm_code
+      @user.confirmed = true
+      @user.save!
+      sign_in @user
+      @message = "Your user has been confirmed. Now you can use Boogif"
+      redirect_to how_to_use_path, notice: @message
+    else
+      @message = "Invalid verification code"
+      redirect_to root_url, alert: @message
     end
   end
 

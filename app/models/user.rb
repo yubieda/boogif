@@ -100,10 +100,16 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :country, presence: true
 
+    
+  def generate_confirm_code
+    self.confirm_code = SecureRandom.urlsafe_base64
+  end
+
   private
 
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
   end
+
 
 end

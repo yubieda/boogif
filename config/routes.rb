@@ -10,6 +10,7 @@ BasicSite::Application.routes.draw do
 
   match '/scrapper', to: 'scrapper#index', :as => 'scrapper'
   match '/scrapped_images', to: 'scrapper#scrapped_images', :as => 'scrapped_images'
+  match '/users/:id/confirm/:confirm_code' => 'users#confirm', :as => "email_confirmation"
 
   root to: "home#home"
 

@@ -5,6 +5,7 @@ class UserMailer < ActionMailer::Base
   def account_confirmation(user)
     @user = user
     @root_url = root_url
+    @verification_url = email_confirmation_url({:id=> @user.id, :confirm_code=>@user.confirm_code})
     @help_url = how_to_use_url
     mail(to: "#{user.full_name} <#{user.email}>" , subject: "Welcome!")  do |format|
       format.html
