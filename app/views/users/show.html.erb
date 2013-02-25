@@ -20,7 +20,7 @@
       <div class="post-box">
         <% if current_user?(@user) %>
           <%= form_for @post do |f| %>
-            <%= f.text_area :content, placeholder: "What do you want as a gift?",class: "post-text", :rows => 3 %>
+            <%= f.text_area :content, placeholder: "What do you want as a gift?",class: "post-text", :rows => 3 , :style=>"width: 100%;"%>
         <%= f.submit "Post", class: "btn btn-info pull-right" %>
       <% end %>
       <% end %>
