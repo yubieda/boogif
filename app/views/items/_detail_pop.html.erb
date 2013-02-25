@@ -5,7 +5,7 @@
             <%= image_tag item.photo_path , :style=> "max-width: 200px; margin-bottom:10px;"%>
           </div>
           <%= link_to item.buy_link do %>
-            <div class="btn btn-success block">
+            <div class="btn btn-info block">
             Buy Now
           </div>      
         <% end %>    
@@ -34,7 +34,7 @@
           <% if item.user == current_user %>
             <div class="row-fluid">
             <div class="span6">
-              <%= f.submit "Save Changes", class: "btn btn-success block" %>
+              <%= f.submit "Save Changes", class: "btn btn-info block" %>
             </div>
             <div class="span6">
               <%= link_to "Delete Item", item, method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "btn btn-danger " %>
@@ -42,7 +42,7 @@
           </div>      
 
         <% else %>
-            <%= f.submit "Add To My Book", class: "btn btn-success block" %>
+            <%= f.submit "Add To My Book", class: "btn btn-info block" %>
         <% end %>
         <% end %>            
         </div>

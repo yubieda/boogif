@@ -12,11 +12,11 @@
     </div>
     <div class="span2">
       <% if current_user.connected?(user) %>
-        <%= link_to "Find a gift", user, class: "btn btn-large btn-success" %>
+        <%= link_to "Find a gift", user, class: "btn btn-large btn-info" %>
       <% elsif current_user.requested_connections.include?(user) %>
-        <%= link_to "Confirm", confirm_connection_path(user_id: user.id), class: "btn btn-large btn-success" %>  
+        <%= link_to "Confirm", confirm_connection_path(user_id: user.id), class: "btn btn-large btn-info" %>  
       <% else %>
-        <%= link_to "Connect", create_connection_path(user_id: user.id), class: "btn btn-large btn-success" %>  
+        <%= link_to "Connect", create_connection_path(user_id: user.id), class: "btn btn-large btn-info" %>  
       <% end %>      
     </div>
     <div class="span2">
