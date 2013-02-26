@@ -33,33 +33,32 @@
             <span class="icon-chevron-down icon-white"></span>
           </a>
           <a class="brand" href="/" title="Home"><%= image_tag("logo.png", height: 56, width: 224) %></a>
-          <div class="nav-collapse">
-            <!--social media icons-->
-            <div class="smedia">
-              <% if signed_in? %>
-                <ul class='breadcrumb'>
-                  <li><%= image_tag(current_user.photo.url(:small), height: 20, width: 20) %></li>
-                  <li><%= link_to current_user.full_name, current_user %></li>
-                  <li>&nbsp;|&nbsp;</li>
-                  <li><%= link_to "Log out", sign_out_path, method: "delete" %></li>
-                </ul>
-              <% else %>
-                <%= render partial: "sessions/form" %>
-              <% end %>
-            </div>
-            <!--main nav-->
-            <ul class="nav">
-              <% if signed_in? %>
-                <li class="<%=active?("show") %>"><%= link_to "My Profile", current_user %></li>
-                <li class="<%=active?("connections") %>"><%= link_to "Family & Friends", profile_connections_path %></li>
-                <li class="<%=active?("invites") %>"><%= link_to "Invite A Friend", profile_invites_path  %></li>
-                <li class="<%=active?("edit") %>"><%= link_to "Settings", settings_path  %></li>
-                <li class="last <%=active?("howToUse") %>"><%= link_to "Tools", how_to_use_path(anchor: "tools")%></li>
-              <% end %>
-            </ul>
-            <!--end main nav-->
+
+          <div class="nav-collapse navbar-responsive-collapse">
             
-              
+            <div class="pull-right login-box">
+	            <% if signed_in? %>
+		        	<ul class='breadcrumb'>
+		              <li><%= image_tag(current_user.photo.url(:small), height: 20, width: 20) %></li>
+		              <li><%= link_to current_user.full_name, current_user %></li>
+		              <li>&nbsp;|&nbsp;</li>
+		              <li><%= link_to "Log out", sign_out_path, method: "delete" %></li>
+		            </ul>
+	            <%else%>
+	            	<%= render partial: "sessions/form" %> 	
+	            <%end%>
+            </div>
+            
+            <% if signed_in? %>
+	            <ul class="nav variable-container">
+	                <li class="<%=active?("show") %>"><%= link_to "My Profile", current_user %></li>
+	                <li class="<%=active?("connections") %>"><%= link_to "Family & Friends", profile_connections_path %></li>
+	                <li class="<%=active?("invites") %>"><%= link_to "Invite A Friend", profile_invites_path  %></li>
+	                <li class="<%=active?("edit") %>"><%= link_to "Settings", settings_path  %></li>
+	                <li class="last <%=active?("howToUse") %>"><%= link_to "Tools", how_to_use_path(anchor: "tools")%></li>
+	            </ul>
+            <% end %>
+            <!--end main nav-->        
             
           </div><!--end main menu-->
           
