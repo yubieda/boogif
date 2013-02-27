@@ -12,5 +12,9 @@ module ItemsHelper
     end
     
   end
+  
+  def item_photo_path item
+    return (item.photo_path.nil?)?image_path("no-image-found.jpg"):item.photo_path
+  end
 
 end

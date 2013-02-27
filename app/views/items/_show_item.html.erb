@@ -1,6 +1,6 @@
 <div class="item ">
   <div class="item-image-and-title portfolioItem">
-    <%= image_tag item.photo_path %>
+    <%= image_tag (item_photo_path item) %>
     <h4><%= Money::Currency.new(item.currency).symbol %><%= item.price %></h4>
 
     <% if !current_user?(user) %>
