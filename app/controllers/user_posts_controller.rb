@@ -2,6 +2,7 @@ class UserPostsController < ApplicationController
   before_filter :redirect_if_not_signed_in
     
   def create
+    params[:user_post][:content] = process_entry params[:user_post][:content]
     @post = current_user.user_posts.build(params[:user_post])
     
     if @post.save

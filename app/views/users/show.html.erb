@@ -30,7 +30,7 @@
         <ul>
           <% @user.user_posts.reject(&:new_record?).each do |p| %>
             <li>
-            <%= p.content %>
+            <%= auto_link(p.content) %>
             <% if current_user?(p.user) %>
               <%= link_to p, method: :delete, data: { confirm: "Are you sure you want to delete?" },title: p.content do %>
                 <i class="icon-remove"></i>

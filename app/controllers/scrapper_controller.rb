@@ -33,6 +33,7 @@ class ScrapperController < ApplicationController
     if resp.status < 400
       doc = Nokogiri(resp.body)
       doc.css("img").reject do |img|
+        img == "undefined" ||
         img.attributes['src'].blank? ||
         (img.attributes['style'] && img.attributes['style'].value =~ /display:none/i ) ||
         (img.attributes['width'] && img.attributes['width'].value.to_i < 60) ||

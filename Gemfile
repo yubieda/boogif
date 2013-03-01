@@ -36,6 +36,10 @@ gem 'jquery-rails'
 gem 'nokogiri'
 gem 'patron'
 
+#gems for shortener
+gem 'bitly'
+gem 'rails_autolink'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
