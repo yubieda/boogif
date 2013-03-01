@@ -3,6 +3,7 @@ class ScrapperController < ApplicationController
 
   def index
     url = session[:referer]
+    puts "\n\nurl: #{url}\n\n\n"
     Rails.logger.debug("Url: #{url}, #{request.env['HTTP_REFERER']}")
     session[:referer] = nil
     @images = get_image_urls(url)
@@ -32,13 +33,16 @@ class ScrapperController < ApplicationController
     resp = sess.get(url)
     if resp.status < 400
       doc = Nokogiri(resp.body)
+        
       doc.css("img").reject do |img|
         img == "undefined" ||
         img.attributes['src'].blank? ||
         (img.attributes['style'] && img.attributes['style'].value =~ /display:none/i ) ||
         (img.attributes['width'] && img.attributes['width'].value.to_i < 60) ||
         (img.attributes['height'] && img.attributes['height'].value.to_i < 60)
-      end.map{|img| URI.join(url, URI.escape(img.attributes['src'].value)) }
+      end.map{|img| 
+        URI.join(url, URI.escape(img.attributes['src'].value)) 
+        }
     else
       []
     end

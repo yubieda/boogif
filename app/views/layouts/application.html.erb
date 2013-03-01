@@ -55,7 +55,7 @@
             
             <% if signed_in? %>
 	            <ul class="nav variable-container">
-	                <li class="<%=active?("show") %>"><%= link_to "My Profile", current_user %></li>
+	                <li class="<%=active?("show") if current_user?(@user)%>"><%= link_to "My Profile", current_user %></li>
 	                <li class="<%=active?("connections") %>"><%= link_to "Family & Friends", profile_connections_path %></li>
 	                <li class="<%=active?("invites") %>"><%= link_to "Invite A Friend", profile_invites_path  %></li>
 	                <li class="<%=active?("edit") %>"><%= link_to "Settings", settings_path  %></li>

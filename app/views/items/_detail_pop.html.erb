@@ -4,7 +4,7 @@
           <div class="detail-image" >
             <%= image_tag (item_photo_path item) , :style=> "max-width: 200px; margin-bottom:10px;"%>
           </div>
-          <%= link_to item.buy_link do %>
+          <%= link_to item.buy_link, :target => '_blank' do %>
             <div class="btn btn-info block">
             Buy Now
           </div>      
