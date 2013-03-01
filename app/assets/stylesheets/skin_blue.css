@@ -274,7 +274,7 @@
     }
     
     .navbar .brand{
-        border-bottom:2px solid #49afcd;
+       border: none;
     }
     
     .navbar .nav > li > a{

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       #sign_in @user
       UserMailer.account_confirmation(@user).deliver
       #redirect_from_param how_to_use_path
-      redirect_to root_url, notice: "Your account was created. Please verify your email address to start using BOOGiF"
+      redirect_to root_url, notice: "Your account was created. Please verify your email address to start using BOOGiF (Also check spam folder)"
     else
       render 'new'
     end

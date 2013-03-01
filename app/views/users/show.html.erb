@@ -3,7 +3,7 @@
   <div class="row-fluid">
     <div class="span1">
       <div class="profile-picture">
-        <%= image_tag @user.photo.url(:small) %>
+        <%= image_tag (display_profile_pic @user, "small") %>
       </div>
     </div>
     <div class="span8">
