@@ -35,7 +35,7 @@
         font-size:22px;
         color:#777;
         line-height:28px;
-        font-family:Georgia, Constantia, Lucida, serif;
+        font-family:Georgia, Constantia, Lucida, sans-serif;
         font-weight:normal;
     }
     
@@ -50,7 +50,7 @@
     
     p
     {
-       font-family:Georgia, Constantia, Lucida, serif;
+       font-family:Georgia, Constantia, Lucida, sans-serif;
        font-family:helvetica, arial, verdana, sans-serif;
        color:#919191;
        font-size:12px;
@@ -249,7 +249,7 @@
         font-size:22px;
         color: #5F5F5F;
         line-height:28px;
-        font-family:Georgia, Constantia, Lucida, serif;
+        font-family:Georgia, Constantia, Lucida, sans-serif;
     }
     
     /*back to top button*/
@@ -402,7 +402,7 @@
         background:url(/assets/skin/or_line.png) no-repeat 5px 2px;
         line-height:36px;
         font-style:italic;
-        font-family:Georgia, Constantia, Lucida, serif;
+        font-family:Georgia, Constantia, Lucida, sans-serif;
     }
     
     .btn-success {
@@ -935,7 +935,7 @@
         font-size:21px;
         color: #777;
         line-height:28px;
-        font-family:Georgia, Constantia, Lucida, serif;
+        font-family:Georgia, Constantia, Lucida, sans-serif;
     }
     
     footer blockquote p .tel{
