@@ -29,7 +29,7 @@
           </div>
           <%= f.label "Description" %>
           <%= f.text_field :description %>      
-          <%= f.hidden_field :photo_path %>
+          <% f.hidden_field :photo_path %>
 
           <% if item.user == current_user %>
             <div class="row-fluid">
