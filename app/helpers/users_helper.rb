@@ -1,7 +1,7 @@
 module UsersHelper
 
   def get_item_rows(user)
-    items_per_row = 6
+    items_per_row = 5
     items = user.items
     if(user != current_user) 
       items.select! { |i| i.purchaser_id == nil || i.purchaser_id == current_user.id }

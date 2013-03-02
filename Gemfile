@@ -40,6 +40,9 @@ gem 'patron'
 gem 'bitly'
 gem 'rails_autolink'
 
+#gems for forms
+gem 'localized_country_select', '>= 0.9.2'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
