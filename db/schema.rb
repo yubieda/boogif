@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224230622) do
+ActiveRecord::Schema.define(:version => 20130302232955) do
 
   create_table "connection_types", :force => true do |t|
     t.string   "description"
@@ -101,6 +101,10 @@ ActiveRecord::Schema.define(:version => 20130224230622) do
     t.boolean  "hide_address"
     t.string   "confirm_code"
     t.boolean  "confirmed"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
 end
