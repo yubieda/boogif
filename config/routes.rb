@@ -60,6 +60,8 @@ BasicSite::Application.routes.draw do
   match"/contact", to: "info_pages#contact"
   match"/online_stores", to: "info_pages#onlineStores"
   
+  match 'auth/:provider/callback', to: 'sessions#fb_create'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

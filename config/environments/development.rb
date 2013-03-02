@@ -2,6 +2,10 @@ APP_HOST = "localhost"
 APP_PUBLIC_URL = "http://#{APP_HOST}:3000"
 BasicSite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  
+  #environment variables for "Boogif Test" facebook app
+  ENV['FACEBOOK_APP_ID'] = '157820214373631'
+  ENV['FACEBOOK_APP_SECRET'] = '491087541162c4c33d22efa9fe5c919d'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

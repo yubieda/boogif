@@ -54,6 +54,7 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.6)
       multipart-post (~> 1.1)
+    hashie (1.2.0)
     hike (1.2.1)
     hpricot (0.8.6)
     httparty (0.9.0)
@@ -97,6 +98,14 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    omniauth (1.1.1)
+      hashie (~> 1.2)
+      rack
+    omniauth-facebook (1.4.1)
+      omniauth-oauth2 (~> 1.1.0)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     paperclip (3.2.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -167,6 +176,7 @@ DEPENDENCIES
   localized_country_select (>= 0.9.2)
   money-rails
   nokogiri
+  omniauth-facebook
   paperclip
   patron
   pg

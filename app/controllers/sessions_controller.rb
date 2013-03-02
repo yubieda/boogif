@@ -15,6 +15,19 @@ class SessionsController < ApplicationController
       flash.clear()
     end
   end
+  
+  def fb_create
+    user, password = User.from_omniauth(env["omniauth.auth"])
+    if user
+      UserMailer.facebook_signup_confirmation(user, password).deliver
+      sign_in(user, false)
+      redirect_from_param(user)
+    else
+      flash[:error] = 'Cannot initialize with that facebook account'
+      render "new"
+      flash.clear()
+    end
+  end
 
   def destroy
     sign_out

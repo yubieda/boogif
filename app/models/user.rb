@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include ControllerUtilities
   paginates_per 50
   
   attr_accessible :email, :first_name, :last_name, :email, 
@@ -42,11 +43,13 @@ class User < ActiveRecord::Base
   end
 
   def display_birthday
-    bday = self.birthday.strftime("%B") + " " + self.birthday.day.to_s
-    if !self.hide_age
-      bday += ", " + self.birthday.year.to_s
+    unless self.birthday.nil?
+      bday = self.birthday.strftime("%B") + " " + self.birthday.day.to_s
+      if !self.hide_age
+        bday += ", " + self.birthday.year.to_s
+      end
+      bday
     end
-    bday
   end
 
   def display_address
@@ -79,6 +82,29 @@ class User < ActiveRecord::Base
   def requested_connections
     self.to_connections.unconfirmed.map(&:from)
   end
+  
+  def self.from_omniauth(auth)
+    password = ""
+    fb_user = where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
+      password = ControllerUtilities.generate_random_password
+      puts "\n\npass: #{password}\n\n"
+      user.password = password
+      user.password_confirmation = password
+      user.email = auth.info.email
+      user.city = auth.info.location
+      user.male = (auth.extra.raw_info.gender == 'male')
+      user.confirmed = true
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
+    
+    return fb_user, password
+  end
 
   before_save { 
     self.email.downcase!
@@ -93,12 +119,12 @@ class User < ActiveRecord::Base
   validates :first_name, presence:true, length: { maximum: 40 }
   validates :last_name, presence:true, length: { maximum: 40 }
   validates_inclusion_of :male, in: [true, false]
-  validates :birthday, presence:true
+  #validates :birthday, presence:true
   validates :email, presence: true, uniqueness: true, email_format: {message: 'is invalid' }
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates :city, presence: true
-  validates :country, presence: true
+  #validates :country, presence: true
 
     
   def generate_confirm_code

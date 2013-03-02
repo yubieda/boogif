@@ -2,6 +2,9 @@ APP_HOST       = "warm-crag-9574.herokuapp.com"
 APP_PUBLIC_URL = "http://#{APP_HOST}"
 BasicSite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  #environment variables for "Boogif" facebook app
+  ENV['FACEBOOK_APP_ID'] = '164587797025249'
+  ENV['FACEBOOK_APP_SECRET'] = '661df0ad5cf77bc5fb82ef209e90972d'
 
   # Code is not reloaded between requests
   config.cache_classes = true

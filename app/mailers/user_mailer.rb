@@ -11,6 +11,16 @@ class UserMailer < ActionMailer::Base
       format.html
     end
   end
+  
+  def facebook_signup_confirmation(user, password)
+    @user = user
+    @password = password
+    @root_url = root_url
+    @help_url = how_to_use_url
+    mail(to: "#{user.full_name} <#{user.email}>" , subject: "Welcome!")  do |format|
+      format.html
+    end
+  end
 
   def password_reset(user, newPassword)
     @user = user
