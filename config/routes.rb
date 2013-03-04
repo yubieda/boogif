@@ -61,6 +61,7 @@ BasicSite::Application.routes.draw do
   match"/online_stores", to: "info_pages#onlineStores"
   
   match 'auth/:provider/callback', to: 'sessions#fb_create'
+  match 'auth/failure', to: redirect('/sign_up')
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

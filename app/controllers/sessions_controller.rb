@@ -17,7 +17,13 @@ class SessionsController < ApplicationController
   end
   
   def fb_create
-    user, password = User.from_omniauth(env["omniauth.auth"])
+    oauth = env["omniauth.auth"]
+    if User.exists?(:email => oauth.info.email, :provider=>nil)
+        redirect_to root_url, :alert=> "You already have a Boogif account with #{oauth.info.email}" 
+        return
+    end
+  
+    user, password = User.from_omniauth(oauth)
     if user
       UserMailer.facebook_signup_confirmation(user, password).deliver
       sign_in(user, false)
@@ -31,6 +37,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
+    reset_session
     redirect_to root_url
   end
 
