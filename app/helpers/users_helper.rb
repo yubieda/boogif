@@ -18,4 +18,28 @@ module UsersHelper
     return photo_url
   end
   
+  def display_address user
+    return '' if user.hide_address
+
+    addr_parts = []
+
+    addr_parts.push(user.street_address) if user.street_address.present?
+    addr_parts.push(user.city) if user.city.present?
+    addr_parts.push(LocalizedCountrySelect::priority_countries_array([user.country])) if user.country.present?
+    addr_parts.push(user.zip_code) if user.zip_code.present?
+
+    addr_parts.join(', ')
+  end
+  
+  def display_address_small user
+    address = user.city
+    country = display_country user.country
+    address+= ", #{country}" if country
+    return address
+  end
+  
+  def display_country user_country
+    LocalizedCountrySelect::priority_countries_array([user_country])[0][0]
+  end
+  
 end

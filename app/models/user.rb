@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   paginates_per 50
   
   attr_accessible :email, :first_name, :last_name, :email, 
-  :male, :birthday, :hide_age, :street_address, :hide_address, :city, :country, :zip_code, :photo, :password, :password_confirmation 
+  :male, :birthday, :hide_age, :street_address, :hide_address, :city, :country,:state, :zip_code, :photo, :password, :password_confirmation 
   has_secure_password
   has_many :user_posts, dependent: :destroy
   has_many :items, dependent: :destroy
@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
     addr_parts.push(self.street_address) if self.street_address.present?
     addr_parts.push(self.city) if self.city.present?
     addr_parts.push(self.country) if self.country.present?
-    addr_parts.push(self.zip_code) if self.country.present?
+    addr_parts.push(self.zip_code) if self.zip_code.present?
 
     addr_parts.join(', ')
   end

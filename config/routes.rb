@@ -34,6 +34,7 @@ BasicSite::Application.routes.draw do
   resources :items, only: [:create, :destroy, :update]
   
   match "/home", to: "home#home"
+  match "/join", to: "home#join"
   match "/sign_in", to: "sessions#new"
   match "/sign_up", to: "users#new"
   match "/sign_out", to: "sessions#destroy", via: :delete

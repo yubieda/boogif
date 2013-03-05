@@ -42,6 +42,9 @@
           </div>      
 
         <% else %>
+        	<%if item.photo_path%>
+        		<%= f.hidden_field :photo_path %>
+        	<%end%>
         	<%= f.hidden_field :buy_link %>
             <%= f.submit "Add To My Book", class: "btn btn-info block" %>
         <% end %>

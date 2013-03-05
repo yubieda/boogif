@@ -1,0 +1,17 @@
+<% provide(:page_header, 'THE RIGHT GIFT THE EASY WAY!') %>
+
+<div class="hero-unit" style="text-align: center;">
+  <h1>Create your account to build your BOOGiF!</h1>
+
+      <p>Option 1: Signup with your Facebook account.</p>
+      <%=link_to (image_tag "signup-facebook.png", :style=> "width: 125px;height: 34px;"), "/auth/facebook", id: "sign_in"%> <br />(Recommended – Quick and easy)
+      
+      <p>Option 2: Signup with your Email address.</p>
+  		 <%= link_to "Use your email address", sign_up_path, class: "btn btn-large btn-success" %>
+  
+<!--   <p>
+    <%= link_to "JOIN TODAY", sign_up_path, class: "btn btn-large btn-success" %> or connect with
+      <%=link_to (image_tag "signup-facebook.png", :style=> "width: 125px;height: 34px;"), "/auth/facebook", id: "sign_in"%>
+  </p> -->
+</div>
+

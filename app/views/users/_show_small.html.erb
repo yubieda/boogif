@@ -8,7 +8,7 @@
     </div>
     <div class="span5 user-small-info">
       <h2><%= user.full_name %></h2>
-      <%= user.city%>,<%= user.country %>
+      <%= display_address_small user %>
     </div>
     <div class="span2">
       <% if current_user.connected?(user) %>
