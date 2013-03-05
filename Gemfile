@@ -46,6 +46,9 @@ gem 'localized_country_select', '>= 0.9.2'
 #gems for social
 gem 'omniauth-facebook'
 
+#monitoring gems
+gem 'exception_notification'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

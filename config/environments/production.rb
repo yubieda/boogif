@@ -5,6 +5,12 @@ BasicSite::Application.configure do
   #environment variables for "Boogif" facebook app
   ENV['FACEBOOK_APP_ID'] = '164587797025249'
   ENV['FACEBOOK_APP_SECRET'] = '661df0ad5cf77bc5fb82ef209e90972d'
+  
+  #Log monitoring
+  BasicSite::Application.config.middleware.use ExceptionNotifier,
+  :email_prefix => "[Error at BooGiF] ",
+  :sender_address => %{"Monitor" <support@boogif.com>},
+  :exception_recipients => %w{yoshkar.ubieda@gmail.com}
 
   # Code is not reloaded between requests
   config.cache_classes = true
