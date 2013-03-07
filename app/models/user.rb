@@ -95,7 +95,7 @@ class User < ActiveRecord::Base
       user.password = password
       user.password_confirmation = password
       user.email = auth.info.email
-      user.city = auth.info.location
+      #user.city = auth.info.location
       user.male = (auth.extra.raw_info.gender == 'male')
       user.confirmed = true
       user.oauth_token = auth.credentials.token
