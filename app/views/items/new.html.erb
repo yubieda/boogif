@@ -52,7 +52,7 @@ $(document).ready(function(){
     </div>
 
 
-   <%= f.label "Images:" %>
+<!--    <%= f.label "Images:" %>
  <div style='width:250px;height:120px;position:static;overflow-x:auto;overflow-y:auto;'>
    <div class="row scrapped-images">
      <% @images.each do |t| %>
@@ -64,9 +64,16 @@ $(document).ready(function(){
        </div>
      <% end%>
    </div>
+  </div> -->
+  <div class="row-fluid">
+      <div class="span2" style="text-align: center;">
+  		<label>Image selected (<%=link_to "Select again", "#", :onclick=>"show_images_grid()"%>) </label>
+  		<%=image_tag "no-image-found.jpg", :class=>"item-image-selected"%>
+  		<%=f.hidden_field :photo_path, :class=>"item-image-field"%>
+  	</div>
   </div>
   <br/>
-  <%= f.submit "Add To My Book", class: "btn btn-info block" %>
+  <%= f.submit "Add To My Book", class: "btn btn-info block" , :style=>"margin-left: 85px;"%>
 
   <% end %>
 

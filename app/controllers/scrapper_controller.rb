@@ -9,7 +9,8 @@ class ScrapperController < ApplicationController
     @images = get_image_urls(url)
 
     @item = Item.new :buy_link => url
-    render :template => 'items/new'
+    #render :template => 'items/new'
+    render :template => "scrapper/image_grid"
   end
 
   def scrapped_images

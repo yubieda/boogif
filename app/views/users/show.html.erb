@@ -45,11 +45,11 @@
 
       <div class="span9 profile-items">
         <% if current_user == @user || current_user.connected?(@user) %>
-          <h3>Book of gifts</h3>
+          <h3  style="margin-left: 10%">Book of gifts</h3>
           <% @item_rows.each do |ri| %>
-            <div class="row-fluid" style="padding-left: 30px;">
+            <div class="row-fluid" style="padding-left: 10%;">
               <% ri.each do |i| %>
-                <div class="span3" style="width: 17%;">
+                <div class="span2">
                   <%= render partial: "items/show_item", locals: {item: i, user: @user} %>
                 </div>
               <% end %>

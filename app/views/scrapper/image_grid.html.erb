@@ -1,0 +1,35 @@
+<div class="images-grid">
+	 Click on the image to select:
+	 <div style='width:250px;height:320px;position:static;overflow-x:auto;overflow-y:auto;'>
+	   <div class="row scrapped-images">
+	     <% @images.each do |t| %>
+	     	<%= image_tag t , :class=> "item-grid", :onclick=>"show_item_new('#{t}')"%>
+	<!--        <div class="span1" style='text-align:center;padding:4px;'>
+	         <div style='overflow:hidden;text-align:center'>
+	           <%= image_tag t %>
+	         </div>
+	         <%# f.radio_button :photo_path, t %>
+	       </div> -->
+	     <% end%>
+	   </div>
+	</div>
+</div>
+<div class="item-new" style="display: none;">
+	<%=render :template => 'items/new'%>
+</div>
+  
+<script type="text/javascript">
+$(".mainContent").css("padding-top","10px");
+$("footer").css("margin-top","2px");
+
+function show_item_new(selected_image){
+	$(".images-grid").hide();
+	$(".item-new").show();
+	$(".item-image-selected").attr("src", selected_image);
+	$(".item-image-field").val(selected_image);
+}
+function show_images_grid(){
+	$(".images-grid").show();
+	$(".item-new").hide();
+}
+</script>

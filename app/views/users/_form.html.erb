@@ -45,20 +45,20 @@
 			</div>
 		</div>
 		
-		<div class="control-group">
-		    <%= f.label :gender , :class => 'control-label', :style=>"width: 140px;"%>
-		    <div class="controls">
-		    	<div class="span3">
-			    	<label class="radio inline">
-					  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male"%>
-					</label>
-					<label class="radio inline">
-					  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
-					</label>
-				</div>
-		    </div>
-		  </div>
-		  
+	  <div class="control-group">
+	    <%= f.label :gender , :class => 'control-label', :style=>"width: 140px;"%>
+	    <div class="controls">
+	    	<div class="span3">
+		    	<label class="radio inline">
+				  <%= f.radio_button :male, "1", checked: @user.male %><%= f.label :male, " Male"%>
+				</label>
+				<label class="radio inline">
+				  <%= f.radio_button :male, "0", checked: !@user.male %><%= f.label :male, " Female"%>
+				</label>
+			</div>
+	    </div>
+	  </div>
+	  <%if signed_in?%>
 		  <div class="control-group">
 		    <%= f.label :street_address , :class => 'control-label', :style=>"width: 140px;"%>
 		    <div class="controls">
@@ -70,6 +70,7 @@
 				  </div>
 		    </div>
 		  </div>
+	  <%end%>
 	<div class="control-group">
 		<%= f.label :country , :class => 'control-label', :style=>"width: 140px;"%>
 		<div class="controls">
@@ -77,30 +78,32 @@
 			<%= localized_country_select(:user, :country, [], {:include_blank => 'Please choose...'}) %>
 		</div>
 	</div>
-	<div class="control-group">
-	    <%= f.label :state , :class => 'control-label', :style=>"width: 140px;"%>
-	    <div class="controls">
-	    	<%= f.text_field :state, :class=>"text-field"  %>
-	    </div>
-	  </div>
-	<div class="control-group">
-	    <%= f.label :city , :class => 'control-label', :style=>"width: 140px;"%>
-	    <div class="controls">
-	    	<%= f.text_field :city, :class=>"text-field"  %>
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <%= f.label :zip_code , :class => 'control-label', :style=>"width: 140px;"%>
-	    <div class="controls">
-	    	<%= f.text_field :zip_code, :class=>"text-field"  %>
-	    </div>
-	  </div>
-	  <div class="control-group">
-	    <%= f.label "Upload a profile picture:" , :class => 'control-label', :style=>"width: 140px;"%>
-	    <div class="controls">
-	    	<%= f.file_field :photo, :class=>"text-field" , :style=>"width: 80px;" %>
-	    </div>
-	  </div>
+	<%if signed_in?%>
+		<div class="control-group">
+		    <%= f.label :state , :class => 'control-label', :style=>"width: 140px;"%>
+		    <div class="controls">
+		    	<%= f.text_field :state, :class=>"text-field"  %>
+		    </div>
+		  </div>
+		<div class="control-group">
+		    <%= f.label :city , :class => 'control-label', :style=>"width: 140px;"%>
+		    <div class="controls">
+		    	<%= f.text_field :city, :class=>"text-field"  %>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <%= f.label :zip_code , :class => 'control-label', :style=>"width: 140px;"%>
+		    <div class="controls">
+		    	<%= f.text_field :zip_code, :class=>"text-field"  %>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <%= f.label "Upload a profile picture:" , :class => 'control-label', :style=>"width: 140px;"%>
+		    <div class="controls">
+		    	<%= f.file_field :photo, :class=>"text-field" , :style=>"width: 80px;" %>
+		    </div>
+		  </div>
+	  <%end%>
 	   <% unless signed_in? %>
 		  <div class="control-group">
 		    <div class="controls">
