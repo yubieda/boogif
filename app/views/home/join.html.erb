@@ -1,12 +1,12 @@
 <% provide(:page_header, 'THE RIGHT GIFT THE EASY WAY!') %>
 
 <div class="hero-unit" style="text-align: center;">
-  <h1>Create your account on BOOGiF.</h1>
+  <h1>Create your account on BOOGiF</h1>
 
       <p>Sign up with Facebook</p>
       <%=link_to (image_tag "signup-facebook.png", :style=> "width: 160px;height: 42px;"), "/auth/facebook", id: "sign_in"%> <br />(Recommended – quick and easy)
       
-      <p>or, sign up with <%=link_to "your email account", sign_up_path%></p>
+      <p>or, sign up with <%=link_to "your email account.", sign_up_path%></p>
   		 <% link_to "Use your email address", sign_up_path, class: "btn btn-large btn-success" %>
   
 <!--   <p>
