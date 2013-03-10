@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   paginates_per 50
   
   attr_accessible :email, :first_name, :last_name, :email, 
-  :male, :birthday, :hide_age, :street_address, :hide_address, :city, :country,:state, :zip_code, :photo, :password, :password_confirmation 
+  :male, :birthday, :hide_age, :street_address, :hide_address, :city, :country, :state, :zip_code, :photo, :password, :password_confirmation 
   has_secure_password
   has_many :user_posts, dependent: :destroy
   has_many :items, dependent: :destroy
