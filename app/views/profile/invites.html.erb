@@ -2,20 +2,20 @@
 
 <div class="row-fluid">
   <div class="span12">
-    <b>Invite Family&Friends to BOOGiF!</b> 
+    <b>Invite someone to BOOGiF!</b> 
     <%= form_tag profile_invites_path, method: :get do %>
       <div>Email addresses separated by comma:</div>
       <%= text_field_tag "emails" %>
 
       <div>Personal message (optional): </div>
       <%= text_area_tag "message",
-        "I use BOOGiF to find and give the right gift to someone special like you and to share with you the things I like.\r\n\nPlease, connect with me on BOOGiF: http://" + request.host_with_port  + "\r\n\nThanks!\r\n" +
+        "I use BOOGiF to find and give the right gift to someone like you and to share with you the things I like.\r\n\nPlease, connect with me on BOOGiF: http://" + request.host_with_port  + "\r\n\nThanks!\r\n" +
         current_user.full_name, class: "invite-textarea", rows: 12, cols: 15 %>
 
-      <%= submit_tag "Invite!", class: "btn btn-large btn-info" %>
+      <%= submit_tag "Send", class: "btn btn-large btn-info" %>
 
       <div class= "facebook-message btn btn-large btn-info">
-        Invite a facebook friend
+        Invite a Facebook friend
       </div>
 
     <% end %>
