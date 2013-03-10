@@ -1,11 +1,10 @@
-
 <div class='span3'>
   <div class="control-group">
     <div class="input-append">
       <%= form_tag profile_connections_path, :class => 'form-inline' do %>
         <%= text_field_tag 'search', "", placeholder: "Name of family or friend", :class => 'input-medium span2' %>
         <%= submit_tag "Search", class: "btn" %>
-        <br/>
+        <br/><br/>
         <%= link_to "View my Connections", profile_connections_path %>
       <% end %>
     </div>
