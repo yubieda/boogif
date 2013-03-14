@@ -123,7 +123,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, email_format: {message: 'is invalid' }
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, on: :create
-  validates :city, presence: true
+  #validates :city, presence: true
   #validates :country, presence: true
 
     
