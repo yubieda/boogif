@@ -8,7 +8,7 @@ module ControllerShortener
   def short_url url
     bitly = shortener
     shorten_url = bitly.shorten(url)
-    return shorten_url.short_url
+    return shorten_url.bitly_url
   end
   
   def process_entry entry
