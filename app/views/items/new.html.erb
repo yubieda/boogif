@@ -68,7 +68,7 @@ $(document).ready(function(){
   <div class="row-fluid">
       <div class="span2" style="text-align: center;">
   		<label>Image selected (<%=link_to "Select again", "#", :onclick=>"show_images_grid()"%>) </label>
-  		<%=image_tag "no-image-found.jpg", :class=>"item-image-selected", :style=>"max-width: 150px;min-width: 60px;" %>
+  		<%=image_tag "no-image-found.jpg", :class=>"item-image-selected", :style=>"max-width: 150px;min-width: 60px;max-height: 190px" %>
   		<%=f.hidden_field :photo_path, :class=>"item-image-field"%>
   	</div>
   </div>
