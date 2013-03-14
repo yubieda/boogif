@@ -8,7 +8,7 @@
     </div>
     <div class="span8">
       <h2><%= @user.full_name %></h2>
-      <h4>Birthday: <%= @user.display_birthday %></h4>
+      <h4>Birthday: <%= @user.display_birthday%></h4>
       <h4>Address: <%= display_address @user%></h4>
     </div>
   </div>
@@ -25,6 +25,7 @@
       <% end %>
       <% end %>
       </div>
+      <br />
       <h3>Timeline of posts</h3>
       <div class='widget widget_recent_entries'>
         <ul>
