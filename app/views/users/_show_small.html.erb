@@ -21,7 +21,6 @@
     </div>
     <div class="span2">
       <%= link_to "Mutual Connections", profile_connections_path(mutual_user_id: user.id) %>
-      <td>&nbsp;&nbsp;&nbsp;</td>
       <% if current_user.connected?(user) %>
         <div class="disconnect-link">
           <%= link_to "Disconnect", delete_connection_path(user_id: user.id), :confirm => "Are you sure want to disconnect with #{user.full_name}", class: "btn btn-danger" %>
