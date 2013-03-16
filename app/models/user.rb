@@ -1,3 +1,4 @@
+require 'open-uri'
 class User < ActiveRecord::Base
   include ControllerUtilities
   paginates_per 50
@@ -40,6 +41,10 @@ class User < ActiveRecord::Base
   
   def full_name 
     self.first_name + " " + self.last_name
+  end
+  
+  def picture_from_url(url)
+    self.photo = open(url)
   end
 
   def display_birthday
@@ -90,6 +95,8 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
+      user.birthday = auth.extra.raw_info.birthday
+      user.photo = open(auth.info.image)
       password = ControllerUtilities.generate_random_password
       puts "\n\npass: #{password}\n\n"
       user.password = password

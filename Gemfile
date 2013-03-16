@@ -12,8 +12,10 @@ gem 'bcrypt-ruby'
 
 #gem for database
 gem 'pg'
+#gem 'mysql2'
 
 gem 'paperclip'
+gem "rmagick", :require => 'RMagick'
 
 gem 'aws-sdk'
 
@@ -45,6 +47,7 @@ gem 'localized_country_select', '>= 0.9.2'
 
 #gems for social
 gem 'omniauth-facebook'
+gem 'koala'
 
 #monitoring gems
 gem 'exception_notification'

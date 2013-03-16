@@ -6,6 +6,8 @@ BasicSite::Application.configure do
   #environment variables for "Boogif Test" facebook app
   ENV['FACEBOOK_APP_ID'] = '157820214373631'
   ENV['FACEBOOK_APP_SECRET'] = '491087541162c4c33d22efa9fe5c919d'
+  
+  Paperclip.options[:command_path] = "/opt/local/bin/identify"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

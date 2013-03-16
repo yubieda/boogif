@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include ApplicationHelper
   include ControllerShortener
+  include ControllerSocial
 
 end

@@ -1,5 +1,5 @@
 $(function(){
-  $('body').append('<div id="fb-root"></div>');
+  /*$('body').append('<div id="fb-root"></div>');*/
   window.fbAsyncInit = function() {
     FB.init({appId: "<%=ENV['FACEBOOK_APP_ID']%>", status: true, cookie: true, xfbml: true});
   };
