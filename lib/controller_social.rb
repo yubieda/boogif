@@ -8,9 +8,10 @@ module ControllerSocial
       @graph = Koala::Facebook::API.new(oauth_token)
       options = {
         :message => message,
-        :picture => 'http://warm-crag-9574.herokuapp.com/assets/BG128x128.png',
-        :link => "http://warm-crag-9574.herokuapp.com",
-        :description=>"Do you want to find the right gift and always receive what you want? www.boogif.com"
+        :name=> "BOOGiF - The Right Gift, The Easy Way!",
+        :picture => 'http://www.boogif.com/assets/BG128x128.png',
+        :link => "http://www.boogif.com",
+        :description=>"Do you want to find the right gift and always receive what you want?"
       }
       @graph.put_connections("me", "feed", options)
     end

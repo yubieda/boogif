@@ -1,4 +1,4 @@
-APP_HOST       = "warm-crag-9574.herokuapp.com"
+APP_HOST       = "www.boogif.com"
 APP_PUBLIC_URL = "http://#{APP_HOST}"
 BasicSite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
