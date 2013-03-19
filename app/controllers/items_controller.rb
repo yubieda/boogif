@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     fix_item_currency
     
     if @item.save
-      post_to_fb_feed current_user, "I have added a new product to BOOGiF, the social gift registry that helps to create and share easily a list of things you like and want."
+      post_to_fb_feed current_user, "I have added a new product to BOOGiF, the social gift registry that helps to create and share easily a list of things you like and want.", "added_product_BG"
       render :action => 'create'
     else
       @images = [@item.photo_path].compact

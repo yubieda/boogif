@@ -2,7 +2,7 @@
 
 module ControllerSocial
   
-  def post_to_fb_feed user, message
+  def post_to_fb_feed user, message, campaign
     oauth_token = user.oauth_token
     if oauth_token
       @graph = Koala::Facebook::API.new(oauth_token)
@@ -10,7 +10,7 @@ module ControllerSocial
         :message => message,
         :name=> "BOOGiF - The Right Gift, The Easy Way!",
         :picture => 'http://www.boogif.com/assets/BG128x128.png',
-        :link => "http://www.boogif.com",
+        :link => "http://www.boogif.com/?utm_source=facebook&utm_medium=post&utm_campaign=#{campaign}",
         :description=>"Do you want to find the right gift and always receive what you want?"
       }
       @graph.put_connections("me", "feed", options)
