@@ -28,4 +28,8 @@
     <%= link_to "Forgot your password?", reset_password_path %>
     <p>Or, if you need an account: <%= link_to "Sign up now!", join_path %></p>
   </div>
+  <div class="span4" style="text-align: center">
+  	<h2 style="margin-bottom: 15px">Or you can login with your facebook account</h2> 
+  	<%=link_to (image_tag "signup-facebook.png", :style=> "width: 160px;height: 42px;"), "/auth/facebook", id: "sign_in"%>
+  </div>
 </div>
