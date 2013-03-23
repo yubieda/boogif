@@ -10,11 +10,12 @@
       <h2><%= user.full_name %></h2>
       <%= display_address_small user %>
     </div>
-    <div class="span2">
+    <div class="span3">
       <% if current_user.connected?(user) %>
         <%= link_to "Find a gift", user, class: "btn btn-large btn-info" %>
       <% elsif current_user.requested_connections.include?(user) %>
         <%= link_to "Confirm", confirm_connection_path(user_id: user.id), class: "btn btn-large btn-info" %>  
+        <%= link_to "Ignore", delete_connection_path(user_id: user.id), class: "btn btn-large" %> 
       <%elsif current_user.sent_connections.include?(user)%>
       	<%= link_to "Invitation sent", "#", class: "btn btn-large btn-info disabled" %> 
       <% else %>
