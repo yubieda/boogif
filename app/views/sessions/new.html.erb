@@ -1,8 +1,12 @@
 <% provide(:page_header, 'Sign in') %>
 
 <div class="row-fluid">
-  
+  <div class="span4" style="text-align: center;margin-bottom: 15px;">
+  	<h2 style="margin-bottom: 15px">Login with facebook</h2> 
+  	<%=link_to (image_tag "signup-facebook.png", :style=> "width: 160px;height: 42px;"), "/auth/facebook", id: "sign_in"%>
+  </div>
   <div class="span4">
+  	Or use the traditional method
     <%= form_for(:session, url: sessions_path(redirect_path: params[:redirect_path])) do |f| %>
       <div class="control-group">
         <div class="controls"><%= f.label :email, :class => 'control-label' %></div>
@@ -28,4 +32,5 @@
     <%= link_to "Forgot your password?", reset_password_path %>
     <p>Or, if you need an account: <%= link_to "Sign up now!", join_path %></p>
   </div>
+  
 </div>

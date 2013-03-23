@@ -22,13 +22,20 @@ class SessionsController < ApplicationController
         redirect_to root_url, :alert=> "You already have a Boogif account with #{oauth.info.email}" 
         return
     end
+    user = User.where(:email => oauth.info.email, :provider=>oauth.provider).first
+    if user
+        sign_in(user, false)
+        redirect_to root_url 
+        return
+    end
   
     user, password = User.from_omniauth(oauth)
     if user
       UserMailer.facebook_signup_confirmation(user, password).deliver
-      post_to_fb_feed user, "I have joined to BOOGiF, the social gift registry that helps to find the right gift in a few seconds."
+      post_to_fb_feed user, "I have joined to BOOGiF, the social gift registry that helps to find the right gift in a few seconds.", "joined_BG"
       sign_in(user, false)
-      redirect_from_param(user)
+      #redirect_from_param(user)
+      redirect_to how_to_use_path, notice: "Welcome to BOOGiF"
     else
       flash[:error] = 'Cannot initialize with that facebook account'
       render "new"
