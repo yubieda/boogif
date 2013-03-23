@@ -51,6 +51,7 @@ BasicSite::Application.routes.draw do
   match "/create_connection", to: "connections#create"
   match "/confirm_connection", to: "connections#confirm"
   match "/delete_connection", to: "connections#delete"
+  match "/cancel_connection", to: "connections#delete"
   
   match"/how_to_use", to: "info_pages#howToUse"
   match"/about", to: "info_pages#about"

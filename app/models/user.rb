@@ -88,6 +88,10 @@ class User < ActiveRecord::Base
     self.to_connections.unconfirmed.map(&:from)
   end
   
+  def sent_connections
+    self.connections.unconfirmed.map(&:to)
+  end
+  
   def self.from_omniauth(auth)
     password = ""
     fb_user = where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

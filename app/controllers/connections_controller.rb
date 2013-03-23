@@ -13,7 +13,7 @@ class ConnectionsController < ApplicationController
     current_user.disconnect! User.find(params[:user_id])
     redirect_back_or(profile_connections_path)
   end
-
+  
   # TODO:
   # move to model
   def confirm

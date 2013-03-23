@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   include ItemsHelper
 
   def create
+    params[:item][:price] = params[:item][:price].to_f.to_s
     @item = current_user.items.build(params[:item])
     fix_item_currency
     

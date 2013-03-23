@@ -10,7 +10,7 @@ BasicSite::Application.configure do
   BasicSite::Application.config.middleware.use ExceptionNotifier,
   :email_prefix => "[Error at BooGiF] ",
   :sender_address => %{"Monitor" <support@boogif.com>},
-  :exception_recipients => %w{yoshkar.ubieda@gmail.com}
+  :exception_recipients => %w{boogif.errors@gmail.com}
 
   # Code is not reloaded between requests
   config.cache_classes = true

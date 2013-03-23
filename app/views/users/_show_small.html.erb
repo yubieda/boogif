@@ -15,6 +15,8 @@
         <%= link_to "Find a gift", user, class: "btn btn-large btn-info" %>
       <% elsif current_user.requested_connections.include?(user) %>
         <%= link_to "Confirm", confirm_connection_path(user_id: user.id), class: "btn btn-large btn-info" %>  
+      <%elsif current_user.sent_connections.include?(user)%>
+      	<%= link_to "Invitation sent", "#", class: "btn btn-large btn-info disabled" %> 
       <% else %>
         <%= link_to "Connect", create_connection_path(user_id: user.id), class: "btn btn-large btn-info" %>  
       <% end %>      
@@ -24,6 +26,10 @@
       <% if current_user.connected?(user) %>
         <div class="disconnect-link">
           <%= link_to "Disconnect", delete_connection_path(user_id: user.id), :confirm => "Are you sure want to disconnect with #{user.full_name}", class: "btn btn-danger" %>
+        </div>
+      <% elsif current_user.sent_connections.include?(user) %>
+        <div class="disconnect-link">
+          <%= link_to "Cancel request", cancel_connection_path(user_id: user.id), class: "btn btn-danger" %>
         </div>
       <% end %>
     </div>

@@ -34,7 +34,7 @@ module UsersHelper
   def display_address_small user
     address = user.city
     country = display_country user.country
-    address+= ", #{country}" if country
+    address+= ", #{country}" if country and !address.nil?
     return address
   end
   
