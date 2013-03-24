@@ -29,9 +29,13 @@ class ScrapperController < ApplicationController
 
   def get_image_urls(url)
     sess = Patron::Session.new
-    sess.timeout = 10
+    sess.timeout = 30
     sess.default_response_charset = 'utf-8'
-    resp = sess.get(url)
+    begin
+      resp = sess.get(url)
+    rescue Patron::TimeoutError => ex
+      return []
+    end
     if resp.status < 400
       doc = Nokogiri(resp.body)
         

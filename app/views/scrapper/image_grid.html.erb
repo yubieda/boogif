@@ -1,7 +1,10 @@
 <div class="images-grid">
-	 Click on the image to select:
+	 <%= "Click on the image to select:" unless @images.empty? %>
 	 <div style='width:250px;height:320px;position:static;overflow-x:auto;overflow-y:auto;'>
 	   <div class="row scrapped-images">
+	   	<%if @images.empty?%>
+	   		No images. You might want to try again
+	   	<%end%>
 	     <% @images.each do |t| %>
 	     	<%= image_tag t , :class=> "item-grid", :onclick=>"show_item_new('#{t}')"%>
 	<!--        <div class="span1" style='text-align:center;padding:4px;'>
