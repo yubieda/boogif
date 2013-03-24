@@ -30,17 +30,17 @@ $(document).ready(function(){
         <%= f.text_field :title, :required => 'required', :placeholder => 'Product name (required)' %>
       </div>
     </div>
-
-    <div class="row-fluid">
-      <div class="span2">
-        <%= f.label "Price:" %>
-        <%= f.text_field :price, :required => 'required', :placeholder => 'Price (required)' %>
-      </div>
-    </div>
+    
     <div class="row-fluid">
       <div class="span2">
         <%= f.label "Currency:" %>
         <%= f.select :currency, form_currencies%>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span2">
+        <%= f.label "Price:" %>
+        <%= f.text_field :price, :required => 'required', :placeholder => 'Price (required)' %>
       </div>
     </div>
 
