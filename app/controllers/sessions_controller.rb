@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     end
     user = User.where(:email => oauth.info.email, :provider=>oauth.provider).first
     if user
-        user.update_attributes(:oauth_token => oauth["credentials"]["token"], :oauth_expires_at=>oauth["credentials"]["expires_at"])
+        user.update_attributes(:oauth_token => oauth["credentials"]["token"], :oauth_expires_at=>Time.at(oauth["credentials"]["expires_at"]))
         sign_in(user, false)
         redirect_to root_url 
         return
