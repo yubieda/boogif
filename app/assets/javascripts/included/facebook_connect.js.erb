@@ -1,3 +1,4 @@
+<% environment.context_class.instance_eval { include SessionsHelper } %>
 $(function(){
   $('body').append('<div id="fb-root"></div>');
   window.fbAsyncInit = function() {
