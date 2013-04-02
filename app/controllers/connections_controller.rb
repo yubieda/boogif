@@ -5,7 +5,7 @@ class ConnectionsController < ApplicationController
     current_user.connect!(User.find(params[:user_id]))
     UserMailer.connection_request(current_user, User.find_by_id(params[:user_id])).deliver
 
-    flash[:success] = "Requested connection"
+    flash[:success] = "Connection request has been sent"
     redirect_back_or(profile_connections_path)
   end
   

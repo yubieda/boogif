@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
     user, password = User.from_omniauth(oauth)
     if user
       UserMailer.facebook_signup_confirmation(user, password).deliver
-      post_to_fb_feed user, "I have joined to BOOGiF, the social gift registry that helps to find the right gift in a few seconds.", "joined_BG"
+      post_to_fb_feed user, "I have joined BOOGiF, the social gift registry that helps to find the right gift in a few seconds.", "joined_BG"
       sign_in(user, false)
       #redirect_from_param(user)
       redirect_to how_to_use_path, notice: "Welcome to BOOGiF"

@@ -9,7 +9,7 @@
 
       <div>Personal message (optional): </div>
       <%= text_area_tag "message",
-        "I use BOOGiF to find and give the right gift to someone like you and to share with you the things I like.\r\n\nPlease, connect with me on BOOGiF: http://" + request.host_with_port  + "\r\n\nThanks!\r\n" +
+        "I use BOOGiF to find and give the right gift to someone like you and to share with you the things I like.\r\n\nPlease, connect with me on BOOGiF: http://" + request.host_with_port  + "\r\n\nTo find me on BOOGiF, search for either my name or last name and connect with me \r\n Thanks!\r\n" +
         current_user.full_name, class: "invite-textarea", rows: 12, cols: 15 %>
 
       <%= submit_tag "Send", class: "btn btn-large btn-info" %>

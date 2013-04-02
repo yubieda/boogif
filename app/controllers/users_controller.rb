@@ -68,10 +68,10 @@ class UsersController < ApplicationController
       @user.confirmed = true
       @user.save!
       sign_in @user
-      @message = "Your user has been confirmed. Now you can use Boogif"
+      @message = "Your account has been confirmed. Now you can use BOOGiF"
       redirect_to how_to_use_path, notice: @message
     else
-      @message = "Invalid verification code"
+      @message = "Invalid verification"
       redirect_to root_url, alert: @message
     end
   end
