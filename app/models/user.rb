@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
 
   def display_birthday
     unless self.birthday.nil?
-      bday = self.birthday.strftime("%B") + " " + self.birthday.day.to_s
+      bday = self.birthday.strftime("%e %B")
       if !self.hide_age
         bday += ", " + self.birthday.year.to_s
       end

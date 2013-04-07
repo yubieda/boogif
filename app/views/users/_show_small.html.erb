@@ -13,6 +13,7 @@
     <div class="span3">
       <% if current_user.connected?(user) %>
         <%= link_to "Find a gift", user, class: "btn btn-large btn-info" %>
+        <%= link_to "Disconnect", delete_connection_path(user_id: user.id), :confirm => "Are you sure want to disconnect with #{user.full_name}", class: "btn btn-large btn-danger" %>
       <% elsif current_user.requested_connections.include?(user) %>
         <%= link_to "Confirm", confirm_connection_path(user_id: user.id), class: "btn btn-large btn-info" %>  
         <%= link_to "Ignore", delete_connection_path(user_id: user.id), class: "btn btn-large" %> 
@@ -24,11 +25,7 @@
     </div>
     <div class="span2">
       <%= link_to "Mutual Connections", profile_connections_path(mutual_user_id: user.id) %>
-      <% if current_user.connected?(user) %>
-        <div class="disconnect-link">
-          <%= link_to "Disconnect", delete_connection_path(user_id: user.id), :confirm => "Are you sure want to disconnect with #{user.full_name}", class: "btn btn-danger" %>
-        </div>
-      <% elsif current_user.sent_connections.include?(user) %>
+      <% if current_user.sent_connections.include?(user) %>
         <div class="disconnect-link">
           <%= link_to "Cancel request", cancel_connection_path(user_id: user.id), class: "btn btn-danger" %>
         </div>

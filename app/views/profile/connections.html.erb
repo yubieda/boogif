@@ -9,10 +9,15 @@
         <%= render partial: "users/show_small", locals: {user: p} %>
       <% end %>
     <% elsif @search_string %>
-      <h3>Search Results for "<%= @search_string%>" </h3>
-      <% @searched_users.each do |p| %>
-        <%= render partial: "users/show_small", locals: {user: p} %>
-      <% end %>
+    	<%if @searched_users.empty?%>
+    		<h3>No results found for "<%= @search_string%>" </h3>
+    		If you don't find someone here, you can <%=link_to "send an invitation", profile_invites_path%>
+    	<%else%>
+	      <h3>Search Results for "<%= @search_string%>" </h3>
+	      <% @searched_users.each do |p| %>
+	        <%= render partial: "users/show_small", locals: {user: p} %>
+	      <% end %>
+      <%end%>
     <% else %>
       <% if current_user.requested_connections.length > 0  %>
         <h3>Requested Connections</h3>

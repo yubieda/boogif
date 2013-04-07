@@ -25,7 +25,7 @@ module UsersHelper
 
     addr_parts.push(user.street_address) if user.street_address.present?
     addr_parts.push(user.city) if user.city.present?
-    addr_parts.push(LocalizedCountrySelect::priority_countries_array([user.country])) if user.country.present?
+    addr_parts.push(LocalizedCountrySelect::priority_countries_array([user.country])[0][0]) if user.country.present?
     addr_parts.push(user.zip_code) if user.zip_code.present?
 
     addr_parts.join(', ')

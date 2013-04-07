@@ -14,7 +14,7 @@ class Item < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :title, presence: true, length: {maximum: 140}
-  validates :description, presence: true, length: {maximum: 300}
+  validates :description, length: {maximum: 300}
 
   
   default_scope order: 'items.created_at DESC'

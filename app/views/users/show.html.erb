@@ -8,8 +8,9 @@
     </div>
     <div class="span8">
       <h2><%= @user.full_name %></h2>
-      <h4>Birthday: <%= @user.display_birthday%></h4>
-      <h4>Address: <%= display_address @user%></h4>
+      <h4 style="margin-bottom: 0px">Birthday: <%= @user.display_birthday%></h4>
+      <%address = display_address @user%>
+      <h4 style="margin-bottom: 0px"><%="Address: #{address}" unless address.empty?%></h4>
     </div>
   </div>
 
@@ -20,7 +21,7 @@
       <div class="post-box">
         <% if current_user?(@user) %>
           <%= form_for @post do |f| %>
-            <%= f.text_area :content, placeholder: "What do you want as a gift? (you can also add a link to any page)",class: "post-text", :rows => 3 , :style=>"width: 100%;"%>
+            <%= f.text_area :content, placeholder: "What do you want as a gift? (you can also add a link to any page)",class: "post-text", :rows => 3 , :style=>"resize: none;width: 100%;"%>
         <%= f.submit "Post", class: "btn btn-info pull-right" %>
       <% end %>
       <% end %>
@@ -48,7 +49,7 @@
 
       <div class="span9 profile-items">
         <% if current_user == @user || current_user.connected?(@user) %>
-          <h3  style="margin-left: 10%">Book of gifts</h3>
+          <h3  style="margin-left: 10%">Book of gifts <%=link_to "(Learn how to start adding products)", how_to_use_path(anchor: "tools") if  @item_count == 0%></h3>
           <% @item_rows.each do |ri| %>
             <div class="row-fluid" style="padding-left: 10%;">
               <% ri.each do |i| %>

@@ -19,6 +19,9 @@ gem "rmagick", :require => 'RMagick'
 
 gem 'aws-sdk'
 
+#browser detection
+gem 'browser'
+
 gem 'validates_email_format_of'
 gem 'kaminari'
 

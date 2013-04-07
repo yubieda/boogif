@@ -1,8 +1,18 @@
 <% provide(:page_header, 'Invites') %>
 
 <div class="row-fluid">
-  <div class="span12">
-    <b>Invite someone to BOOGiF!</b> 
+	<%unless @is_mobile %>
+		<div class="span3" style="padding-top: 10%;">
+		  <div class= "facebook-message btn btn-large btn-info">
+	        Invite a Facebook friend
+	      </div>
+		</div>
+		<div id="or-separator" class="span1" style="height: 300px;border-left: 1px dashed black;">
+			<span style="margin-left: -15px;background-color: white;vertical-align: -119px;font-size: 29px;">or</span>
+		</div>
+	<%end%>
+  <div class="span6">
+    <h3>Invite by email to BOOGiF!</h3> 
     <%= form_tag profile_invites_path, method: :get do %>
       <div>Email addresses separated by comma:</div>
       <%= text_field_tag "emails" %>
@@ -11,12 +21,8 @@
       <%= text_area_tag "message",
         "I use BOOGiF to find and give the right gift to someone like you and to share with you the things I like.\r\n\nPlease, connect with me on BOOGiF: http://" + request.host_with_port  + "\r\n\nTo find me on BOOGiF, search for either my name or last name and connect with me \r\n Thanks!\r\n" +
         current_user.full_name, class: "invite-textarea", rows: 12, cols: 15 %>
-
-      <%= submit_tag "Send", class: "btn btn-large btn-info" %>
-
-      <div class= "facebook-message btn btn-large btn-info">
-        Invite a Facebook friend
-      </div>
+	
+      <div><%= submit_tag "Send", class: "btn btn-large btn-info" %></div>
 
     <% end %>
   </div>

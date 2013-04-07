@@ -1,3 +1,4 @@
+require "browser"
 class ProfileController < ApplicationController
   before_filter :redirect_if_not_signed_in
   
@@ -46,6 +47,7 @@ class ProfileController < ApplicationController
 
   def invites
     @emailsParam = params[:emails]
+    @is_mobile = browser.mobile?
     
     if @emailsParam
       @emails = params[:emails].split(',')

@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post = @user.user_posts.build if signed_in?
+    @item_count = @user.items.size
     @item_rows = get_item_rows(@user)
   end
 

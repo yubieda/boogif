@@ -32,19 +32,6 @@
 	    	<%= f.password_field :password_confirmation, :class=>"text-field"  %>
 	    </div>
 	  </div>
-	  <div id="birthday" class="control-group">
-			<%= f.label :birthday, :class => 'control-label', :style=>"width: 140px;" %>
-			<div id="div_select_birthday" class="controls">
-				<div class="span4" style="margin-left: 0px;">
-					  <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
-				  	  <label class="inline"><%= f.check_box :hide_age %>Hide my age</label>
-					  <div class='alert'>
-					    We will remind your Family &amp; Friends to let them know what you want as a gift.
-					  </div>
-				 </div>
-			</div>
-		</div>
-		
 	  <div class="control-group">
 	    <%= f.label :gender , :class => 'control-label', :style=>"width: 140px;"%>
 	    <div class="controls">
@@ -58,6 +45,19 @@
 			</div>
 	    </div>
 	  </div>
+	  <div id="birthday" class="control-group">
+			<%= f.label :birthday, :class => 'control-label', :style=>"width: 140px;" %>
+			<div id="div_select_birthday" class="controls">
+				<div class="span4" style="margin-left: 0px;">
+					  <%= f.date_select :birthday, start_year: 1920, end_year: Time.now.year %>
+				  	  <label class="inline"><%= f.check_box :hide_age %>Hide my age</label>
+					  <div class='alert'>
+					    We will remind your Family &amp; Friends to let them know what you want as a gift.
+					  </div>
+				 </div>
+			</div>
+		</div>
+		
 	  <%if signed_in?%>
 		  <div class="control-group">
 		    <%= f.label :street_address , :class => 'control-label', :style=>"width: 140px;"%>
