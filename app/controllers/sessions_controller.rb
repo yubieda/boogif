@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    if signed_in?
+      redirect_to root_url
+      return
+    end
     render "new"
   end
 

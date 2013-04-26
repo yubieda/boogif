@@ -1,3 +1,4 @@
+require 'iconv'
 class ScrapperController < ApplicationController
   before_filter :redirect_if_not_signed_in, :except => ['scrapped_images']
 
@@ -37,7 +38,9 @@ class ScrapperController < ApplicationController
       return []
     end
     if resp.status < 400
-      doc = Nokogiri(resp.body)
+      ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
+      valid_string = ic.iconv(resp.body + ' ')[0..-2]
+      doc = Nokogiri(valid_string)
         
       doc.css("img").reject do |img|
         img == "undefined" ||

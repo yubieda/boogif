@@ -18,6 +18,10 @@ class UsersController < ApplicationController
   end
 
   def new
+    if signed_in?
+      redirect_to root_url
+      return
+    end
     @user = User.new
   end
 
